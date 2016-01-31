@@ -1,5 +1,8 @@
 I am no conflict with merging!
 Hi!
+I am conflict with merging!
+Check me!
+Hoai!
 Our Team:
 Yuliya Mineeva,
 Serbaev Ilnur,
