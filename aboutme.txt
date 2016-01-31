@@ -1,4 +1,4 @@
-I am conflict with merging!
+I am no conflict with merging!
 Hi!
 Our Team:
 Yuliya Mineeva,
