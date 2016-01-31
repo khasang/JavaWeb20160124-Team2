@@ -1,10 +1,11 @@
 I am conflict with merging!
-Hello!
+Hi!
 Our Team:
 Yuliya Mineeva,
 Serbaev Ilnur,
 Protskiy Nikita,
 Mikhail Bedritskiy,
+Sergey Kuznetsov,
 Veselina Zatchepina and ... you!
 Hello, World! We are going!
 Evgeniy Boroday
