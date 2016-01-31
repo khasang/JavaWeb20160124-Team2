@@ -1,5 +1,6 @@
 I am conflict with merging!
-Hi!
+Check me!
+Hoai!
 Our Team:
 Yuliya Mineeva,
 Serbaev Ilnur,
