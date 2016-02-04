@@ -42,6 +42,8 @@ button {
 #cart_table {
     width: 100%;
     border-collapse: collapse;
+	color: darkblue;
+	font: 14px Calibry;
 }
 
 #cart_table th, td {
