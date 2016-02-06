@@ -1,0 +1,11 @@
+p {
+    font-family: Calibri;
+    color: darkblue;
+    font-size: 14px;
+}
+button{
+    background: #F0F8FF;
+    padding: 1px 10px;
+    color: darkblue;
+    border-radius: 10px;
+}
