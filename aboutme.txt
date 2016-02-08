@@ -1,10 +1,19 @@
-Hello!
-
-Our command:
+I am no conflict with merging!
+Hi!
+I am conflict with merging!
+Check me!
+Hoai!
+Our Team:
 Yuliya Mineeva,
 Serbaev Ilnur,
 Protskiy Nikita,
 Mikhail Bedritskiy,
+Sergey Kuznetsov,
 Veselina Zatchepina and ... you!
-
 Hello, World! We are going!
+Evgeniy Boroday
+Lev Seleznev
+test
+Eugeny Karpov
+Makarov
+origin/development
