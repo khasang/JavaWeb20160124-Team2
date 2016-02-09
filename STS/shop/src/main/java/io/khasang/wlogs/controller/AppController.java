@@ -24,4 +24,9 @@ public class AppController {
         model.addAttribute("admin", "You are number 1!");
         return "admin";
     }
+
+    @RequestMapping("/select")
+    public String select(Model model) {
+        return "select";
+    }
 }
