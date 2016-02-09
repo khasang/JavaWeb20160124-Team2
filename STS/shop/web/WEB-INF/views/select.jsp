@@ -16,6 +16,8 @@
         }
     </style>
 </head>
+<body>
+<%--<button onclick="window.location.reload();">Load</button>--%>
 <form>
     <p style="text-align: center"><select size="1" style="">
         <option>
@@ -51,11 +53,10 @@
 </table>
 <form>
     <p style="text-align: center">
-        <button formaction="localhost:80">
+        <button onclick="window.location.reload();">
     <p>Menu</p></button>
-    <button formaction="localhost:80">
-        <p>Select</p></button>
-    <button formaction="localhost:80"><p>Logoff</p></button>
+    <button onclick="window.location.reload();"><p>Select</p></button>
+    <button onclick="window.location.reload();"><p>Logoff</p></button>
     </p>
 </form>
 </body>
