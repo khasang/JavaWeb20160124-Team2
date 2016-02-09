@@ -8,10 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Select table page</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <form>
-    <p style="text-align: center"><select size="1">
+    <p style="text-align: center"><select size="1" style="">
         <option>
             <table border="3">
                 <caption>table1</caption>
@@ -29,6 +35,20 @@
         </option>
     </select></p>
 </form>
+<table align="center">
+    <tr>
+        <th>Item</th>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <td>${firstItem}</td>
+        <td>${firstItemPrice}</td>
+    </tr>
+    <tr>
+        <td>${secondItem}</td>
+        <td>${secondItemPrice}</td>
+    </tr>
+</table>
 <form>
     <p style="text-align: center">
         <button formaction="localhost:80">

@@ -1,5 +1,6 @@
 package io.khasang.wlogs.controller;
 
+import io.khasang.wlogs.model.Select;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,11 @@ public class AppController {
 
     @RequestMapping("/select")
     public String select(Model model) {
+        Select select = new Select();
+        model.addAttribute("firstItem", select.getFirstItem());
+        model.addAttribute("firstItemPrice", select.getFirstItemPrice());
+        model.addAttribute("secondItem", select.getSecondItem());
+        model.addAttribute("secondItemPrice", select.getSecondItemPrice());
         return "select";
     }
 }
