@@ -1,15 +1,19 @@
 package io.khasang.wlogs.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by 134 on 09.02.2016.
  */
-public class Select {
+public class SelectDataFromTable {
     private String firstItem = "Apples";
     private int firstItemPrice = 100;
     private String secondItem = "Oranges";
     private int secondItemPrice = 200;
+    private String result;
 
-    public Select() {
+    public SelectDataFromTable() {
     }
 
     public String getFirstItem() {
@@ -26,5 +30,13 @@ public class Select {
 
     public int getSecondItemPrice() {
         return secondItemPrice;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public List<String> selectDataFromTable(String tableName) {
+        return new ArrayList<String>();
     }
 }
