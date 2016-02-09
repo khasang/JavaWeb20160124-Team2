@@ -24,4 +24,10 @@ public class AppController {
         model.addAttribute("admin", "You are number 1!");
         return "admin";
     }
+
+    @RequestMapping("/login")
+    public String login(Model model) {
+        model.addAttribute("login", "Success");
+        return "login";
+    }
 }
