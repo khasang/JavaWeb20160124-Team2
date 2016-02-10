@@ -24,4 +24,10 @@ public class AppController {
         model.addAttribute("admin", "You are number 1!");
         return "admin";
     }
+
+    @RequestMapping("/cart")
+    public String cart(Model model) {
+        model.addAttribute("page_name", "Корзина товаров");
+        return "cart";
+    }
 }
