@@ -1,5 +1,6 @@
 package io.khasang.wlogs.controller;
 
+import io.khasang.wlogs.model.SelectDataTable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,5 +24,10 @@ public class AppController {
     public String admin(Model model) {
         model.addAttribute("admin", "You are number 1!");
         return "admin";
+    }
+
+    @RequestMapping("/myPageView")
+    public String vzatch(Model model) {
+        return "myPageView";
     }
 }
