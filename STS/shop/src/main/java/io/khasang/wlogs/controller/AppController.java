@@ -24,4 +24,10 @@ public class AppController {
         model.addAttribute("admin", "You are number 1!");
         return "admin";
     }
+
+    @RequestMapping("/tableselect")
+    public String tableselect(Model model) {
+        model.addAttribute("dropdownlist", "Please, select the table");
+        return "tableselect";
+    }
 }
