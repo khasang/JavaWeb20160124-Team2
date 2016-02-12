@@ -1,0 +1,37 @@
+package io.khasang.wlogs.model;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.SimpleDriverDataSource;
+
+public class InsertDataTable {
+    public static String sqlCheck;
+
+    public void sqlInsert() {
+        SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
+        dataSource.setDriverClass(com.mysql.jdbc.Driver.class);
+        dataSource.setUsername("root");
+        dataSource.setUrl("jdbc:mysql://localhost/webstore");
+        dataSource.setPassword("root");
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        System.out.println("try to update db...");
+        try {
+            System.out.println("Creating tables");
+            jdbcTemplate.execute("DROP TABLE IF EXISTS webstore");
+            jdbcTemplate.execute("create table webstore(ID INT NOT NULL,"
+                    + " pName MEDIUMTEXT NOT NULL, description LONGTEXT NULL)");
+            jdbcTemplate.update("INSERT INTO webstore(ID, pName, description) VALUES(1, 'apple', 'red')");
+            jdbcTemplate.update("INSERT INTO webstore(ID, pName, description) VALUES(2, 'milk', 'yellow')");
+            jdbcTemplate.update("INSERT INTO webstore(ID, pName, description) VALUES(3, 'bread', null)");
+            sqlCheck = "db updated";
+        } catch (Exception e) {
+            sqlCheck = "Have error: " + e;
+            System.err.println(sqlCheck);
+        }
+    }
+
+    public String sqlInsertCheck() {
+        InsertDataTable sql = new InsertDataTable();
+        sql.sqlInsert();
+        return sqlCheck;
+    }
+}

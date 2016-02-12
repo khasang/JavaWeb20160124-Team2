@@ -1,5 +1,6 @@
 package io.khasang.wlogs.controller;
 
+import io.khasang.wlogs.model.InsertDataTable;
 import io.khasang.wlogs.model.SelectDataFromTable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +25,13 @@ public class AppController {
     public String admin(Model model) {
         model.addAttribute("admin", "You are number 1!");
         return "admin";
+    }
+
+    @RequestMapping("/insert")
+    public String instert(Model model) {
+        InsertDataTable insertDataTable = new InsertDataTable();
+        model.addAttribute("insertData", insertDataTable.sqlInsertCheck());
+        return "insert";
     }
 
     @RequestMapping("/select")
