@@ -1,7 +1,7 @@
 body  {
     background-image: url("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTZFOG0Ond_bHF8lrfIExrf8RT-12R_tu3WPtaOG5C5RkIHYFWJ");
 }
-a :hover{
+.a_menu :hover{
     background-color: darkgray;
 }
 .blockUp{
@@ -30,6 +30,9 @@ a :hover{
     position: absolute;
     left: 15%;
     top:200px;
+}
+.block1 :hover{
+    background-color: #045757;
 }
 .block2{
     background-color: darkgoldenrod;
