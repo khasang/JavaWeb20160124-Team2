@@ -30,7 +30,7 @@ public class AppController {
     @RequestMapping("/insert")
     public String instert(Model model) {
         InsertDataTable insertDataTable = new InsertDataTable();
-        model.addAttribute("insertData", insertDataTable.sqlInsertCheck());
+        model.addAttribute("insert", insertDataTable.sqlInsertCheck());
         return "insert";
     }
 

@@ -16,12 +16,12 @@ public class InsertDataTable {
         System.out.println("try to update db...");
         try {
             System.out.println("Creating tables");
-            jdbcTemplate.execute("DROP TABLE IF EXISTS webstore");
-            jdbcTemplate.execute("create table webstore(ID INT NOT NULL,"
+            jdbcTemplate.execute("DROP TABLE IF EXISTS products");
+            jdbcTemplate.execute("create table products(ID INT NOT NULL,"
                     + " pName MEDIUMTEXT NOT NULL, description LONGTEXT NULL)");
-            jdbcTemplate.update("INSERT INTO webstore(ID, pName, description) VALUES(1, 'apple', 'red')");
-            jdbcTemplate.update("INSERT INTO webstore(ID, pName, description) VALUES(2, 'milk', 'yellow')");
-            jdbcTemplate.update("INSERT INTO webstore(ID, pName, description) VALUES(3, 'bread', null)");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(1, 'apple', 'red')");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(2, 'milk', 'yellow')");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(3, 'bread', null)");
             sqlCheck = "db updated";
         } catch (Exception e) {
             sqlCheck = "Have error: " + e;
