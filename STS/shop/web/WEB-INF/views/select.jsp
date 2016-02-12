@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 134
@@ -17,12 +18,25 @@
     </style>
 </head>
 <body>
-<%--<button onclick="window.location.reload();">Load</button>--%>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Product Name</th>
+        <th>Description</th>
+    </tr>
+    <c:forEach items="${items}" var="item">
+        <tr>
+        <td><c:out value="${item.ID}"/></td>
+        <td><c:out value="${item.pName}"/></td>
+        <td><c:out value="${item.description}"/></td>
+        </tr>
+    </c:forEach>
+</table>
 <form>
     <p style="text-align: center"><select size="1" style="">
         <option>
             <table border="3">
-                <caption>table1</caption>
+                <caption>Products</caption>
             </table>
         </option>
         <option>
@@ -39,16 +53,17 @@
 </form>
 <table align="center">
     <tr>
-        <th>Item</th>
-        <th>Price</th>
+        <th>ID</th>
+        <th>Product Name</th>
+        <th>Description</th>
     </tr>
-    <tr>
-        <td>${firstItem}</td>
-        <td>${firstItemPrice}</td>
-    </tr>
-    <tr>
-        <td>${secondItem}</td>
-        <td>${secondItemPrice}</td>
+    <c:forEach items="${items}" var="item">
+        <tr>
+            <td><c:out value="${item.ID}"/></td>
+            <td><c:out value="${item.pName}"/></td>
+            <td><c:out value="${item.description}"/></td>
+        </tr>
+    </c:forEach>
     </tr>
 </table>
 <form>
