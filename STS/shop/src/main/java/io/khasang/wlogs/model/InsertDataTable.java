@@ -3,6 +3,8 @@ package io.khasang.wlogs.model;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
+import java.sql.SQLException;
+
 public class InsertDataTable {
     public static String sqlCheck;
 
@@ -26,6 +28,12 @@ public class InsertDataTable {
         } catch (Exception e) {
             sqlCheck = "Have error: " + e;
             System.err.println(sqlCheck);
+        } finally {
+            try {
+                dataSource.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
