@@ -19,7 +19,14 @@ Hello, World! We are going!
 Evgeniy Boroday
 Lev Seleznev
 <<<<<<< HEAD
+<<<<<<< HEAD
 Eugeny Karpov
 Makarov
 
 >>>>>>> development
+=======
+test
+Eugeny Karpov
+Makarov
+origin/development
+>>>>>>> origin/development
