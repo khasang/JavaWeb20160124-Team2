@@ -24,4 +24,11 @@ public class AppController {
         model.addAttribute("admin", "You are number 1!");
         return "admin";
     }
+
+    @RequestMapping("/mypage")
+    public String mypage(Model model) {
+        model.addAttribute("mypage", "This is my first exp in spring!");
+        return "mypage";
+    }
+
 }
