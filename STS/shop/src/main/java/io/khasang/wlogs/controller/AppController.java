@@ -1,7 +1,7 @@
 package io.khasang.wlogs.controller;
 
 import io.khasang.wlogs.model.InsertDataTable;
-import io.khasang.wlogs.model.Item;
+import io.khasang.wlogs.model.Product;
 import io.khasang.wlogs.model.SelectDataFromTable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Controller
 public class AppController {
-    List<Item> products;
+    List<Product> products;
 
     @RequestMapping("/")
     public String welcome(Model model) {
@@ -42,13 +42,8 @@ public class AppController {
     @RequestMapping("/select")
     public String select(Model model) {
         SelectDataFromTable selectDataFromTable = new SelectDataFromTable();
-        selectDataFromTable.select();
-        products = selectDataFromTable.getItems();
-        model.addAttribute("items", products);
-        model.addAttribute("firstItem", selectDataFromTable.getFirstItem());
-        model.addAttribute("firstItemPrice", selectDataFromTable.getFirstItemPrice());
-        model.addAttribute("secondItem", selectDataFromTable.getSecondItem());
-        model.addAttribute("secondItemPrice", selectDataFromTable.getSecondItemPrice());
+        selectDataFromTable.initConnection();
+        model.addAttribute("items", selectDataFromTable.selectWholeTable(new Product()));
         return "select";
     }
 }

@@ -18,20 +18,6 @@
     </style>
 </head>
 <body>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Product Name</th>
-        <th>Description</th>
-    </tr>
-    <c:forEach items="${items}" var="item">
-        <tr>
-        <td><c:out value="${item.ID}"/></td>
-        <td><c:out value="${item.pName}"/></td>
-        <td><c:out value="${item.description}"/></td>
-        </tr>
-    </c:forEach>
-</table>
 <form>
     <p style="text-align: center"><select size="1" style="">
         <option>
@@ -57,11 +43,11 @@
         <th>Product Name</th>
         <th>Description</th>
     </tr>
-    <c:forEach items="${items}" var="item">
+    <c:forEach items="${items}" var="product">
         <tr>
-            <td><c:out value="${item.ID}"/></td>
-            <td><c:out value="${item.pName}"/></td>
-            <td><c:out value="${item.description}"/></td>
+            <td><c:out value="${product.ID}"/></td>
+            <td><c:out value="${product.pName}"/></td>
+            <td><c:out value="${product.description}"/></td>
         </tr>
     </c:forEach>
     </tr>
