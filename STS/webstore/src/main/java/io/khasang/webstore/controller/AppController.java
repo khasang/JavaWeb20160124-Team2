@@ -1,5 +1,6 @@
-package io.khasang.wlogs.controller;
+package io.khasang.webstore.controller;
 
+import io.khasang.webstore.model.InsertDataTable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,13 @@ public class AppController {
     public String admin(Model model) {
         model.addAttribute("admin", "You are number 1!");
         return "admin";
+    }
+
+    @RequestMapping("/createtable")
+    public String crateTable(Model model) {
+        InsertDataTable sql = new InsertDataTable();
+        model.addAttribute("createtable", sql.sqlInsertCheck());
+        return "createtable";
     }
 
     @RequestMapping("/login")
