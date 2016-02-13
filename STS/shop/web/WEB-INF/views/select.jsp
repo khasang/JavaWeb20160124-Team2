@@ -37,6 +37,7 @@
         </option>
     </select></p>
 </form>
+<p style="text-align: center">Берет содержимое таблицы products и динамически рисует ее содержимое</p>
 <table align="center">
     <tr>
         <th>ID</th>
