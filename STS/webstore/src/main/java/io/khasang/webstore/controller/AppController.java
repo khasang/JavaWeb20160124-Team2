@@ -1,7 +1,7 @@
 package io.khasang.webstore.controller;
 
 import io.khasang.webstore.model.CreateDataTable;
-import io.khasang.webstore.model.SelectDataTable;
+import io.khasang.webstore.model.InsertDataTable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +33,7 @@ public class AppController {
         CreateDataTable createDataTable = new CreateDataTable();
         model.addAttribute("insertdata", createDataTable.sqlInsertCheck());
         return "insertdata";
+    }
 
     @RequestMapping("/cart")
     public String cart(Model model) {
