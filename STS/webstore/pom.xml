@@ -8,7 +8,7 @@
     <artifactId>error400</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
-        <spring.version>4.2.3.RELEASE</spring.version>
+        <spring.version>4.2.4.RELEASE</spring.version>
         <jdk.version>1.8</jdk.version>
     </properties>
 
@@ -47,7 +47,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>4.2.3.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
     </dependencies>
 
