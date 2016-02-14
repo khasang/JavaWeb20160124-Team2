@@ -1,6 +1,8 @@
 package io.khasang.webstore.controller;
 
 import io.khasang.webstore.model.InsertDataTable;
+import io.khasang.webstore.model.Product;
+import io.khasang.webstore.model.SelectDataFromTable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
