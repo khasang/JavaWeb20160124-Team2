@@ -1,0 +1,52 @@
+body {
+    color: darkblue;
+    font-family: Arial; /* In iOS calibri rendered in arial or bought */
+    font-size: 14px;
+    background-color: cornsilk;
+}
+.menuButton {
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px;
+    border: 2px solid #e34761;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#ffd1de), color-stop(0.5, rgba(245, 54, 149, 0.64)));
+    margin-left: 18%;
+}
+.menuButton:hover {background: rgba(245, 186, 147, 0.14)}
+.menuButton:active {background: white}
+
+.logoutButton {
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px;
+    border: 2px solid #e34761;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#ffd1de), color-stop(0.5, rgba(245, 54, 149, 0.64)));
+    margin-left: 50%;
+
+}
+.logoutButton:hover {background: rgba(245, 186, 147, 0.14)}
+.logoutButton:active {background: white}
+
+.selectButton {
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px;
+    border: 2px solid #e34761;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#ffd1de), color-stop(0.5, rgba(245, 54, 149, 0.64)));
+}
+.selectButton:hover {background: rgba(245, 186, 147, 0.14)}
+.selectButton:active {background: white}
+
+.dropButton {
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px;
+    border: 2px solid #e34761;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#ffd1de), color-stop(0.5, rgba(245, 54, 149, 0.64)));
+}
+.dropButton:hover {background: rgba(245, 186, 147, 0.14)}
+.dropButton:active {background: white}

@@ -1,9 +1,8 @@
 package io.khasang.webstore.model;
-
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
-public class InsertDataTable {
+public class CreateDataTable {
     public static String sqlCheck;
 
     public void sqlInsert() {
@@ -16,11 +15,15 @@ public class InsertDataTable {
         System.out.println("try to update db...");
         try {
             System.out.println("Creating tables");
-            jdbcTemplate.execute("DROP TABLE IF EXISTS products");
+            /*jdbcTemplate.execute("DROP TABLE IF EXISTS products");
             jdbcTemplate.execute("create table products(ID INT NOT NULL,"
-                    + " pname MEDIUMTEXT NOT NULL, description MEDIUMTEXT NOT NULL)");
-            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(7, 'milk', 'cow')");
-            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(8, 'bread', 'grey')");
+                    + " pName MEDIUMTEXT NOT NULL, description LONGTEXT)");*/
+//            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(1, 'apple', 'red')");
+//            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(2, 'banan', 'yellow')");
+//            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(3, 'bread', null)");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(4, 'milk', 'natural')");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(5, 'becon', null)");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(6, 'bread', 'black')");
             sqlCheck = "db updated";
         } catch (Exception e) {
             sqlCheck = "Have error: " + e;
@@ -29,7 +32,7 @@ public class InsertDataTable {
     }
 
     public String sqlInsertCheck() {
-        InsertDataTable sql = new InsertDataTable();
+        CreateDataTable sql = new CreateDataTable();
         sql.sqlInsert();
         return sqlCheck;
     }
