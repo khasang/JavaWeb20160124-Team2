@@ -32,4 +32,19 @@ public class AppController {
         model.addAttribute("createtable", sql.sqlInsertCheck());
         return "createtable";
     }
+
+    @RequestMapping("/insert")
+    public String insert(Model model) {
+        InsertDataTable insertDataTable = new InsertDataTable();
+        model.addAttribute("insert", insertDataTable.sqlInsertCheck());
+        return "insert";
+    }
+
+    @RequestMapping("/select")
+    public String select(Model model) {
+        SelectDataFromTable selectDataFromTable = new SelectDataFromTable();
+        selectDataFromTable.initConnection();
+        model.addAttribute("items", selectDataFromTable.selectWholeTable(new Product()));
+        return "select";
+    }
 }
