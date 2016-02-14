@@ -1,6 +1,6 @@
 package io.khasang.webstore.controller;
 
-import io.khasang.webstore.model.InsertDataTable;
+import io.khasang.webstore.model.CreateDataTable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AppController {
     @RequestMapping("/")
     public String welcome(Model model) {
-        model.addAttribute("greeting", "Welcome to our best webstore!");
-        model.addAttribute("tagline", "The one and only amazing webstore!");
+        model.addAttribute("greeting", "Welcome to our best Shop!");
+        model.addAttribute("tagline", "The one and only amazing shop system!");
         return "welcome";
     }
 
@@ -26,10 +26,16 @@ public class AppController {
         return "admin";
     }
 
-    @RequestMapping("/createtable")
-    public String crateTable(Model model) {
-        InsertDataTable sql = new InsertDataTable();
-        model.addAttribute("createtable", sql.sqlInsertCheck());
-        return "createtable";
+    @RequestMapping("/insertdata")
+    public String insertData(Model model) {
+        CreateDataTable createDataTable = new CreateDataTable();
+        model.addAttribute("insertdata", createDataTable.sqlInsertCheck());
+        return "insertdata";
+    }
+
+    @RequestMapping("/tableselect")
+    public String tableselect(Model model) {
+        model.addAttribute("dropdownlist", "Please, select the table");
+        return "tableselect";
     }
 }
