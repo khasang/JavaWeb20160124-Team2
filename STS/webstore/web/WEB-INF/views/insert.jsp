@@ -1,18 +1,17 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Бэби-клуб
+  User: e.karpov
   Date: 12.02.2016
-  Time: 22:55
+  Time: 14:46
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>insertdata</title>
+    <title>Create and insert data</title>
 </head>
 <body>
-<h1>Add data product table</h1>
-<h1>Add data to product table!</h1>
-<p>${insertdata}</p>
+<h1>We will create and insert data into the table webstore. We will also drop table if exists</h1>
+<h2>${insert}</h2>
 </body>
 </html>

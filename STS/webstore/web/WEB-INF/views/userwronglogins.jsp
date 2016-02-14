@@ -1,18 +1,17 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Бэби-клуб
-  Date: 12.02.2016
-  Time: 22:55
+  User: Azon
+  Date: 09.02.2016
+  Time: 19:11
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>insertdata</title>
+    <title>userwronglogins</title>
 </head>
 <body>
-<h1>Add data product table</h1>
-<h1>Add data to product table!</h1>
-<p>${insertdata}</p>
+<p>Hello!</p>
+<h1> ${userwronglogins} </h1>
 </body>
 </html>
