@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 Vladimir Makarov
 mrArxi@gmail.com
 Skype: mrArxi
-=======
 I am no conflict with merging!
 Hi!
 I am conflict with merging!
@@ -18,15 +16,10 @@ Veselina Zatchepina and ... you!
 Hello, World! We are going!
 Evgeniy Boroday
 Lev Seleznev
-<<<<<<< HEAD
-<<<<<<< HEAD
 Eugeny Karpov
 Makarov
-
->>>>>>> development
-=======
 test
 Eugeny Karpov
 Makarov
 origin/development
->>>>>>> origin/development
+
