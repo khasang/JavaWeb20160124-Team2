@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AppController {
     @RequestMapping("/")
     public String welcome(Model model) {
-<<<<<<< HEAD
         model.addAttribute("greeting", "Welcome to our best Shop!");
         model.addAttribute("tagline", "The one and only amazing shop system!");
         return "welcome";
@@ -41,7 +40,7 @@ public class AppController {
         model.addAttribute("page_name", "Корзина товаров");
         return "cart";
     }
-    
+
     @RequestMapping("/createtable")
     public String crateTable(Model model) {
         InsertDataTable sql = new InsertDataTable();
@@ -58,9 +57,6 @@ public class AppController {
 
     @RequestMapping("/login")
     public String login(Model model) {
-        model.addAttribute("login", "Success");
-        return "login";
-        model.addAttribute("greeting", "Welcome to our best wLogs!");
         model.addAttribute("tagline", "The one and only amazing logs system!");
         return "welcome";
     }
