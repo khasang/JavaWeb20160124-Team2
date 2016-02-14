@@ -27,11 +27,25 @@ public class AppController {
         return "admin";
     }
 
+
     @RequestMapping("/insertdataTest")
     public String insertData(Model model) {
         CreateDataTable createDataTable = new CreateDataTable();
         model.addAttribute("insertdata", createDataTable.sqlInsertCheck());
         return "insertdata";
+
+    @RequestMapping("/cart")
+    public String cart(Model model) {
+        model.addAttribute("page_name", "Корзина товаров");
+        return "cart";
+    }
+    
+    @RequestMapping("/createtable")
+    public String crateTable(Model model) {
+        InsertDataTable sql = new InsertDataTable();
+        model.addAttribute("createtable", sql.sqlInsertCheck());
+        return "createtable";
+
     }
 
     @RequestMapping("/menu")
@@ -39,6 +53,4 @@ public class AppController {
         model.addAttribute("menu", "This menu page");
         return "menu";
     }
-
-
 }
