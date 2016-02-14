@@ -1,5 +1,4 @@
 package io.khasang.webstore.model;
-
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
@@ -15,17 +14,20 @@ public class CreateDataTable {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         System.out.println("try to update db...");
         try {
-            System.out.println("creating tables");
-            jdbcTemplate.execute("DROP TABLE IF EXISTS products");
-            jdbcTemplate.execute("create table products(ID INT NOT NULL, "
-                    + " pName MEDIUMTEXT NOT NULL, description LONGTEXT)");
-            jdbcTemplate.update("INSERT INTO products(ID, pName, descr) VALUES(1, 'apple', 'red')");
-            jdbcTemplate.update("INSERT INTO products(ID, pName, descr) VALUES(2, 'milk', 'natural')");
-            jdbcTemplate.update("INSERT INTO products(ID, pName, descr) VALUES(3, 'bred', 'null')");
+            System.out.println("Creating tables");
+            /*jdbcTemplate.execute("DROP TABLE IF EXISTS products");
+            jdbcTemplate.execute("create table products(ID INT NOT NULL,"
+                    + " pName MEDIUMTEXT NOT NULL, description LONGTEXT)");*/
+//            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(1, 'apple', 'red')");
+//            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(2, 'banan', 'yellow')");
+//            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(3, 'bread', null)");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(4, 'milk', 'natural')");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(5, 'becon', null)");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(6, 'bread', 'black')");
             sqlCheck = "db updated";
         } catch (Exception e) {
-            sqlCheck = "have error: " + e;
-            System.out.println(sqlCheck);
+            sqlCheck = "Have error: " + e;
+            System.err.println(sqlCheck);
         }
     }
 

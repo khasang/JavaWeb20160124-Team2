@@ -50,5 +50,4 @@
             <version>${spring.version}</version>
         </dependency>
     </dependencies>
-
 </project>
