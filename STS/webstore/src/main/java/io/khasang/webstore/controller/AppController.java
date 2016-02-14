@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AppController {
     @RequestMapping("/")
     public String welcome(Model model) {
-        model.addAttribute("greeting", "Welcome to our best webstore!");
-        model.addAttribute("tagline", "The one and only amazing webstore!");
+        model.addAttribute("greeting", "Welcome to our best Shop!");
+        model.addAttribute("tagline", "The one and only amazing shop system!");
         return "welcome";
     }
 
@@ -53,5 +53,11 @@ public class AppController {
     public String menu(Model model) {
         model.addAttribute("menu", "This menu page");
         return "menu";
+    }
+
+    @RequestMapping("/login")
+    public String login(Model model) {
+        model.addAttribute("login", "Success");
+        return "login";
     }
 }
