@@ -6,7 +6,7 @@ import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 public class CreateDataTable {
     public static String sqlCheck;
 
-    public void sqlInsert(){
+    public void sqlInsert() {
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         dataSource.setDriverClass(com.mysql.jdbc.Driver.class);
         dataSource.setUsername("root");
@@ -14,26 +14,22 @@ public class CreateDataTable {
         dataSource.setPassword("root");
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         System.out.println("try to update db...");
-        try{
+        try {
             System.out.println("creating tables");
-                jdbcTemplate.execute("DROP TABLE IF EXISTS products");
-                jdbcTemplate.execute("create table products(ID INT NOT NULL, "
-                + " pName MEDIUMTEXT NOT NULL, description LONGTEXT)");
-            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(1, 'apple', 'red')");
-            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(2, 'milk', 'natural')");
-            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(3, 'bred', 'null')");
-                + " pName MEDIUMTEXT NOT NULL, descr LONGTEXT)");
+            jdbcTemplate.execute("DROP TABLE IF EXISTS products");
+            jdbcTemplate.execute("create table products(ID INT NOT NULL, "
+                    + " pName MEDIUMTEXT NOT NULL, description LONGTEXT)");
             jdbcTemplate.update("INSERT INTO products(ID, pName, descr) VALUES(1, 'apple', 'red')");
             jdbcTemplate.update("INSERT INTO products(ID, pName, descr) VALUES(2, 'milk', 'natural')");
             jdbcTemplate.update("INSERT INTO products(ID, pName, descr) VALUES(3, 'bred', 'null')");
             sqlCheck = "db updated";
-        }  catch (Exception e){
-            sqlCheck = "have error: "+e;
+        } catch (Exception e) {
+            sqlCheck = "have error: " + e;
             System.out.println(sqlCheck);
         }
     }
 
-    public String sqlInsertCheck(){
+    public String sqlInsertCheck() {
         CreateDataTable sql = new CreateDataTable();
         sql.sqlInsert();
         return sqlCheck;
