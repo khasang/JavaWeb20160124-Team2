@@ -27,7 +27,7 @@ public class AppController {
         return "admin";
     }
 
-    @RequestMapping("/insertdataTest")
+    @RequestMapping("/insertdata")
     public String insertData(Model model) {
         CreateDataTable createDataTable = new CreateDataTable();
         model.addAttribute("insertdata", createDataTable.sqlInsertCheck());
