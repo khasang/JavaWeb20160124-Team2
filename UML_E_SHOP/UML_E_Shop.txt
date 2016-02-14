@@ -1,0 +1,59 @@
+@startuml
+package <<Controller>>{
+interface Controller
+class AppController
+}
+
+package <<Model>>{
+interface Model
+class ShopModel
+class User
+class Product
+class CategoryOfProduct
+}
+
+package <<View>>{
+interface DisplayElement
+class View
+}
+
+Controller <.. AppController
+AppController --> ShopModel
+AppController --> View
+AppController : createUser()
+AppController : deleteUser()
+AppController : loginUser()
+AppController : createBasketOfChoosenProduct()
+AppController : addChoosenProductToBasket()
+AppController : deleteChoosenProductToBasket()
+AppController : getTotalCostOfBasket()
+AppController : createPayDocFromBasket()
+AppController : sendJavaBeanObjectToViewWithInfo()
+
+Model <.. ShopModel
+ShopModel --> AppController
+ShopModel <-- User
+ShopModel <-- Product
+ShopModel <-- CategoryOfProduct
+Model : addNewUser()
+Model : deleteUser()
+Model : getUserInfo()
+Model : addNewProduct()
+Model : deleteProduct()
+Model : getProductInfo()
+Model : addNewCategoryOfProduct()
+Model : deleteCategoryOfProduct()
+Model : getCategoryOfProduct()
+User : getUserInfo()
+User : setUserInfo()
+Product : getName()
+Product : getCost()
+Product : getQuantity()
+Product : setName()
+Product : setCost()
+Product : setQuantity()
+
+DisplayElement <.. View
+View : createView()
+
+@enduml

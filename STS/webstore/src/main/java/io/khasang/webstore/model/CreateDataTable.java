@@ -22,6 +22,10 @@ public class CreateDataTable {
             jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(1, 'apple', 'red')");
             jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(2, 'milk', 'natural')");
             jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(3, 'bred', 'null')");
+                + " pName MEDIUMTEXT NOT NULL, descr LONGTEXT)");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, descr) VALUES(1, 'apple', 'red')");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, descr) VALUES(2, 'milk', 'natural')");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, descr) VALUES(3, 'bred', 'null')");
             sqlCheck = "db updated";
         }  catch (Exception e){
             sqlCheck = "have error: "+e;
