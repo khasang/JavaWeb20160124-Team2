@@ -1,7 +1,6 @@
 package io.khasang.webstore.controller;
 
 import io.khasang.webstore.model.CreateDataTable;
-import io.khasang.webstore.model.SelectDataTable;
 import io.khasang.webstore.model.InsertDataTable;
 import io.khasang.webstore.model.Product;
 import io.khasang.webstore.model.SelectDataFromTable;
@@ -74,7 +73,6 @@ public class AppController {
         model.addAttribute("styleOfPageView", "Menu page text - added to testing!");
         return "myPageView";
     }
-}
 
     @RequestMapping("/cart")
     public String cart(Model model) {
@@ -120,12 +118,6 @@ public class AppController {
         selectDataFromTable.initConnection();
         model.addAttribute("items", selectDataFromTable.selectWholeTable(new Product()));
         return "select";
-    }
-
- 	@RequestMapping("/styleOfPageView")
-    public String styleOfPageView(Model model) {
-        model.addAttribute("styleOfPageView", "Menu page text - added to testing!");
-        return "myPageView";
     }
 }
 
