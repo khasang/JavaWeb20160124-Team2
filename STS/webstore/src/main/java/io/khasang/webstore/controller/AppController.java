@@ -89,7 +89,7 @@ public class AppController {
 
     @RequestMapping("/deletecurrentorder")
     public String deleteCurrentOrder(Model model) {
-        model.addAttribute("deletecurrentorder", ""); //todo vmakar isert to productorder id = current order set cancel.
+        model.addAttribute("deletecurrentorder", ""); //todo vmakar insert to productorder id = current order set cancel.
         return "deletecurrentorder";
     }
 
@@ -112,7 +112,7 @@ public class AppController {
         return "insert";
     }
 
-    @RequestMapping("/select")
+    @RequestMapping("/select") //todo ekarpov select from productorder with id + status in progress and done
     public String select(Model model) {
         SelectDataFromTable selectDataFromTable = new SelectDataFromTable();
         selectDataFromTable.initConnection();
