@@ -38,4 +38,16 @@ public class AppController {
         model.addAttribute("dropdownlist", "Please, select the table");
         return "tableselect";
     }
+
+    @RequestMapping("/menu")
+    public String menu(Model model) {
+        model.addAttribute("menu", "Menu page text - added to testing!");
+        return "menu";
+    }
+
+    @RequestMapping("/styleOfPageView")
+    public String styleOfPageView(Model model) {
+        model.addAttribute("styleOfPageView", "Menu page text - added to testing!");
+        return "myPageView";
+    }
 }
