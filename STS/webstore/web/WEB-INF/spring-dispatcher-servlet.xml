@@ -20,7 +20,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
         <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
         <property name="username" value="root"></property>
         <property name="password" value="root"></property>
-        <property name="url" value="jdbc:mysql://localhost/webstore"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/webstore"></property>
     </bean>
 
     <bean id="viewProducts" class="io.khasang.webstore.model.ProductDAO">
