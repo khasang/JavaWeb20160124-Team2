@@ -67,4 +67,64 @@ public class AppController {
         model.addAttribute("dropdownlist", "Please, select the table");
         return "tableselect";
     }
+
+    @RequestMapping("/menu")
+    public String menu(Model model) {
+        model.addAttribute("menu", "Menu page text - added to testing!");
+        return "menu";
+    }
+
+
+    @RequestMapping("/styleOfPageView")
+    public String styleOfPageView(Model model) {
+        model.addAttribute("styleOfPageView", "Menu page text - added to testing!");
+        return "myPageView";
+    }
+
+    @RequestMapping("/cart")
+    public String cart(Model model) {
+        model.addAttribute("page_name", "Корзина товаров");
+        return "cart";
+    }
+
+    @RequestMapping("/createtable")
+    public String crateTable(Model model) {
+        InsertDataTable sql = new InsertDataTable();
+        model.addAttribute("createtable", sql.sqlInsertCheck());
+        return "createtable";
+    }
+
+    @RequestMapping("/deletecurrentorder")
+    public String deleteCurrentOrder(Model model) {
+        model.addAttribute("deletecurrentorder", ""); //todo vmakar insert to productorder id = current order set cancel.
+        return "deletecurrentorder";
+    }
+
+    @RequestMapping("/login") // todo mbedr jsp login, select user from table logins with login name.
+    public String login(Model model) {
+        model.addAttribute("login", "Success");
+        return "login";
+    }
+
+    @RequestMapping("/front")
+    public String front(Model model) {
+        model.addAttribute("front", "My page");
+        return "front";
+    }
+
+    @RequestMapping("/insert")
+    public String insert(Model model) {
+        InsertDataTable insertDataTable = new InsertDataTable();
+        model.addAttribute("insert", insertDataTable.sqlInsertCheck());
+        return "insert";
+    }
+
+    @RequestMapping("/select") //todo ekarpov select from productorder with id + status in progress and done
+    public String select(Model model) {
+        SelectDataFromTable selectDataFromTable = new SelectDataFromTable();
+        selectDataFromTable.initConnection();
+        model.addAttribute("items", selectDataFromTable.selectWholeTable(new Product()));
+        return "select";
+    }
 }
+
