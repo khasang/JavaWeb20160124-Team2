@@ -15,8 +15,6 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
         <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
-
-<<<<<<< HEAD
     <bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
         <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
         <property name="username" value="root"></property>
@@ -28,17 +26,13 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
         <constructor-arg ref="dataSource"/>
         <property name="dataSource" ref="dataSource"></property>
     </bean>
-=======
->>>>>>> origin/ekarpo
     <!-- This tag allows for mapping the dispatcher-servlet to "/" -->
     <mvc:default-servlet-handler/>
 
     <!-- resources exclusions from servlet mapping -->
     <mvc:resources mapping="/css/**" location="/WEB-INF/views/css/"/>
-<<<<<<< HEAD
     <mvc:resources mapping="/gif/**" location="/WEB-INF/views/css"/>
-=======
+
     <mvc:resources mapping="/images/**" location="/WEB-INF/views/images/"/>
     <mvc:resources mapping="/js/**" location="/WEB-INF/views/js/"/>
->>>>>>> origin/ekarpo
 </beans>
