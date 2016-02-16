@@ -1,12 +1,10 @@
 package io.khasang.webstore.controller;
 
-import io.khasang.webstore.model.CreateDataTable;
-import io.khasang.webstore.model.InsertDataTable;
-import io.khasang.webstore.model.Product;
-import io.khasang.webstore.model.SelectDataFromTable;
+import io.khasang.webstore.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 @Controller
 public class AppController {
@@ -24,11 +22,14 @@ public class AppController {
         return "backup";
     }
 
+    // ***************************
+
     @RequestMapping("/drop") // todo vzatch input table name and button to drop
     public String drop(Model model) {
-        model.addAttribute("drop", "Success");
         return "drop";
     }
+
+    // ***************************
 
     @RequestMapping("/cost") // todo yminee join tables product and cost with id, select all columns
         public String cost(Model model) {
@@ -65,13 +66,6 @@ public class AppController {
     public String menu(Model model) {
         model.addAttribute("menu", "Menu page text - added to testing!");
         return "menu";
-    }
-
-
-    @RequestMapping("/styleOfPageView")
-    public String styleOfPageView(Model model) {
-        model.addAttribute("styleOfPageView", "Menu page text - added to testing!");
-        return "myPageView";
     }
 
     @RequestMapping("/cart")

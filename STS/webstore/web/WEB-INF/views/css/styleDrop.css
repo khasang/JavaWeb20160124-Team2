@@ -50,3 +50,8 @@ body {
 }
 .dropButton:hover {background: rgba(245, 186, 147, 0.14)}
 .dropButton:active {background: white}
+
+.placeForInput{
+    border: 2px solid #e34761;
+    box-shadow: 0px 4px 4px;
+}
