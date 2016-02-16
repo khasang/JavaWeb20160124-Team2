@@ -1,0 +1,51 @@
+body  {
+    background-image: url("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTZFOG0Ond_bHF8lrfIExrf8RT-12R_tu3WPtaOG5C5RkIHYFWJ");
+    overflow: scroll;
+}
+.blockUp{
+     background-color: steelblue;
+     border-style: double;
+     color: black;
+     margin: 10px;
+     padding: 25px;
+     height: 100px;
+     width: auto;
+ }
+.blockTop{
+    background-image: url("https://www.healthcare.gov/images/hero/Employer.jpg");
+    border-style: double;
+    color: black;
+    margin: 10px;
+    padding: 25px;
+    height: 300px;
+    width: auto;
+}
+.blockDown{
+    border-style: double;
+    color: black;
+    margin: 10px;
+    padding: 15px;
+    height: 150px;
+    width: auto;
+    position: absolute;
+    left: 10%;
+}
+.block{
+    background-color: steelblue;
+    border-style: double;
+    border-color: darkblue;
+    color: black;
+    padding: 15px;
+    height: 100px;
+    width: 150px;
+    position: relative;
+    float: left;
+ }
+ .block:hover {
+    border: solid #777;
+    background-color: darkgray;
+}
+.textWhite{
+    font-family: Arial;
+    color: aliceblue;
+}
