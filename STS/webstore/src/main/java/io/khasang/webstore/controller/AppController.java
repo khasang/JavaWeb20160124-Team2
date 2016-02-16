@@ -1,8 +1,6 @@
 package io.khasang.webstore.controller;
 
-import io.khasang.webstore.model.InsertDataTable;
-import io.khasang.webstore.model.Product;
-import io.khasang.webstore.model.SelectDataFromTable;
+import io.khasang.webstore.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -56,21 +54,6 @@ public class AppController {
     public String admin(Model model) {
         model.addAttribute("admin", "You are number 1!");
         return "admin";
-    }
-
-    @RequestMapping("/insert")
-    public String insert(Model model) {
-        InsertDataTable insertDataTable = new InsertDataTable();
-        model.addAttribute("insert", insertDataTable.sqlInsertCheck());
-        return "insert";
-    }
-
-    @RequestMapping("/select")
-    public String select(Model model) {
-        SelectDataFromTable selectDataFromTable = new SelectDataFromTable();
-        selectDataFromTable.initConnection();
-        model.addAttribute("items", selectDataFromTable.selectWholeTable(new Product()));
-        return "select";
     }
 
     @RequestMapping("/menu")
