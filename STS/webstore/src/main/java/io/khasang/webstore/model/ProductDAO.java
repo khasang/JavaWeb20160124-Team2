@@ -13,11 +13,11 @@ import java.util.List;
 /**
  * Выбирает товары, цены и изображения
  */
-public class ViewProducts {
+public class ProductDAO {
     private JdbcTemplate jdbcTemplate;
     private SimpleDriverDataSource dataSource;
 
-    public ViewProducts(SimpleDriverDataSource dataSource) {
+    public ProductDAO(SimpleDriverDataSource dataSource) {
         this.dataSource = dataSource;
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
@@ -50,12 +50,26 @@ public class ViewProducts {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            try {
-                resultSet.close();
-                preparedStatement.close();
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         }
         return products;
