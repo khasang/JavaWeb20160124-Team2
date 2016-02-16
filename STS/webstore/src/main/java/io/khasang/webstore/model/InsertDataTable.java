@@ -18,9 +18,9 @@ public class InsertDataTable {
             System.out.println("Creating tables");
             jdbcTemplate.execute("DROP TABLE IF EXISTS products");
             jdbcTemplate.execute("create table products(ID INT NOT NULL,"
-                    + " pname MEDIUMTEXT NOT NULL, description MEDIUMTEXT NOT NULL)");
-            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(7, 'milk', 'cow')");
-            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(8, 'bread', 'grey')");
+                    + " pname MEDIUMTEXT NOT NULL, product MEDIUMTEXT NOT NULL)");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, product) VALUES(7, 'milk', 'cow')");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, product) VALUES(8, 'bread', 'grey')");
             sqlCheck = "db updated";
         } catch (Exception e) {
             sqlCheck = "Have error: " + e;

@@ -1,9 +1,13 @@
 package io.khasang.webstore.controller;
 
-import io.khasang.webstore.model.CreateDataTable;
+import io.khasang.webstore.model.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 public class AppController {
@@ -14,10 +18,35 @@ public class AppController {
         return "welcome";
     }
 
-    @RequestMapping("/backup")
+    @RequestMapping("/backup") // todo eborod select current tables and backup with mysqldump Runtime runtime = Runtime.getRuntime();
+    // todo "mysqldump eshop -u root -proot -r \"C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Uploads\\backup.sql\"");
     public String backup(Model model) {
         model.addAttribute("backup", "Success");
         return "backup";
+    }
+
+    @RequestMapping("/drop") // todo vzatch input table name and button to drop
+    public String drop(Model model) {
+        model.addAttribute("drop", "Success");
+        return "drop";
+    }
+
+    @RequestMapping("/cost") // todo yminee join tables product and cost with id, select all columns
+        public String cost(Model model) {
+        model.addAttribute("cost", "");
+        return "cost";
+    }
+
+    @Autowired
+    @Qualifier("viewProducts")
+    ProductDAO productDAO;
+
+    @RequestMapping("/viewproducts") // todo lselez show all products from table products like table with image and prices
+    public String viewProducts(Model model) {
+        List<ProductPojo> products = productDAO.getAll();
+        model.addAttribute("page_name", "Корзина");
+        model.addAttribute("viewproducts", products);
+        return "viewproducts";
     }
 
     @RequestMapping("/admin")
