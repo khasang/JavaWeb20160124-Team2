@@ -2,9 +2,6 @@ body  {
     background-image: url("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTZFOG0Ond_bHF8lrfIExrf8RT-12R_tu3WPtaOG5C5RkIHYFWJ");
     overflow: scroll;
 }
-.a_menu :hover{
-    background-color: darkgray;
-}
 .blockUp{
      background-color: steelblue;
      border-style: double;
@@ -44,6 +41,9 @@ body  {
     position: relative;
     float: left;
  }
+.block :hover{
+    background-color: darkgray;
+}
 .textWhite{
     font-family: Arial;
     color: aliceblue;
