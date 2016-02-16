@@ -37,11 +37,11 @@ body  {
     color: black;
     padding: 15px;
     height: 100px;
-    width: 150px;
+    width: 120px;
     position: relative;
     float: left;
  }
-.block :hover{
+.block:hover{
     background-color: darkgray;
 }
 .textWhite{
