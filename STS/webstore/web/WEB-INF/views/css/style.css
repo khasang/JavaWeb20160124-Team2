@@ -1,6 +1,10 @@
+p {
+    font-family: Calibri;
+    color: darkblue;
+    font-size: 14px;
+}
 button {
     color: gray;
-    background-color: lightgreen;
     font-size:14px;
     font-family:Calibri;
 }
