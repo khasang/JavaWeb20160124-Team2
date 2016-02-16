@@ -20,10 +20,6 @@ body  {
     height: 300px;
     width: auto;
 }
-.block:hover {
-    border: solid #777;
-    background-color: darkgray;
-}
 .blockDown{
     border-style: double;
     color: black;
@@ -45,6 +41,10 @@ body  {
     position: relative;
     float: left;
  }
+ .block:hover {
+    border: solid #777;
+    background-color: darkgray;
+}
 .textWhite{
     font-family: Arial;
     color: aliceblue;
