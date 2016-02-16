@@ -21,9 +21,9 @@ public class CreateDataTable {
 //            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(1, 'apple', 'red')");
 //            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(2, 'banan', 'yellow')");
 //            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(3, 'bread', null)");
-            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(4, 'milk', 'natural')");
-            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(5, 'becon', null)");
-            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(6, 'bread', 'black')");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, product) VALUES(4, 'milk', 'natural')");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, product) VALUES(5, 'becon', 'beef')");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, product) VALUES(6, 'bread', 'black')");
             sqlCheck = "db updated";
         } catch (Exception e) {
             sqlCheck = "Have error: " + e;

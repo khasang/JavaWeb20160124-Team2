@@ -1,16 +1,20 @@
 package io.khasang.webstore.controller;
 
-import io.khasang.webstore.model.CreateDataTable;
-import io.khasang.webstore.model.SelectDataTable;
 import io.khasang.webstore.model.InsertDataTable;
 import io.khasang.webstore.model.Product;
 import io.khasang.webstore.model.SelectDataFromTable;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 public class AppController {
+    List<Product> products;
+
     @RequestMapping("/")
     public String welcome(Model model) {
         model.addAttribute("greeting", "Welcome to our best Shop!");
@@ -18,8 +22,7 @@ public class AppController {
         return "welcome";
     }
 
-    @RequestMapping("/backup") // todo eborod select current tables and backup with mysqldump Runtime runtime = Runtime.getRuntime();
-    // todo "mysqldump eshop -u root -proot -r \"C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Uploads\\backup.sql\"");
+    @RequestMapping("/backup")
     public String backup(Model model) {
         model.addAttribute("backup", "Success");
         return "backup";
@@ -37,9 +40,15 @@ public class AppController {
         return "cost";
     }
 
+    @Autowired
+    @Qualifier("viewProducts")
+    ProductDAO productDAO;
+
     @RequestMapping("/viewproducts") // todo lselez show all products from table products like table with image and prices
     public String viewProducts(Model model) {
-        model.addAttribute("viewproducts", "");
+        List<ProductPojo> products = productDAO.getAll();
+        model.addAttribute("page_name", "Корзина");
+        model.addAttribute("viewproducts", products);
         return "viewproducts";
     }
 
@@ -49,17 +58,19 @@ public class AppController {
         return "admin";
     }
 
-    @RequestMapping("/insertdata")
-    public String insertData(Model model) {
-        CreateDataTable createDataTable = new CreateDataTable();
-        model.addAttribute("insertdata", createDataTable.sqlInsertCheck());
-        return "insertdata";
+    @RequestMapping("/insert")
+    public String insert(Model model) {
+        InsertDataTable insertDataTable = new InsertDataTable();
+        model.addAttribute("insert", insertDataTable.sqlInsertCheck());
+        return "insert";
     }
 
-    @RequestMapping("/tableselect")
-    public String tableselect(Model model) {
-        model.addAttribute("dropdownlist", "Please, select the table");
-        return "tableselect";
+    @RequestMapping("/select")
+    public String select(Model model) {
+        SelectDataFromTable selectDataFromTable = new SelectDataFromTable();
+        selectDataFromTable.initConnection();
+        model.addAttribute("items", selectDataFromTable.selectWholeTable(new Product()));
+        return "select";
     }
 
     @RequestMapping("/menu")
@@ -74,7 +85,6 @@ public class AppController {
         model.addAttribute("styleOfPageView", "Menu page text - added to testing!");
         return "myPageView";
     }
-}
 
     @RequestMapping("/cart")
     public String cart(Model model) {
@@ -91,7 +101,7 @@ public class AppController {
 
     @RequestMapping("/deletecurrentorder")
     public String deleteCurrentOrder(Model model) {
-        model.addAttribute("deletecurrentorder", ""); //todo vmakar isert to productorder id = current order set cancel.
+        model.addAttribute("deletecurrentorder", ""); //todo vmakar insert to productorder id = current order set cancel.
         return "deletecurrentorder";
     }
 
@@ -114,18 +124,12 @@ public class AppController {
         return "insert";
     }
 
-    @RequestMapping("/select")
+    @RequestMapping("/select") //todo ekarpov select from productorder with id + status in progress and done
     public String select(Model model) {
         SelectDataFromTable selectDataFromTable = new SelectDataFromTable();
         selectDataFromTable.initConnection();
         model.addAttribute("items", selectDataFromTable.selectWholeTable(new Product()));
         return "select";
-    }
-
- 	@RequestMapping("/styleOfPageView")
-    public String styleOfPageView(Model model) {
-        model.addAttribute("styleOfPageView", "Menu page text - added to testing!");
-        return "myPageView";
     }
 }
 

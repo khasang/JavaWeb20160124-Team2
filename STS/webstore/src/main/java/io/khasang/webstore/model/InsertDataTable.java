@@ -3,6 +3,8 @@ package io.khasang.webstore.model;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
+import java.sql.SQLException;
+
 public class InsertDataTable {
     public static String sqlCheck;
 
@@ -18,13 +20,20 @@ public class InsertDataTable {
             System.out.println("Creating tables");
             jdbcTemplate.execute("DROP TABLE IF EXISTS products");
             jdbcTemplate.execute("create table products(ID INT NOT NULL,"
-                    + " pname MEDIUMTEXT NOT NULL, description MEDIUMTEXT NOT NULL)");
-            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(7, 'milk', 'cow')");
-            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(8, 'bread', 'grey')");
+                    + " pName MEDIUMTEXT NOT NULL, description LONGTEXT NULL)");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(1, 'apple', 'red')");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(2, 'milk', 'yellow')");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(3, 'bread', null)");
             sqlCheck = "db updated";
         } catch (Exception e) {
             sqlCheck = "Have error: " + e;
             System.err.println(sqlCheck);
+        } finally {
+            try {
+                dataSource.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
