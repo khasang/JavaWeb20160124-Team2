@@ -3,6 +3,7 @@ package io.khasang.webstore.model;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
 import java.sql.ResultSet;
@@ -31,47 +32,19 @@ public class ProductDAO {
     }
 
     public List<ProductPojo> getAll() {
-        List<ProductPojo> products = new ArrayList<ProductPojo>();
         String sql = "SELECT * FROM products";
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        try {
-            connection = (Connection) this.dataSource.getConnection();
-            preparedStatement = (PreparedStatement) connection.prepareStatement(sql);
-            resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                ProductPojo product = new ProductPojo();
-                product.setID(resultSet.getInt("ID"));
-                product.setPname(resultSet.getString("pname"));
-                product.setProduct(resultSet.getString("product"));
-                products.add(product);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if (resultSet != null) {
-                try {
-                    resultSet.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (preparedStatement != null) {
-                try {
-                    preparedStatement.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        List<ProductPojo> products = this.jdbcTemplate.query(sql, new ProductMapper());
         return products;
+    }
+
+    final private class ProductMapper implements RowMapper<ProductPojo> {
+
+        public ProductPojo mapRow(ResultSet resultSet, int i) throws SQLException {
+            ProductPojo product = new ProductPojo();
+            product.setID(resultSet.getInt("ID"));
+            product.setPname(resultSet.getString("pname"));
+            product.setProduct(resultSet.getString("product"));
+            return product;
+        }
     }
 }
