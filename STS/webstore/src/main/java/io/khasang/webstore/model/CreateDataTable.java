@@ -1,11 +1,8 @@
 package io.khasang.webstore.model;
-
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
-import java.sql.SQLException;
-
-public class InsertDataTable {
+public class CreateDataTable {
     public static String sqlCheck;
 
     public void sqlInsert() {
@@ -18,27 +15,24 @@ public class InsertDataTable {
         System.out.println("try to update db...");
         try {
             System.out.println("Creating tables");
-            jdbcTemplate.execute("DROP TABLE IF EXISTS products");
+            /*jdbcTemplate.execute("DROP TABLE IF EXISTS products");
             jdbcTemplate.execute("create table products(ID INT NOT NULL,"
-                    + " pName MEDIUMTEXT NOT NULL, description LONGTEXT NULL)");
-            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(1, 'apple', 'red')");
-            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(2, 'milk', 'yellow')");
-            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(3, 'bread', null)");
+                    + " pName MEDIUMTEXT NOT NULL, description LONGTEXT)");*/
+//            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(1, 'apple', 'red')");
+//            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(2, 'banan', 'yellow')");
+//            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(3, 'bread', null)");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, product) VALUES(4, 'milk', 'natural')");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, product) VALUES(5, 'becon', 'beef')");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, product) VALUES(6, 'bread', 'black')");
             sqlCheck = "db updated";
         } catch (Exception e) {
             sqlCheck = "Have error: " + e;
             System.err.println(sqlCheck);
-        } finally {
-            try {
-                dataSource.getConnection().close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
     }
 
     public String sqlInsertCheck() {
-        InsertDataTable sql = new InsertDataTable();
+        CreateDataTable sql = new CreateDataTable();
         sql.sqlInsert();
         return sqlCheck;
     }
