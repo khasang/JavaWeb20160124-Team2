@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Proger on 16.02.2016.
+ * Выбирает товары, цены и изображения
  */
 public class ViewProducts {
     private JdbcTemplate jdbcTemplate;
