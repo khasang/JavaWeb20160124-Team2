@@ -1,6 +1,8 @@
 package io.khasang.webstore.controller;
 
-import io.khasang.webstore.model.*;
+import io.khasang.webstore.model.InsertDataTable;
+import io.khasang.webstore.model.Product;
+import io.khasang.webstore.model.SelectDataFromTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -11,6 +13,8 @@ import java.util.List;
 
 @Controller
 public class AppController {
+    List<Product> products;
+
     @RequestMapping("/")
     public String welcome(Model model) {
         model.addAttribute("greeting", "Welcome to our best Shop!");
@@ -18,8 +22,7 @@ public class AppController {
         return "welcome";
     }
 
-    @RequestMapping("/backup") // todo eborod select current tables and backup with mysqldump Runtime runtime = Runtime.getRuntime();
-    // todo "mysqldump eshop -u root -proot -r \"C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Uploads\\backup.sql\"");
+    @RequestMapping("/backup")
     public String backup(Model model) {
         model.addAttribute("backup", "Success");
         return "backup";
@@ -55,17 +58,19 @@ public class AppController {
         return "admin";
     }
 
-    @RequestMapping("/insertdata")
-    public String insertData(Model model) {
-        CreateDataTable createDataTable = new CreateDataTable();
-        model.addAttribute("insertdata", createDataTable.sqlInsertCheck());
-        return "insertdata";
+    @RequestMapping("/insert")
+    public String insert(Model model) {
+        InsertDataTable insertDataTable = new InsertDataTable();
+        model.addAttribute("insert", insertDataTable.sqlInsertCheck());
+        return "insert";
     }
 
-    @RequestMapping("/tableselect")
-    public String tableselect(Model model) {
-        model.addAttribute("dropdownlist", "Please, select the table");
-        return "tableselect";
+    @RequestMapping("/select")
+    public String select(Model model) {
+        SelectDataFromTable selectDataFromTable = new SelectDataFromTable();
+        selectDataFromTable.initConnection();
+        model.addAttribute("items", selectDataFromTable.selectWholeTable(new Product()));
+        return "select";
     }
 
     @RequestMapping("/menu")
