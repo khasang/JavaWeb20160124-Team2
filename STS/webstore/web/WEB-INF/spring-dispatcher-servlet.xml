@@ -16,6 +16,17 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="root"></property>
+        <property name="url" value="jdbc:mysql://localhost/webstore"></property>
+    </bean>
+
+    <bean id="viewProducts" class="io.khasang.webstore.model.ViewProducts">
+        <constructor-arg ref="dataSource"/>
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
     <!-- This tag allows for mapping the dispatcher-servlet to "/" -->
     <mvc:default-servlet-handler/>
 

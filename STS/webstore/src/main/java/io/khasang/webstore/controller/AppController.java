@@ -1,12 +1,13 @@
 package io.khasang.webstore.controller;
 
-import io.khasang.webstore.model.CreateDataTable;
-import io.khasang.webstore.model.InsertDataTable;
-import io.khasang.webstore.model.Product;
-import io.khasang.webstore.model.SelectDataFromTable;
+import io.khasang.webstore.model.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 public class AppController {
@@ -36,9 +37,15 @@ public class AppController {
         return "cost";
     }
 
+    @Autowired
+    @Qualifier("viewProducts")
+    ViewProducts viewProducts;
+
     @RequestMapping("/viewproducts") // todo lselez show all products from table products like table with image and prices
     public String viewProducts(Model model) {
-        model.addAttribute("viewproducts", "");
+        List<ProductPojo> products = viewProducts.getAll();
+        model.addAttribute("page_name", "Корзина");
+        model.addAttribute("viewproducts", products);
         return "viewproducts";
     }
 
