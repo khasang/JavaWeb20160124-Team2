@@ -90,7 +90,7 @@ public class AppController {
 
     @RequestMapping("/login") // todo mbedr jsp login, select user from table logins with login name.
     public String login(Model model) {
-        model.addAttribute("login", "Success");
+        model.addAttribute("login", new Logins(new LocalDataSource().getSource()).getAll());
         return "login";
     }
 
