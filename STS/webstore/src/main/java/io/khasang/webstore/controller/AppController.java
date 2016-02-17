@@ -3,9 +3,6 @@ package io.khasang.webstore.controller;
 import io.khasang.webstore.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +11,18 @@ import java.util.List;
 
 @Controller
 public class AppController {
+    @Autowired
+    @Qualifier("selectDataFromTable")
+    SelectDataFromTable selectDataFromTable;
+
+    @Autowired
+    @Qualifier("viewProducts")
+    ProductDAO productDAO;
+
+    @Autowired
+    @Qualifier("insertDataTable")
+    InsertDataTable insertDataTable;
+
     @RequestMapping("/")
     public String welcome(Model model) {
         model.addAttribute("greeting", "Welcome to our best Shop!");
@@ -39,10 +48,6 @@ public class AppController {
         model.addAttribute("cost", "");
         return "cost";
     }
-
-    @Autowired
-    @Qualifier("viewProducts")
-    ProductDAO productDAO;
 
     @RequestMapping("/viewproducts") // todo lselez show all products from table products like table with image and prices
     public String viewProducts(Model model) {
@@ -77,7 +82,6 @@ public class AppController {
         return "menu";
     }
 
-
     @RequestMapping("/styleOfPageView")
     public String styleOfPageView(Model model) {
         model.addAttribute("styleOfPageView", "Menu page text - added to testing!");
@@ -92,8 +96,7 @@ public class AppController {
 
     @RequestMapping("/createtable")
     public String crateTable(Model model) {
-        InsertDataTable sql = new InsertDataTable();
-        model.addAttribute("createtable", sql.sqlInsertCheck());
+        model.addAttribute("createtable", insertDataTable.sqlInsertCheck());
         return "createtable";
     }
 
@@ -117,14 +120,12 @@ public class AppController {
 
     @RequestMapping("/insert")
     public String insert(Model model) {
-        InsertDataTable insertDataTable = new InsertDataTable();
         model.addAttribute("insert", insertDataTable.sqlInsertCheck());
         return "insert";
     }
 
     @RequestMapping("/select") //todo ekarpov select from productorder with id + status in progress and done
     public String select(Model model) {
-        SelectDataFromTable selectDataFromTable = new SelectDataFromTable();
         selectDataFromTable.initConnection();
         model.addAttribute("items", selectDataFromTable.selectWholeTable(new Product()));
         return "select";
