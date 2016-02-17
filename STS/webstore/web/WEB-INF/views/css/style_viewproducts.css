@@ -107,7 +107,7 @@ button {
     background: #DF314D;
     border-radius: 3px;
     display: block;
-    position: relative;
+    position: absolute;
     padding: 10px 7px;
     float: left;
 }
