@@ -58,11 +58,4 @@ public class ProductPojo {
     public void setCost(int cost) {
         this.cost = cost;
     }
-
-    @Override
-    public String toString() {
-        return "ID: " + getID() +
-                " NAME: " + getPname() +
-                " DESCRIPTION: " + getProduct();
-    }
 }
