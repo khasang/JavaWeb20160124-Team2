@@ -11,7 +11,7 @@ import java.util.List;
 
 @Controller
 public class AppController {
-    List<Product> products;
+    List<Productorder> productorders;
 
     @RequestMapping("/")
     public String welcome(Model model) {
@@ -42,7 +42,7 @@ public class AppController {
     @Qualifier("viewProducts")
     ProductDAO productDAO;
 
-    @RequestMapping("/viewproducts") // todo lselez show all products from table products like table with image and prices
+    @RequestMapping("/viewproducts") // todo lselez show all productorders from table productorders like table with image and prices
     public String viewProducts(Model model) {
         List<ProductPojo> products = productDAO.getAll();
         model.addAttribute("page_name", "Корзина");
@@ -107,11 +107,13 @@ public class AppController {
         return "insert";
     }
 
+    @Autowired
+    @Qualifier("selectDataFromTable")
+    SelectDataFromTable selectDataFromTable;
+
     @RequestMapping("/select") //todo ekarpov select from productorder with id + status in progress and done
     public String select(Model model) {
-        SelectDataFromTable selectDataFromTable = new SelectDataFromTable();
-        selectDataFromTable.initConnection();
-        model.addAttribute("items", selectDataFromTable.selectWholeTable(new Product()));
+        model.addAttribute("items", selectDataFromTable.selectWholeTable(new Productorder()));
         return "select";
     }
 }

@@ -17,17 +17,17 @@
         <table id="cart_table">
             <thead>
             <tr>
-                <th>ID</th>
+                <th>id</th>
                 <th>name</th>
                 <th>description</th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${viewproducts}" var="product">
+            <c:forEach items="${viewproducts}" var="productorder">
                 <tr>
-                    <td><c:out value="${product.ID}" /></td>
-                    <td><c:out value="${product.pname}" /></td>
-                    <td><c:out value="${product.product}" /></td>
+                    <td><c:out value="${productorder.id}" /></td>
+                    <td><c:out value="${productorder.pname}" /></td>
+                    <td><c:out value="${productorder.productorder}" /></td>
                 </tr>
             </c:forEach>
             </tbody>
