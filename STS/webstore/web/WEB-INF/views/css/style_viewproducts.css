@@ -103,6 +103,10 @@ button {
     background: #C9223D;
 }
 
+#sidebar {
+    padding-top: 32px;
+}
+
 .main-content #sidebar-toggle {
     background: #DF314D;
     border-radius: 3px;

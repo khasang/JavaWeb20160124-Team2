@@ -32,8 +32,8 @@
     <div id="div_container">
         <h1>${page_name}</h1>
         <div id="buttons_container">
-            <button id="button_logout">Выход</button>
-            <button id="button_menu">Меню</button>
+            <%--<button id="button_logout">Выход</button>--%>
+            <%--<button id="button_menu">Меню</button>--%>
         </div>
         <c:choose>
             <c:when test="${viewproducts.size() > '0'}">
@@ -137,7 +137,7 @@
             }
         }
 
-        var menuButton = document.getElementById("button_menu"),
+        var menuButton = document.getElementById("sidebar-toggle"),
                 sidebar = document.getElementById("sidebar"),
                 CLOSE = -240,
                 OPEN = 0,
