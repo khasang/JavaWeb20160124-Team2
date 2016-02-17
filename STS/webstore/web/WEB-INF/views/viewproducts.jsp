@@ -41,6 +41,7 @@
                     <thead>
                     <tr>
                         <th>ID</th>
+                        <th>image</th>
                         <th>name</th>
                         <th>description</th>
                         <th>cost</th>
@@ -50,6 +51,7 @@
                     <c:forEach items="${viewproducts}" var="product">
                         <tr>
                             <td><c:out value="${product.ID}"/></td>
+                            <td><img style="width:100px" alt="Фото товара отсутствует" src="css/fotonotfound.png" /></td>
                             <td><c:out value="${product.pname}"/></td>
                             <td><c:out value="${product.product}"/></td>
                             <td>100</td>
@@ -141,7 +143,7 @@
                 timers.stop();
                 timers.add(function () {
                     sidebar.style.left = menuLeft + "px";
-                    menuLeft += 5;
+                    menuLeft += 10;
                     if (menuLeft >= 0) {
                         menuLeft = 0;
                         sidebar.style.left = menuLeft + "px";
@@ -152,7 +154,7 @@
                 timers.stop();
                 timers.add(function () {
                     sidebar.style.left = menuLeft + "px";
-                    menuLeft -= 5;
+                    menuLeft -= 10;
                     if (menuLeft <= -240) {
                         menuLeft = -240;
                         sidebar.style.left = menuLeft + "px";

@@ -47,7 +47,7 @@ public class AppController {
     @RequestMapping("/viewproducts") // todo lselez show all products from table products like table with image and prices
     public String viewProducts(Model model) {
         List<ProductPojo> products = productDAO.getAll();
-        model.addAttribute("page_name", "Корзина");
+        model.addAttribute("page_name", "Список товаров");
         model.addAttribute("viewproducts", products);
         return "viewproducts";
     }
