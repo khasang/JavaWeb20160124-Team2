@@ -116,12 +116,20 @@
                 this.timers.push(fn);
             },
             start: function() {
-                if(this.timerId) return;
+                if(this.timerId) {
+                    console.log("RETURN");
+                    return;
+                }
                 (function runNext() {
                     if(timers.timers.length > 0) {
                         for(var i = 0; i < timers.timers.length; i += 1) {
                             if(timers.timers[i]() === false) {
                                 timers.timers.splice(i, 1);
+                                if(timers.timers.length == 0) {
+                                    clearTimeout(timers.timerId);
+                                    timers.timerId = 0;
+                                    return;
+                                }
                                 i -= 1;
                             }
                             timers.timerId = setTimeout(runNext, 0);
@@ -135,39 +143,43 @@
             }
         }
 
+        var CLOSE = -240,
+                OPEN = 0,
+                INTERVAL = 10;
+
+        var menuButton = document.getElementById("button_menu"),
+                sidebar = document.getElementById("sidebar"),
+                menuLeft = CLOSE;
+
         /**
          * Устанавливает таймер для открытия или закрытия меню
          */
         function setTimers() {
-            if(menuLeft < 0) {
-                timers.stop();
+            if (menuLeft == CLOSE) {
                 timers.add(function () {
                     sidebar.style.left = menuLeft + "px";
-                    menuLeft += 10;
-                    if (menuLeft >= 0) {
-                        menuLeft = 0;
+                    menuLeft += INTERVAL;
+                    if (menuLeft >= OPEN) {
+                        menuLeft = OPEN;
                         sidebar.style.left = menuLeft + "px";
                         return false;
                     }
                 });
-            } else {
-                timers.stop();
+                timers.start();
+            } else if(menuLeft == OPEN) {
+                console.log("ELSE" + timers.timerId);
                 timers.add(function () {
                     sidebar.style.left = menuLeft + "px";
-                    menuLeft -= 10;
-                    if (menuLeft <= -240) {
-                        menuLeft = -240;
+                    menuLeft -= INTERVAL;
+                    if (menuLeft <= CLOSE) {
+                        menuLeft = CLOSE;
                         sidebar.style.left = menuLeft + "px";
                         return false;
                     }
                 });
+                timers.start();
             }
-            timers.start();
         }
-
-        var menuButton = document.getElementById("button_menu"),
-                sidebar = document.getElementById("sidebar"),
-                menuLeft = -240;
 
         utils.addListener(menuButton, "click", setTimers);
     }
