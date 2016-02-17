@@ -41,7 +41,7 @@ public class ProductDAO {
 
         public ProductPojo mapRow(ResultSet resultSet, int i) throws SQLException {
             ProductPojo product = new ProductPojo();
-            product.setID(resultSet.getInt("ID"));
+            product.setID(resultSet.getInt(1));
             product.setPname(resultSet.getString("pname"));
             product.setProduct(resultSet.getString("product"));
             return product;

@@ -8,7 +8,7 @@ public class ProductPojo {
     private String pname;
     private String product;
     private String imgSrc;
-    private double cost;
+    private int cost;
 
     public ProductPojo() {
     }
@@ -51,11 +51,11 @@ public class ProductPojo {
         this.imgSrc = imgSrc;
     }
 
-    public double getCost() {
+    public int getCost() {
         return cost;
     }
 
-    public void setCost(double cost) {
+    public void setCost(int cost) {
         this.cost = cost;
     }
 
