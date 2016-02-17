@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: admin
@@ -15,15 +16,13 @@
 </head>
 <body>
 <form>
-    <fieldset >
+    <fieldset>
         Имя:<br>
-        <input list="logins" name="browser">
-        <datalist id="logins">
-            <option value="Internet Explorer">
-            <option value="Firefox">
-            <option value="Chrome">
-            <option value="Opera">
-            <option value="Safari">
+        <input list="users" name="browser">
+        <datalist id="users">
+            <c:forEach items="${login}" var="users">
+                <option value=${users.login} />
+            </c:forEach>
         </datalist>
         <br>
         Пароль:<br>
