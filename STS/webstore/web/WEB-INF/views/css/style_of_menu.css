@@ -3,14 +3,14 @@ body  {
     overflow: scroll;
 }
 .blockUp{
-     background-color: steelblue;
-     border-style: double;
-     color: black;
-     margin: 10px;
-     padding: 25px;
-     height: 100px;
-     width: auto;
- }
+    background-color: steelblue;
+    border-style: double;
+    color: black;
+    margin: 10px;
+    padding: 25px;
+    height: 100px;
+    width: auto;
+}
 .blockTop{
     background-image: url("https://www.healthcare.gov/images/hero/Employer.jpg");
     border-style: double;
@@ -31,7 +31,7 @@ body  {
     left: 10%;
 }
 .block{
-    background-color: steelblue;
+    background-color: #0c648c;
     border-style: double;
     border-color: darkblue;
     color: black;
@@ -40,11 +40,20 @@ body  {
     width: 120px;
     position: relative;
     float: left;
- }
+}
 .block:hover{
     background-color: darkgray;
+    border-color: grey;
 }
 .textWhite{
     font-family: Arial;
     color: aliceblue;
+}
+.btn{
+    background-color: #0c648c;
+    color: black;
+    margin: 0 auto;
+    text-align: center;
+    height: 30px;
+    width: 80px;
 }
