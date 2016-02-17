@@ -22,11 +22,8 @@
             <option>table3</option></select>
         </td>
         <td>
-            <form >
-                <input type="button" value="Join" class="button" onclick="javascript:window.location='http://localhost:8080/cost'"/>
-            </form>
+            <button class="button">Join</button>
         </td>
-
     </tr>
 </table>
 <br/><br/><br/>

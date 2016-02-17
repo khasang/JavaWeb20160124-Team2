@@ -1,9 +1,6 @@
 package io.khasang.webstore.controller;
 
-import io.khasang.webstore.model.CreateDataTable;
-import io.khasang.webstore.model.InsertDataTable;
-import io.khasang.webstore.model.Product;
-import io.khasang.webstore.model.SelectDataFromTable;
+import io.khasang.webstore.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +29,12 @@ public class AppController {
 
     @RequestMapping("/cost") // todo yminee join tables product and cost with id, select all columns
         public String cost(Model model) {
-        model.addAttribute("cost", "");
+        CreateCostsTable createCostsTable = new CreateCostsTable();
+        SelectDataFromTable selectDataFromTable = new SelectDataFromTable();
+        selectDataFromTable.initConnection();
+        model.addAttribute("cost", "Стоимость выбранных товаров");
+        model.addAttribute("items", selectDataFromTable.selectWholeTable(new Costs()));
+        model.addAttribute("insertcosts", createCostsTable.sqlInsertCheck());
         return "cost";
     }
 

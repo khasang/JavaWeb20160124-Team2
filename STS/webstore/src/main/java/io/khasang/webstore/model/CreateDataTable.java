@@ -15,12 +15,12 @@ public class CreateDataTable {
         System.out.println("try to update db...");
         try {
             System.out.println("Creating tables");
-            /*jdbcTemplate.execute("DROP TABLE IF EXISTS products");
+            jdbcTemplate.execute("DROP TABLE IF EXISTS products");
             jdbcTemplate.execute("create table products(ID INT NOT NULL,"
-                    + " pName MEDIUMTEXT NOT NULL, description LONGTEXT)");*/
-//            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(1, 'apple', 'red')");
-//            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(2, 'banan', 'yellow')");
-//            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(3, 'bread', null)");
+                    + " pName MEDIUMTEXT NOT NULL, description LONGTEXT)");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(1, 'apple', 'red')");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(2, 'banan', 'yellow')");
+            jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(3, 'bread', null)");
             jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(4, 'milk', 'natural')");
             jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(5, 'becon', null)");
             jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(6, 'bread', 'black')");
