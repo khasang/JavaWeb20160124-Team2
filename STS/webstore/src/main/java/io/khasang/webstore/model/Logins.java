@@ -29,10 +29,6 @@ public class Logins {
     public List<Login> getAll() {
         String sql = "SELECT * FROM logins;";
         List<Login> logins = this.jdbcTemplate.query(sql, new LoginMapper());
-
-        for (Login login : logins) {
-            System.err.println(login.getLogin());
-        }
         return logins;
     }
 
