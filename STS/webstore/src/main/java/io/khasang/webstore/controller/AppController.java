@@ -110,11 +110,36 @@ public class AppController {
     @Autowired
     @Qualifier("selectDataFromTable")
     SelectDataFromTable selectDataFromTable;
+    @Autowired
+    @Qualifier("productorder")
+    TableObjectInterface tableObjectInterface;
 
     @RequestMapping("/select") //todo ekarpov select from productorder with id + status in progress and done
     public String select(Model model) {
-        model.addAttribute("items", selectDataFromTable.selectWholeTable(new Productorder()));
+        model.addAttribute("items", selectDataFromTable.selectWholeTable(tableObjectInterface));
         return "select";
+    }
+
+    @Autowired
+    @Qualifier("customerCart")
+    CustomerCart customerCart;
+
+    /*Иной способ отображения корзины клиента
+    Имеет методы addItem, removeItem и getCartItems
+    Корректно пересчитывает quantity одинаковых товаров при добавлении и удалении товара*/
+    @RequestMapping("/managecustomercart")
+    public String managecustomercart(Model model) {
+        /*пример добавления и удаления элементов из корзины*/
+        customerCart.addItem("Apple", "Red one", 415);
+        customerCart.addItem("Apple", "Red one", 415);
+        customerCart.addItem("Apple", "Red one", 415);
+        customerCart.addItem("Apple", "Red one", 415);
+        customerCart.removeItem("Apple");
+        customerCart.addItem("Orange", "Orange one", 415);
+        customerCart.addItem("Orange", "Another one", 415);
+        /**/
+        model.addAttribute("cartitems", customerCart.getCartItems());
+        return "managecustomercart";
     }
 }
 

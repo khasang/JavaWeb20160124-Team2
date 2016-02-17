@@ -38,6 +38,8 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
     <bean id="productorder" class="io.khasang.webstore.model.Productorder" scope="prototype">
         <constructor-arg ref="dataSource"/>
         <constructor-arg ref="jdbcTemplate"/></bean>
+
+    <bean id="customerCart" class="io.khasang.webstore.model.CustomerCart" scope="prototype"></bean>
     <!-- This tag allows for mapping the dispatcher-servlet to "/" -->
     <mvc:default-servlet-handler/>
 

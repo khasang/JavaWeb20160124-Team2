@@ -11,6 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Select table page</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <style>
         table, th, td {
             border: 1px solid black;
@@ -18,7 +19,7 @@
     </style>
 </head>
 <body>
-<p style="text-align: center">Берет содержимое таблицы products и динамически рисует ее содержимое</p>
+<p style="text-align: center">Берет содержимое таблицы productorder и динамически рисует ее содержимое</p>
 <table align="center">
     <tr>
         <th>id</th>
