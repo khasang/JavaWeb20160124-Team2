@@ -24,6 +24,14 @@ public class AppController {
 
     // ***************************
 
+    @RequestMapping("/alldatatable")
+    public String createDataTableAllTable(Model model) {
+        CreateDataTableAllTable dataTableAllTable = new CreateDataTableAllTable();
+        dataTableAllTable.connectionToDB();
+        model.addAttribute(dataTableAllTable.sqlInsertCheck());
+        return "allDataTable";
+    }
+
     @RequestMapping("/drop") // todo vzatch input table name and button to drop
     public String drop(Model model) {
         return "drop";
