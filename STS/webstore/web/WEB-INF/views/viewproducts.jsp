@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container">
-    <div id="sidebar">
+    <div id="sidebar" class="close">
         <ul>
             <li><a href="#">Главная</a></li>
             <li><a href="#">Каталог</a></li>
@@ -20,7 +20,7 @@
     </div>
     <div class="main-content">
         <div class="swipe-area"></div>
-            <a href="#" data-toggle=".container" id="sidebar-toggle">
+            <a href="#" data-toggle=".container" id="sidebar-toggle" class="inTheLeftPosition">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -66,116 +66,87 @@
         </c:choose>
     </div>
 </div>
+<script type="text/javascript" src="js/clickAndTimer.js"></script>
 <script type="text/javascript">
-    window.onload = function () {
-        /**
-         * Через этот объект кроссбраузерно добавляем события к элементам
-         */
-        var utils = {
-            addListener: null,
-            removeListener: null
-        };
+var menuButtonEl = document.getElementById("sidebar-toggle"),
+        sidebarEl = document.getElementById("sidebar"),
+        sidebarX = -240,
+        sidebarY = 0,
+        menuButtonX = 0,
+        menuButtonY = 0;
 
-        /**
-         * Добавление события к элементу
-         * addEventListener - новые броузеры
-         * attachEvent - IE
-         * остальные - совсем устаревшие
-         */
-        if(typeof window.addEventListener == "function") {
-            utils.addListener = function(el, type, fn) {
-                el.addEventListener(type, fn, false);
-            }
-            utils.removeListener = function(el, type, fn) {
-                el.removeEventListener(type, fn, false);
-            }
-        } else if(typeof document.attachEvent == "function") {
-            utils.addListener = function(el, type, fn) {
-                el.attachEvent("on" + type, fn);
-            }
-            utils.removeListener = function(el, type, fn) {
-                el.detachEvent("on" + type, fn);
-            }
-        } else {
-            utils.addListener = function(el, type, fn) {
-                el["on" + type] = fn;
-            }
-            utils.removeListener = function(el, type, fn) {
-                el["on" + type] = null;
-            }
+var sidebar = {
+    openMenu: function() {
+        sidebarEl.style.left = sidebarX + "px";
+        sidebarX += 2;
+        if(sidebarX >= 0) {
+            sidebarX == 0;
+            sidebarEl.style.left = sidebarX + "px";
+            sidebarEl.classList.add("open");
+            sidebarEl.classList.remove("close");
+            return false;
         }
-
-        /**
-         * Объект учитывает работу таймеров
-         * @type {{timerId: number, timers: Array, add: timers.add, start: timers.start, stop: timers.stop}}
-         */
-        var timers = {
-            timerId: 0,
-            timers: [],
-            add: function(fn) {
-                this.timers.push(fn);
-            },
-            start: function() {
-                if(this.timerId) {
-                    return;
-                }
-                (function runNext() {
-                    if(timers.timers.length > 0) {
-                        for(var i = 0; i < timers.timers.length; i += 1) {
-                            if(timers.timers[i]() === false) {
-                                timers.timers.splice(i, 1);
-                                i -= 1;
-                            }
-                            timers.timerId = setTimeout(runNext, 0);
-                        }
-                    }
-                })();
-            },
-            stop: function() {
-                clearTimeout(this.timerId);
-                this.timerId = 0;
-            }
+    },
+    closeMenu: function() {
+        sidebarEl.style.left = sidebarX + "px";
+        sidebarX -= 1;
+        if(sidebarX <= -240) {
+            sidebarX == -240;
+            sidebarEl.style.left = sidebarX + "px";
+            sidebarEl.classList.add("close");
+            sidebarEl.classList.remove("open");
+            return false;
         }
-
-        var menuButton = document.getElementById("sidebar-toggle"),
-                sidebar = document.getElementById("sidebar"),
-                CLOSE = -240,
-                OPEN = 0,
-                INTERVAL = 10,
-                menuLeft = CLOSE;
-        /**
-         * Устанавливает таймер для открытия или закрытия меню
-         */
-        function setTimers() {
-            if(timers.timers.length == 0) {
-                timers.stop();
-            }
-            if (menuLeft == CLOSE) {
-                timers.add(function () {
-                    sidebar.style.left = menuLeft + "px";
-                    menuLeft += INTERVAL;
-                    if (menuLeft >= OPEN) {
-                        menuLeft = OPEN;
-                        sidebar.style.left = menuLeft + "px";
-                        return false;
-                    }
-                });
-            } else if(menuLeft == OPEN) {
-                timers.add(function () {
-                    sidebar.style.left = menuLeft + "px";
-                    menuLeft -= INTERVAL;
-                    if (menuLeft <= CLOSE) {
-                        menuLeft = CLOSE;
-                        sidebar.style.left = menuLeft + "px";
-                        return false;
-                    }
-                });
-            }
-            timers.start();
-        }
-
-        utils.addListener(menuButton, "click", setTimers);
     }
+};
+
+var menuButton = {
+    moveButtonToRight: function() {
+        menuButtonEl.style.left = menuButtonX + "px";
+        menuButtonX += 1;
+        if(menuButtonX >= 240) {
+            menuButtonX == 240;
+            menuButtonEl.style.left = menuButtonX + "px";
+            menuButtonEl.classList.add("inTheRightPosition");
+            menuButtonEl.classList.remove("inTheLeftPosition");
+            return false;
+        }
+    },
+    moveButtonToLeft: function() {
+        menuButtonEl.style.left = menuButtonX + "px";
+        menuButtonX -= 2;
+        if(menuButtonX <= 0) {
+            menuButtonX == 0;
+            menuButtonEl.style.left = menuButtonX + "px";
+            menuButtonEl.classList.add("inTheLeftPosition");
+            menuButtonEl.classList.remove("inTheRightPosition");
+            return false;
+        }
+    }
+}
+
+utils.addListener(menuButtonEl, "click", function(event) {
+    if(event.preventDefault) {
+        event.preventDefault();
+    } else {
+        event.returnValue = false;
+    }
+
+    if(sidebarEl.classList.contains("close") && menuButtonEl.classList.contains("inTheLeftPosition")) {
+        timers.stop();
+        timers.add(sidebar.openMenu);
+        timers.add(menuButton.moveButtonToRight);
+    } else if (sidebarEl.classList.contains("open") && menuButtonEl.classList.contains("inTheRightPosition")) {
+        timers.stop();
+        timers.add(sidebar.closeMenu);
+        timers.add(menuButton.moveButtonToLeft);
+    } else {
+        return false;
+    }
+
+    timers.setTimeout(40);
+    timers.start();
+});
 </script>
 </body>
 </html>
