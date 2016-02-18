@@ -70,17 +70,21 @@
 <script type="text/javascript">
 var menuButtonEl = document.getElementById("sidebar-toggle"),
         sidebarEl = document.getElementById("sidebar"),
-        sidebarX = -240,
-        sidebarY = 0,
-        menuButtonX = 0,
-        menuButtonY = 0;
+        sidebarXPositionOpen = 0,
+        sidebarXPositionClose = -240,
+        menuButtonXRightPosition = 240,
+        menuButtonXLeftPosition = 0,
+        sidebarX = sidebarXPositionClose,
+        sidebarY,
+        menuButtonX = menuButtonXLeftPosition,
+        menuButtonY;
 
 var sidebar = {
     openMenu: function() {
         sidebarEl.style.left = sidebarX + "px";
         sidebarX += 2;
-        if(sidebarX >= 0) {
-            sidebarX == 0;
+        if(sidebarX >= sidebarXPositionOpen) {
+            sidebarX == sidebarXPositionOpen;
             sidebarEl.style.left = sidebarX + "px";
             sidebarEl.classList.add("open");
             sidebarEl.classList.remove("close");
@@ -90,8 +94,8 @@ var sidebar = {
     closeMenu: function() {
         sidebarEl.style.left = sidebarX + "px";
         sidebarX -= 1;
-        if(sidebarX <= -240) {
-            sidebarX == -240;
+        if(sidebarX <= sidebarXPositionClose) {
+            sidebarX = sidebarXPositionClose;
             sidebarEl.style.left = sidebarX + "px";
             sidebarEl.classList.add("close");
             sidebarEl.classList.remove("open");
@@ -104,8 +108,8 @@ var menuButton = {
     moveButtonToRight: function() {
         menuButtonEl.style.left = menuButtonX + "px";
         menuButtonX += 1;
-        if(menuButtonX >= 240) {
-            menuButtonX == 240;
+        if(menuButtonX >= menuButtonXRightPosition) {
+            menuButtonX = menuButtonXRightPosition;
             menuButtonEl.style.left = menuButtonX + "px";
             menuButtonEl.classList.add("inTheRightPosition");
             menuButtonEl.classList.remove("inTheLeftPosition");
@@ -115,8 +119,8 @@ var menuButton = {
     moveButtonToLeft: function() {
         menuButtonEl.style.left = menuButtonX + "px";
         menuButtonX -= 2;
-        if(menuButtonX <= 0) {
-            menuButtonX == 0;
+        if(menuButtonX <= menuButtonXLeftPosition) {
+            menuButtonX = menuButtonXLeftPosition;
             menuButtonEl.style.left = menuButtonX + "px";
             menuButtonEl.classList.add("inTheLeftPosition");
             menuButtonEl.classList.remove("inTheRightPosition");
