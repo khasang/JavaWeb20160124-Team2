@@ -84,7 +84,7 @@ var sidebar = {
         sidebarEl.style.left = sidebarX + "px";
         sidebarX += 2;
         if(sidebarX >= sidebarXPositionOpen) {
-            sidebarX == sidebarXPositionOpen;
+            sidebarX = sidebarXPositionOpen;
             sidebarEl.style.left = sidebarX + "px";
             sidebarEl.classList.add("open");
             sidebarEl.classList.remove("close");
