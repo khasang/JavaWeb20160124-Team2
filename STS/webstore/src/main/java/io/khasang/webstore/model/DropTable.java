@@ -9,10 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created by Technology on 16.02.16.
- */
 public class DropTable extends HttpServlet {
+
     public static String sqlCheck;
     public String nameTable;
 
