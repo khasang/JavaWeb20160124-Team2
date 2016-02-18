@@ -66,7 +66,7 @@
         </c:choose>
     </div>
 </div>
-<script type="text/javascript" src="js/clickAndTimer.js"></script>
+<script type="text/javascript" src="js/eventsAndTimers.js"></script>
 <script type="text/javascript">
 var menuButtonEl = document.getElementById("sidebar-toggle"),
         sidebarEl = document.getElementById("sidebar"),
@@ -129,6 +129,9 @@ var menuButton = {
     }
 }
 
+/**
+ * При клике по кнопке меню будет вызываться функция, переданная 3-м параметром.
+ */
 utils.addListener(menuButtonEl, "click", function(event) {
     if(event.preventDefault) {
         event.preventDefault();
