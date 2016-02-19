@@ -11,6 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Select table page</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <style>
         table, th, td {
             border: 1px solid black;
@@ -18,37 +19,28 @@
     </style>
 </head>
 <body>
-<form>
-    <p style="text-align: center"><select size="1" style="">
-        <option>
-            <table border="3">
-                <caption>Products</caption>
-            </table>
-        </option>
-        <option>
-            <table border="3">
-                <caption>table2</caption>
-            </table>
-        </option>
-        <option>
-            <table border="3">
-                <caption>table3</caption>
-            </table>
-        </option>
-    </select></p>
-</form>
-<p style="text-align: center">Берет содержимое таблицы products и динамически рисует ее содержимое</p>
+<p style="text-align: center">Берет содержимое таблицы productorder и динамически рисует ее содержимое</p>
 <table align="center">
     <tr>
-        <th>ID</th>
-        <th>Product Name</th>
-        <th>Description</th>
+        <th>id</th>
+        <th>orderid</th>
+        <th>product</th>
+        <th>count</th>
+        <th>cost</th>
+        <th>totalcost</th>
+        <th>status</th>
+        <th>userid</th>
     </tr>
-    <c:forEach items="${items}" var="product">
+    <c:forEach items="${items}" var="productorder">
         <tr>
-            <td><c:out value="${product.ID}"/></td>
-            <td><c:out value="${product.pName}"/></td>
-            <td><c:out value="${product.description}"/></td>
+            <td><c:out value="${productorder.id}"/></td>
+            <td><c:out value="${productorder.orderid}"/></td>
+            <td><c:out value="${productorder.product}"/></td>
+            <td><c:out value="${productorder.count}"/></td>
+            <td><c:out value="${productorder.cost}"/></td>
+            <td><c:out value="${productorder.totalcost}"/></td>
+            <td><c:out value="${productorder.status}"/></td>
+            <td><c:out value="${productorder.userid}"/></td>
         </tr>
     </c:forEach>
     </tr>

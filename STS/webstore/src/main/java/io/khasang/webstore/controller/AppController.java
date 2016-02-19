@@ -1,8 +1,6 @@
 package io.khasang.webstore.controller;
 
-import io.khasang.webstore.model.InsertDataTable;
-import io.khasang.webstore.model.Product;
-import io.khasang.webstore.model.SelectDataFromTable;
+import io.khasang.webstore.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -13,7 +11,7 @@ import java.util.List;
 
 @Controller
 public class AppController {
-    List<Product> products;
+    List<Productorder> productorders;
 
     @RequestMapping("/")
     public String welcome(Model model) {
@@ -44,7 +42,7 @@ public class AppController {
     @Qualifier("viewProducts")
     ProductDAO productDAO;
 
-    @RequestMapping("/viewproducts") // todo lselez show all products from table products like table with image and prices
+    @RequestMapping("/viewproducts") // todo lselez show all productorders from table productorders like table with image and prices
     public String viewProducts(Model model) {
         List<ProductPojo> products = productDAO.getAll();
         model.addAttribute("page_name", "Корзина");
@@ -56,21 +54,6 @@ public class AppController {
     public String admin(Model model) {
         model.addAttribute("admin", "You are number 1!");
         return "admin";
-    }
-
-    @RequestMapping("/insert")
-    public String insert(Model model) {
-        InsertDataTable insertDataTable = new InsertDataTable();
-        model.addAttribute("insert", insertDataTable.sqlInsertCheck());
-        return "insert";
-    }
-
-    @RequestMapping("/select")
-    public String select(Model model) {
-        SelectDataFromTable selectDataFromTable = new SelectDataFromTable();
-        selectDataFromTable.initConnection();
-        model.addAttribute("items", selectDataFromTable.selectWholeTable(new Product()));
-        return "select";
     }
 
     @RequestMapping("/menu")
@@ -124,12 +107,39 @@ public class AppController {
         return "insert";
     }
 
+    @Autowired
+    @Qualifier("selectDataFromTable")
+    SelectDataFromTable selectDataFromTable;
+    @Autowired
+    @Qualifier("productorder")
+    TableObjectInterface tableObjectInterface;
+
     @RequestMapping("/select") //todo ekarpov select from productorder with id + status in progress and done
     public String select(Model model) {
-        SelectDataFromTable selectDataFromTable = new SelectDataFromTable();
-        selectDataFromTable.initConnection();
-        model.addAttribute("items", selectDataFromTable.selectWholeTable(new Product()));
+        model.addAttribute("items", selectDataFromTable.selectWholeTable(tableObjectInterface));
         return "select";
+    }
+
+    @Autowired
+    @Qualifier("customerCart")
+    CustomerCart customerCart;
+
+    /*Иной способ отображения корзины клиента
+    Имеет методы addItem, removeItem и getCartItems
+    Корректно пересчитывает quantity одинаковых товаров при добавлении и удалении товара*/
+    @RequestMapping("/managecustomercart")
+    public String managecustomercart(Model model) {
+        /*пример добавления и удаления элементов из корзины*/
+        customerCart.addItem("Apple", "Red one", 415);
+        customerCart.addItem("Apple", "Red one", 415);
+        customerCart.addItem("Apple", "Red one", 415);
+        customerCart.addItem("Apple", "Red one", 415);
+        customerCart.removeItem("Apple");
+        customerCart.addItem("Orange", "Orange one", 415);
+        customerCart.addItem("Orange", "Another one", 415);
+        /**/
+        model.addAttribute("cartitems", customerCart.getCartItems());
+        return "managecustomercart";
     }
 }
 
