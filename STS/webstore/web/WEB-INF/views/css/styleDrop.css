@@ -1,28 +1,38 @@
 body {
-    color: darkblue;
+    color: white;
     font-family: Arial; /* In iOS calibri rendered in arial or bought */
-    font-size: 14px;
-    background-color: cornsilk;
+    text-shadow:
+            -2px -2px 0 #000,
+            2px -2px 0 #000,
+            -2px 2px 0 #000,
+            2px 2px 0 #000;
+    font-size: 20px;
+    background: url("danger.jpg") no-repeat;
+    background-size: 100%;
 }
 .menuButton {
-    width: 100px;
+    width: 130px;
     height: 50px;
+    font-size: 15px;
+    font-weight: bold;
     border-radius: 5px;
     box-shadow: 0px 4px 4px;
-    border: 2px solid #e34761;
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#ffd1de), color-stop(0.5, rgba(245, 54, 149, 0.64)));
+    border: 4px solid black;
+    background: rgba(162, 231, 174, 0.95);
     margin-left: 18%;
 }
 .menuButton:hover {background: rgba(245, 186, 147, 0.14)}
 .menuButton:active {background: white}
 
 .logoutButton {
-    width: 100px;
+    width: 130px;
     height: 50px;
+    font-size: 15px;
+    font-weight: bold;
     border-radius: 5px;
     box-shadow: 0px 4px 4px;
-    border: 2px solid #e34761;
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#ffd1de), color-stop(0.5, rgba(245, 54, 149, 0.64)));
+    border: 4px solid black;
+    background: rgba(162, 231, 174, 0.95);/*rgba(208, 218, 231, 0.95);*/
     margin-left: 50%;
 
 }
@@ -30,28 +40,55 @@ body {
 .logoutButton:active {background: white}
 
 .selectButton {
-    width: 200px;
-    height: 50px;
+    width: 400px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bold;
     border-radius: 5px;
     box-shadow: 0px 4px 4px;
-    border: 2px solid #e34761;
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#ffd1de), color-stop(0.5, rgba(245, 54, 149, 0.64)));
+    border: 4px solid black;
+    background: rgba(162, 231, 174, 0.95);
 }
 .selectButton:hover {background: rgba(245, 186, 147, 0.14)}
 .selectButton:active {background: white}
 
 .dropButton {
-    width: 80px;
-    height: 30px;
+    width: 130px;
+    height: 50px;
+    font-size: 15px;
+    font-weight: bold;
     border-radius: 5px;
     box-shadow: 0px 4px 4px;
-    border: 2px solid #e34761;
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#ffd1de), color-stop(0.5, rgba(245, 54, 149, 0.64)));
+    border: 4px solid black;
+    background: rgba(231, 83, 64, 0.95);
 }
 .dropButton:hover {background: rgba(245, 186, 147, 0.14)}
 .dropButton:active {background: white}
 
 .placeForInput{
-    border: 2px solid #e34761;
+    width: 400px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    border: 4px solid black;
     box-shadow: 0px 4px 4px;
+}
+
+.b-popup{
+    width:100%;
+    min-height:100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow:hidden;
+    position:fixed;
+    top:0px;
+}
+.b-popup .b-popup-content{
+    margin:40px auto 0px auto;
+    width:200px;
+    height: 200px;
+    padding:10px;
+    background-color: rgba(231, 195, 47, 0.95);
+    border-radius:5px;
+    border: 4px solid black;
+    box-shadow: 0px 0px 10px #000;
 }

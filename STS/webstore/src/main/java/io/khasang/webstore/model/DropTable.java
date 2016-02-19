@@ -117,7 +117,4 @@ public class DropTable extends HttpServlet {
             System.err.println(sqlCheck);
         }
     }
-
-
-
 }
