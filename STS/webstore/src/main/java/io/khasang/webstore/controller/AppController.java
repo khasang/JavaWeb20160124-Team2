@@ -11,7 +11,27 @@ import java.util.List;
 
 @Controller
 public class AppController {
-    List<Productorder> productorders;
+    List<Productorder> productorders; //Под вопросом
+
+    @Autowired
+    @Qualifier("viewProducts")
+    ProductDAO productDAO;
+
+    @Autowired
+    @Qualifier("insertDataTable")
+    InsertDataTable insertDataTable;
+
+    @Autowired
+    @Qualifier("selectDataFromTable")
+    SelectDataFromTable selectDataFromTable;
+
+    @Autowired
+    @Qualifier("productorder")
+    TableObjectInterface tableObjectInterface;
+
+    @Autowired
+    @Qualifier("customerCart")
+    CustomerCart customerCart;
 
     @RequestMapping("/")
     public String welcome(Model model) {
@@ -38,14 +58,11 @@ public class AppController {
         return "cost";
     }
 
-    @Autowired
-    @Qualifier("viewProducts")
-    ProductDAO productDAO;
-
-    @RequestMapping("/viewproducts") // todo lselez show all productorders from table productorders like table with image and prices
+    // todo lselez show all productorders from table productorders like table with image and prices
+    @RequestMapping("/viewproducts") // todo lselez show all products from table products like table with image and prices
     public String viewProducts(Model model) {
         List<ProductPojo> products = productDAO.getAll();
-        model.addAttribute("page_name", "Корзина");
+        model.addAttribute("page_name", "Список товаров");
         model.addAttribute("viewproducts", products);
         return "viewproducts";
     }
@@ -62,7 +79,6 @@ public class AppController {
         return "menu";
     }
 
-
     @RequestMapping("/styleOfPageView")
     public String styleOfPageView(Model model) {
         model.addAttribute("styleOfPageView", "Menu page text - added to testing!");
@@ -77,8 +93,7 @@ public class AppController {
 
     @RequestMapping("/createtable")
     public String crateTable(Model model) {
-        InsertDataTable sql = new InsertDataTable();
-        model.addAttribute("createtable", sql.sqlInsertCheck());
+        model.addAttribute("createtable", insertDataTable.sqlInsertCheck());
         return "createtable";
     }
 
@@ -102,27 +117,15 @@ public class AppController {
 
     @RequestMapping("/insert")
     public String insert(Model model) {
-        InsertDataTable insertDataTable = new InsertDataTable();
         model.addAttribute("insert", insertDataTable.sqlInsertCheck());
         return "insert";
     }
-
-    @Autowired
-    @Qualifier("selectDataFromTable")
-    SelectDataFromTable selectDataFromTable;
-    @Autowired
-    @Qualifier("productorder")
-    TableObjectInterface tableObjectInterface;
 
     @RequestMapping("/select") //todo ekarpov select from productorder with id + status in progress and done
     public String select(Model model) {
         model.addAttribute("items", selectDataFromTable.selectWholeTable(tableObjectInterface));
         return "select";
     }
-
-    @Autowired
-    @Qualifier("customerCart")
-    CustomerCart customerCart;
 
     /*Иной способ отображения корзины клиента
     Имеет методы addItem, removeItem и getCartItems
