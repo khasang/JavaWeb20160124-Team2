@@ -1,3 +1,7 @@
+html, body{
+    height:100%;
+}
+
 #div_container {
     width: 60%;
     min-width: 400px;
@@ -70,7 +74,7 @@ button {
     position: absolute;
     /*width: 240px;*/
     width: 20%;
-    height: 100%;
+    min-height: 100%;
     left: -20%;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
