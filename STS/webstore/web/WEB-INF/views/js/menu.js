@@ -1,3 +1,9 @@
+/**
+ * Анимация бокового меню и элементов страницы при клике на кнопку открытия меню. Пока без возможности
+ * клиентской настройки.
+ * @author LevSeleznev
+ * @version 1.0
+ */
 var menuButtonEl = document.getElementById("sidebar-toggle"),
     sidebarEl = document.getElementById("sidebar"),
     divContainerEl = document.getElementById("div_container"),
@@ -19,11 +25,15 @@ var menuButtonEl = document.getElementById("sidebar-toggle"),
     containerNavX = containerNavXLeftPosition,
     containerNavY;
 
+/**
+ * Отвечает за анимацию бокового меню
+ * @type {{openMenu: sidebar.openMenu, closeMenu: sidebar.closeMenu}}
+ */
 var sidebar = {
-    openMenu: function() {
+    openMenu: function () {
         sidebarEl.style.left = sidebarX + "%";
         sidebarX += 1;
-        if(sidebarX >= sidebarXPositionOpen) {
+        if (sidebarX >= sidebarXPositionOpen) {
             sidebarX = sidebarXPositionOpen;
             sidebarEl.style.left = sidebarX + "%";
             sidebarEl.classList.add("open");
@@ -31,10 +41,10 @@ var sidebar = {
             return false;
         }
     },
-    closeMenu: function() {
+    closeMenu: function () {
         sidebarEl.style.left = sidebarX + "%";
         sidebarX -= 1;
-        if(sidebarX <= sidebarXPositionClose) {
+        if (sidebarX <= sidebarXPositionClose) {
             sidebarX = sidebarXPositionClose;
             sidebarEl.style.left = sidebarX + "%";
             sidebarEl.classList.add("close");
@@ -44,11 +54,15 @@ var sidebar = {
     }
 };
 
+/**
+ * Отвечает за анимацию кнопки открытия меню
+ * @type {{moveButtonToRight: menuButton.moveButtonToRight, moveButtonToLeft: menuButton.moveButtonToLeft}}
+ */
 var menuButton = {
-    moveButtonToRight: function() {
+    moveButtonToRight: function () {
         menuButtonEl.style.left = menuButtonX + "%";
         menuButtonX += 1;
-        if(menuButtonX >= menuButtonXRightPosition) {
+        if (menuButtonX >= menuButtonXRightPosition) {
             menuButtonX = menuButtonXRightPosition;
             menuButtonEl.style.left = menuButtonX + "%";
             menuButtonEl.classList.add("inTheRightPosition");
@@ -56,10 +70,10 @@ var menuButton = {
             return false;
         }
     },
-    moveButtonToLeft: function() {
+    moveButtonToLeft: function () {
         menuButtonEl.style.left = menuButtonX + "%";
         menuButtonX -= 1;
-        if(menuButtonX <= menuButtonXLeftPosition) {
+        if (menuButtonX <= menuButtonXLeftPosition) {
             menuButtonX = menuButtonXLeftPosition;
             menuButtonEl.style.left = menuButtonX + "%";
             menuButtonEl.classList.add("inTheLeftPosition");
@@ -69,11 +83,15 @@ var menuButton = {
     }
 }
 
+/**
+ * Отвечает за анимацию контента
+ * @type {{moveContainerToRight: divContainer.moveContainerToRight, moveContainerToLeft: divContainer.moveContainerToLeft}}
+ */
 var divContainer = {
-    moveContainerToRight: function() {
+    moveContainerToRight: function () {
         divContainerEl.style.left = divContainerX + "%";
         divContainerX += 1;
-        if(divContainerX >= divContainerXRightPosition) {
+        if (divContainerX >= divContainerXRightPosition) {
             divContainerX = divContainerXRightPosition;
             divContainerEl.style.left = divContainerX + "%";
             divContainerEl.classList.add("inTheRightPosition");
@@ -81,10 +99,10 @@ var divContainer = {
             return false;
         }
     },
-    moveContainerToLeft: function() {
+    moveContainerToLeft: function () {
         divContainerEl.style.left = menuButtonX + "%";
         divContainerX -= 1;
-        if(divContainerX <= divContainerXLeftPosition) {
+        if (divContainerX <= divContainerXLeftPosition) {
             divContainerX = divContainerXLeftPosition;
             divContainerEl.style.left = divContainerX + "%";
             divContainerEl.classList.add("inTheLeftPosition");
@@ -94,11 +112,15 @@ var divContainer = {
     }
 }
 
+/**
+ * Отвечает за анимацию верхнего меню
+ * @type {{moveContainerToRight: containerNav.moveContainerToRight, moveContainerToLeft: containerNav.moveContainerToLeft}}
+ */
 var containerNav = {
-    moveContainerToRight: function() {
+    moveContainerToRight: function () {
         containerNavEl.style.left = containerNavX + "%";
         containerNavX += 1;
-        if(containerNavX >= containerNavXRightPosition) {
+        if (containerNavX >= containerNavXRightPosition) {
             containerNavX = containerNavXRightPosition;
             containerNavEl.style.left = containerNavX + "%";
             containerNavEl.classList.add("inTheRightPosition");
@@ -106,10 +128,10 @@ var containerNav = {
             return false;
         }
     },
-    moveContainerToLeft: function() {
+    moveContainerToLeft: function () {
         containerNavEl.style.left = containerNavX + "%";
         containerNavX -= 1;
-        if(containerNavX <= containerNavXLeftPosition) {
+        if (containerNavX <= containerNavXLeftPosition) {
             containerNavX = containerNavXLeftPosition;
             containerNavEl.style.left = containerNavX + "%";
             containerNavEl.classList.add("inTheLeftPosition");
@@ -120,16 +142,17 @@ var containerNav = {
 }
 
 /**
- * При клике по кнопке меню будет вызываться функция, переданная 3-м параметром.
+ * При клике по кнопке меню будет вызываться функция, переданная 3-м параметром, и воспроизводить анимацию
+ * с помощью таймеров.
  */
-utils.addListener(menuButtonEl, "click", function(event) {
-    if(event.preventDefault) {
+utils.addListener(menuButtonEl, "click", function (event) {
+    if (event.preventDefault) {
         event.preventDefault();
     } else {
         event.returnValue = false;
     }
 
-    if(sidebarEl.classList.contains("close") && menuButtonEl.classList.contains("inTheLeftPosition")) {
+    if (sidebarEl.classList.contains("close") && menuButtonEl.classList.contains("inTheLeftPosition")) {
         timers.stop();
         timers.add(sidebar.openMenu);
         timers.add(menuButton.moveButtonToRight);

@@ -1,5 +1,9 @@
-html, body{
-    height:100%;
+html, body {
+    height: 100%;
+}
+
+#main_container {
+    min-width: 750px;
 }
 
 #div_container {
@@ -7,7 +11,7 @@ html, body{
     min-width: 400px;
     margin: 0 auto;
     position: relative;
-    padding: 70px;
+    padding-top: 70px;
 }
 
 #buttons_container {
@@ -68,12 +72,12 @@ button {
     background-color: #fff;
 }
 
-/* Test */
 #sidebar {
+    z-index: 2;
     background: #222;
-    position: absolute;
-    /*width: 240px;*/
+    position: fixed;
     width: 20%;
+    min-width: 150px;
     min-height: 100%;
     left: -20%;
     box-sizing: border-box;
@@ -98,30 +102,32 @@ button {
     text-decoration: none;
     display: block;
     border-bottom: 1px solid #303030;
-    -webkit-transition:  background 0.3s ease-in-out;
-    -moz-transition:  background 0.3s ease-in-out;
-    -ms-transition:  background 0.3s ease-in-out;
-    -o-transition:  background 0.3s ease-in-out;
-    transition:  background 0.3s ease-in-out;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    -ms-transition: background 0.3s ease-in-out;
+    -o-transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out;
 }
 
 #sidebar ul li:hover a {
     background: #336699;
 }
 
-#sidebar {
-    padding-top: 32px;
+.sidebar_content {
+    padding: 0 20px;
+    color: #fff;
 }
 
-.main-content #sidebar-toggle {
-    background: #ff3971;
+.menu_open_container #sidebar-toggle {
+    z-index: 2;
+    background: #CD5C5C;
     display: block;
-    position: absolute;
+    position: fixed;
     padding: 10px 7px;
     float: left;
 }
 
-.main-content #sidebar-toggle .bar {
+.menu_open_container #sidebar-toggle .bar {
     display: block;
     width: 18px;
     margin-bottom: 3px;
@@ -130,10 +136,9 @@ button {
     border-radius: 1px;
 }
 
-.main-content #sidebar-toggle .bar:last-child {
+.menu_open_container #sidebar-toggle .bar:last-child {
     margin-bottom: 0;
 }
-/* End Test */
 
 #containerNav {
     width: 60%;
@@ -144,13 +149,34 @@ button {
     position: relative;
 }
 
+#nav-logo {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    margin: auto;
+}
+
+#sidebar-logo {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    height: 60%;
+    margin: auto;
+}
+
 nav.nav-bar {
+    z-index: 1;
     position: fixed;
     border: none;
     left: auto;
     right: auto;
     width: 100%;
-    background-color: #ff3971;
+    min-width: 750px;
+    background-color: #CD5C5C;
     min-height: 50px;
     margin-bottom: 20px;
     color: #fff;
@@ -158,6 +184,7 @@ nav.nav-bar {
     -moz-box-shadow: 0px 3px 11px 0px rgba(50, 50, 50, 0.54);
     box-shadow: 0px 3px 11px 0px rgba(50, 50, 50, 0.54);
 }
+
 nav.nav-bar:after {
     content: " ";
     display: table;
@@ -166,6 +193,13 @@ nav.nav-bar:after {
 
 div.left-nav {
     float: left;
+    position: relative;
+    height: 50px;
+}
+
+.sidebar_logo_container {
+    position: relative;
+    height: 50px;
 }
 
 ul.right-nav {
@@ -182,4 +216,10 @@ ul.right-nav li a {
     padding: 0 15px;
     color: #fff;
     text-decoration: none;
+}
+
+@media screen and (max-width: 770px) {
+    nav.nav-bar, #sidebar {
+        font-size: 12px;
+    }
 }
