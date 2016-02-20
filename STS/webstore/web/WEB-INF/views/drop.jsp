@@ -15,8 +15,6 @@
 <p><center><h1>Drop table</h1></center></p>
 <div style="float: left; margin-left: 18%"><input class="menuButton" type="button" onclick="history.back();"
                                                   value="Back to menu"></div>
-<div style="float: left; margin-left: 18%"><input class="menuButton" type="button" onclick="history.back();" value="Back to menu"></div>
->>>>>>> vzatch
     <div style="float: right; margin-right: 18%">
         <form action="/login">
         <button class="logoutButton">Log out</button>
