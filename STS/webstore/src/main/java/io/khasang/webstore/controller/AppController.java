@@ -75,7 +75,12 @@ public class AppController {
 
     @RequestMapping("/menu")
     public String menu(Model model) {
+        customerCart = new CustomerCart();
         model.addAttribute("menu", "Menu page text - added to testing!");
+        model.addAttribute("nameOfProductInFirstBlock", "Big Red Apple"); //TODO select product from table
+        model.addAttribute("insertChoosenProductOfFirstBlock", customerCart.addItemInMenuPage("apple", "big red", 415));//
+        model.addAttribute("nameOfProductInSecondBlock", "Green Banana"); //TODO select product from table
+        model.addAttribute("insertChoosenProductOfSecondBlock", customerCart.addItemInMenuPage("banana", "green", 999));
         return "menu";
     }
 

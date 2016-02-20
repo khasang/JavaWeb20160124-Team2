@@ -46,4 +46,9 @@ public class CustomerCart {
             }
         }
     }
+
+    public String addItemInMenuPage(String productName, String description, int vendorName){
+        addItem(productName, description, vendorName);
+        return "Product added!";
+    }
 }

@@ -16,27 +16,23 @@
     </center>
 </div>
 <div class="blockDown">
-    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
-        <div class="block">
-            <h3 align="center">Red Big Apple</h3>
-            <div class="btn" align="center">
-                <h4 align="center">Got it!</h4>
-            </div>
+        <div class="block" title="click to buy it">
+            <h3 align="center">${nameOfProductInFirstBlock}</h3>
+            <button class="btn" type="button" align="center" onclick=${insertChoosenProductOfFirstBlock}>
+                Got it!
+            </button>
         </div>
-    </a>
-    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
-        <div class="block">
-            <h3 align="center">Green Banana</h3>
-            <div class="btn" align="center">
-                <h4 align="center">sun!</h4>
-            </div>
+        <div class="block" title="click to buy it">
+            <h3 align="center">${nameOfProductInSecondBlock}</h3>
+            <button class="btn" type="button" align="center" onclick="${insertChoosenProductOfSecondBlock}">
+                Got it!
+            </button>
         </div>
-    </a>
     <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
         <div class="block">
             <h3 align="center">Juicy Orange</h3>
             <div class="btn" align="center">
-                <h4 align="center">Yummy!</h4>
+                <h4 align="center">Put </h4>
             </div>
         </div>
     </a>
