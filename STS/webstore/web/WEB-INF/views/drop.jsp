@@ -10,15 +10,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" import="java.util.*"  %>
 <head>
     <title>Drop Table</title>
-    <link rel="stylesheet" href="css/styledrop.css">
+    <link rel="stylesheet" href="css/drop.css">
 </head>
-<body>
-    <p><center><h1>Drop table</h1></center></p>
-    <input class="menuButton" type="button" onclick="history.back();" value="Back to menu">
-    <input class="logoutButton" type="button" onclick="" value="Log out">
-    <center><p><b>Enter the name of the table to remove:</b></p>
-            <form action="drop" method="GET">
-            <input class="placeForInput" type="text" size="40" name="name" id="name">
+<p><center><h1>Drop table</h1></center></p>
+<div style="float: left; margin-left: 18%"><input class="menuButton" type="button" onclick="history.back();" value="Back to menu"></div>
+    <div style="float: right; margin-right: 18%">
+        <form action="/login">
+        <button class="logoutButton">Log out</button>
+        </form></div>
+<br> </br>
+<br> </br>
+    <p><center><b>Enter the name of the table to remove:</b></center></p>
+        <center><form action="drop" method="GET">
+                <input class="placeForInput" type="text" size="40" name="name" id="name">
                 <p><b>Or select from the list:</b></p>
                 <p><center><select required class="selectButton"  name="namet" id="namet">
                 <option>Select table</option>
@@ -55,7 +59,6 @@
                         </div>
                     </div>
                 <p><h6>Refresh the page after clicking</h6></p>
-            </form>
-    </center>
+            </form></center>
 </body>
 </html>
