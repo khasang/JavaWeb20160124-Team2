@@ -11,7 +11,7 @@
     <title>insertdata</title>
 </head>
 <body>
-<h1>Add data to product table!</h1>
+<h1>Add data to productorder table!</h1>
 <p>${createtable}</p>
 </body>
 </html>

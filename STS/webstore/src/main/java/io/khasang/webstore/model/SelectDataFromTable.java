@@ -1,5 +1,6 @@
 package io.khasang.webstore.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
@@ -8,17 +9,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SelectDataFromTable {
+    @Autowired
     private SimpleDriverDataSource dataSource;
+    @Autowired
     private JdbcTemplate jdbcTemplate;
     private List<TableObjectInterface> tableObjects;
 
-    public void initConnection() {
-        dataSource = new SimpleDriverDataSource();
-        dataSource.setDriverClass(com.mysql.jdbc.Driver.class);
-        dataSource.setUsername("root");
-        dataSource.setUrl("jdbc:mysql://localhost/webstore");
-        dataSource.setPassword("root");
-        jdbcTemplate = new JdbcTemplate(dataSource);
+    public SelectDataFromTable(SimpleDriverDataSource dataSource) {
+        this.dataSource = dataSource;
+    }
+
+    public SimpleDriverDataSource getDataSource() {
+        return dataSource;
+    }
+
+    public void setDataSource(SimpleDriverDataSource dataSource) {
+        this.dataSource = dataSource;
     }
 
     public List<TableObjectInterface> selectWholeTable(TableObjectInterface tableObjectName) {

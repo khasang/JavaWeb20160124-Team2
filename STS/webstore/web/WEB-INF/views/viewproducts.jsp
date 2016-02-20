@@ -8,30 +8,76 @@
     <link rel="stylesheet" type="text/css" href="css/style_viewproducts.css"/>
 </head>
 <body>
-    <div id="div_container">
-        <h1>${page_name}</h1>
-        <div id="buttons_container">
-            <button id="button_logout">Выход</button>
-            <button id="button_menu">Меню</button>
+<div id="main_container">
+    <nav class="nav-bar">
+        <div id="containerNav" class="inTheLeftPosition">
+            <div class="left-nav"><img id="nav-logo" src="css/nav-logo.png" alt="WebStore" title="WebStore"/></div>
+            <ul class="ul-nav right-nav">
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">О компании</a></li>
+                <li><a href="#">Контакты</a></li>
+                <li><a href="#">Выход</a></li>
+            </ul>
         </div>
-        <table id="cart_table">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>name</th>
-                <th>description</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${viewproducts}" var="product">
-                <tr>
-                    <td><c:out value="${product.ID}" /></td>
-                    <td><c:out value="${product.pname}" /></td>
-                    <td><c:out value="${product.product}" /></td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
+    </nav>
+    <div id="sidebar" class="close">
+        <div class="sidebar_logo_container"><img id="sidebar-logo" src="css/sidebar-logo.png" alt="WebStore"
+                                                 title="WebStore"/></div>
+        <ul>
+            <li><a href="#">Магнитофоны</a></li>
+            <li><a href="#">Велосипеды</a></li>
+            <li><a href="#">Лекарства</a></li>
+            <li><a href="#">Продукты</a></li>
+            <li><a href="#">Компьютеры</a></li>
+        </ul>
+        <div class="sidebar_content">
+            <p>Телефон: 88008001234</p>
+            <p>Отдел продаж: sales@webstore.com</p>
+            <p>Техническая поддержка: admin@webstore.com</p>
+        </div>
     </div>
+    <div class="menu_open_container">
+        <div class="swipe-area"></div>
+        <a href="#" data-toggle=".container" id="sidebar-toggle" class="inTheLeftPosition">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+    </div>
+    <div id="div_container" class="inTheLeftPosition">
+        <h1>${page_name}</h1>
+        <c:choose>
+            <c:when test="${viewproducts.size() > '0'}">
+                <table id="cart_table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>image</th>
+                        <th>name</th>
+                        <th>description</th>
+                        <th>cost</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${viewproducts}" var="product">
+                        <tr>
+                            <td><c:out value="${product.ID}"/></td>
+                            <td><img style="width:100px" alt="Фото товара отсутствует" src="css/fotonotfound.png"/></td>
+                            <td><c:out value="${product.pname}"/></td>
+                            <td><c:out value="${product.product}"/></td>
+                            <td>100</td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </c:when>
+            <c:otherwise>
+                <p>В базе отсутствуют товары. <a href="/insertdata">Загрузить товары</a></p>
+            </c:otherwise>
+        </c:choose>
+    </div>
+</div>
+<script type="text/javascript" src="js/eventsAndTimers.js"></script>
+<script type="text/javascript" src="js/menu.js"></script>
 </body>
 </html>

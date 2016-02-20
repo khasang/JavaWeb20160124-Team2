@@ -16,45 +16,68 @@
     </center>
 </div>
 <div class="blockDown">
-    <a class="a_menu" href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="переход на страницу покупки этого продукта/категории продуктов">
-        <div class="block block1">
-            <h3 align="center">Text of Block1</h3>
+    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
+        <div class="block">
+            <h3 align="center">Red Big Apple</h3>
+            <div class="btn" align="center">
+                <h4 align="center">Got it!</h4>
+            </div>
         </div>
     </a>
-    <a class="a_menu" href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="переход на страницу покупки этого продукта/категории продуктов">
-        <div class="block block2">
-            <h3 align="center">Text of Block2</h3>
+    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
+        <div class="block">
+            <h3 align="center">Green Banana</h3>
+            <div class="btn" align="center">
+                <h4 align="center">sun!</h4>
+            </div>
         </div>
     </a>
-    <a  class="a_menu" href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="переход на страницу покупки этого продукта/категории продуктов">
-        <div class="block block3">
-            <h3 align="center">Text of Block3</h3>
+    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
+        <div class="block">
+            <h3 align="center">Juicy Orange</h3>
+            <div class="btn" align="center">
+                <h4 align="center">Yummy!</h4>
+            </div>
         </div>
     </a>
-    <a  class="a_menu" href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="переход на страницу покупки этого продукта/категории продуктов">
-        <div class="block block4">
-            <h3 align="center">Text of Block4</h3>
-
+    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
+        <div class="block">
+            <h3 align="center">Tasty strawberries</h3>
+            <div class="btn" align="center">
+                <h4 align="center">Got it!</h4>
+            </div>
         </div>
     </a>
-    <a  class="a_menu" href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="переход на страницу покупки этого продукта/категории продуктов">
-        <div class="block block5">
+    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
+        <div class="block">
             <h3 align="center">Text of Block5</h3>
+            <div class="btn" align="center">
+                <h4 align="center">Got it!</h4>
+            </div>
         </div>
     </a>
-    <a  class="a_menu" href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="переход на страницу покупки этого продукта/категории продуктов">
-        <div class="block block6">
+    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
+        <div class="block">
             <h3 align="center">Text of Block6</h3>
+            <div class="btn" align="center">
+                <h4 align="center">Got it!</h4>
+            </div>
         </div>
     </a>
-    <a  class="a_menu" href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="переход на страницу покупки этого продукта/категории продуктов">
-        <div class="block block7">
+    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
+        <div class="block">
             <h3 align="center">Text of Block7</h3>
+            <div class="btn" align="center">
+                <h4 align="center">Got it!</h4>
+            </div>
         </div>
     </a>
-    <a  class="a_menu" href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="переход на страницу покупки этого продукта/категории продуктов">
-        <div class="block block8">
+    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
+        <div class="block">
             <h3 align="center">Text of Block8</h3>
+            <div class="btn" align="center">
+                <h4 align="center">Got it!</h4>
+            </div>
         </div>
     </a>
 </div>
