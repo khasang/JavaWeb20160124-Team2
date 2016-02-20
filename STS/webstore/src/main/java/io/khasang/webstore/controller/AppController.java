@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import java.util.List;
 
 @Controller
@@ -48,7 +47,6 @@ public class AppController {
 
     @RequestMapping("/drop") // todo vzatch input table name and button to drop
     public String drop(Model model) {
-        model.addAttribute("drop", "Success");
         return "drop";
     }
 
