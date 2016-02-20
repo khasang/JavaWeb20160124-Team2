@@ -109,6 +109,10 @@ button {
     transition: background 0.3s ease-in-out;
 }
 
+#sidebar .sidebar_content p {
+    color: #ffffff;
+}
+
 #sidebar ul li:hover a {
     background: #336699;
 }
