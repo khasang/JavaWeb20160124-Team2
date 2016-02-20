@@ -79,12 +79,6 @@ public class AppController {
         return "menu";
     }
 
-    @RequestMapping("/styleOfPageView")
-    public String styleOfPageView(Model model) {
-        model.addAttribute("styleOfPageView", "Menu page text - added to testing!");
-        return "myPageView";
-    }
-
     @RequestMapping("/cart")
     public String cart(Model model) {
         model.addAttribute("page_name", "Корзина товаров");
