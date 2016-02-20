@@ -24,58 +24,40 @@
         </div>
         <div class="block" title="click to buy it">
             <h3 align="center">${nameOfProductInSecondBlock}</h3>
-            <button class="btn" type="button" align="center" onclick="${insertChoosenProductOfSecondBlock}">
+            <button class="btn" type="button" align="center" onclick=${insertChoosenProductOfSecondBlock}>
                 Got it!
             </button>
         </div>
-    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
-        <div class="block">
+        <div class="block" title="click to buy it">
             <h3 align="center">Juicy Orange</h3>
-            <div class="btn" align="center">
-                <h4 align="center">Put </h4>
-            </div>
+            <button class="btn" type="button" align="center" onclick=${insertChoosenProductOfFirstBlock}>
+                Got it!
+            </button>
         </div>
-    </a>
-    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
-        <div class="block">
+        <div class="block" title="click to buy it">
             <h3 align="center">Tasty strawberries</h3>
-            <div class="btn" align="center">
-                <h4 align="center">Got it!</h4>
-            </div>
+            <button class="btn" type="button" align="center" onclick=${insertChoosenProductOfFirstBlock}>
+                Got it!
+            </button>
         </div>
-    </a>
-    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
-        <div class="block">
+        <div class="block" title="click to buy it">
             <h3 align="center">Text of Block5</h3>
-            <div class="btn" align="center">
-                <h4 align="center">Got it!</h4>
-            </div>
+            <button class="btn" type="button" align="center" onclick=${insertChoosenProductOfFirstBlock}>
+                Got it!
+            </button>
         </div>
-    </a>
-    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
-        <div class="block">
+        <div class="block" title="click to buy it">
             <h3 align="center">Text of Block6</h3>
-            <div class="btn" align="center">
+            <button class="btn" type="button" align="center" onclick=${insertChoosenProductOfFirstBlock}>
                 <h4 align="center">Got it!</h4>
-            </div>
+            </button>
         </div>
-    </a>
-    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
-        <div class="block">
+        <div class="block" title="click to buy it">
             <h3 align="center">Text of Block7</h3>
-            <div class="btn" align="center">
-                <h4 align="center">Got it!</h4>
-            </div>
+            <button class="btn" type="button" align="center" onclick=${insertChoosenProductOfFirstBlock}>
+                Got it!
+            </button>
         </div>
-    </a>
-    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
-        <div class="block">
-            <h3 align="center">Text of Block8</h3>
-            <div class="btn" align="center">
-                <h4 align="center">Got it!</h4>
-            </div>
-        </div>
-    </a>
 </div>
 </body>
 </html>
