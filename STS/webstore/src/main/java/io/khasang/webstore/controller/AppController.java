@@ -1,12 +1,19 @@
 package io.khasang.webstore.controller;
 
 import io.khasang.webstore.model.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class AppController {
+    @Autowired
+    CreateCostsTable createCostsTable;
+
+    @Autowired
+    SelectDataFromTable selectDataFromTable;
+
     @RequestMapping("/")
     public String welcome(Model model) {
         model.addAttribute("greeting", "Welcome to our best Shop!");
@@ -29,8 +36,6 @@ public class AppController {
 
     @RequestMapping("/cost") // todo yminee join tables product and cost with id, select all columns
         public String cost(Model model) {
-        CreateCostsTable createCostsTable = new CreateCostsTable();
-        SelectDataFromTable selectDataFromTable = new SelectDataFromTable();
         selectDataFromTable.initConnection();
         model.addAttribute("cost", "Стоимость выбранных товаров");
         model.addAttribute("items", selectDataFromTable.selectWholeTable(new Costs()));
