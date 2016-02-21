@@ -21,8 +21,7 @@ public class CustomerCart {
         } else {
             // проверка на наличие одинакового элемента
             boolean isEqual = false;
-            for (Iterator<CartItem> iterator = cartItems.iterator(); iterator.hasNext(); ) {
-                CartItem next = iterator.next();
+            for (CartItem next : cartItems) {
                 if (next.equals(cartItem)) {
                     next.quantity++;
                     isEqual = true;
@@ -37,7 +36,7 @@ public class CustomerCart {
     public void removeItem(String productName) {
         for (Iterator<CartItem> iterator = cartItems.iterator(); iterator.hasNext(); ) {
             CartItem next = iterator.next();
-            if (next.getProductName() == productName) {
+            if (next.getProductName().equals(productName)) {
                 if (next.quantity > 1) {
                     next.quantity--;
                 } else {
@@ -45,5 +44,10 @@ public class CustomerCart {
                 }
             }
         }
+    }
+
+    public String addItemInMenuPage(String productName, String description, int vendorName){
+        addItem(productName, description, vendorName);
+        return "Product added!";
     }
 }

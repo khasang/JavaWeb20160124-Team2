@@ -33,6 +33,9 @@ public class AppController {
     @Qualifier("customerCart")
     CustomerCart customerCart;
 
+    @Autowired
+    CreateCostsTable createCostsTable;
+
     @RequestMapping("/")
     public String welcome(Model model) {
         model.addAttribute("greeting", "Welcome to our best Shop!");
@@ -48,13 +51,14 @@ public class AppController {
 
     @RequestMapping("/drop") // todo vzatch input table name and button to drop
     public String drop(Model model) {
-        model.addAttribute("drop", "Success");
         return "drop";
     }
 
     @RequestMapping("/cost") // todo yminee join tables product and cost with id, select all columns
         public String cost(Model model) {
-        model.addAttribute("cost", "");
+        model.addAttribute("cost", "Стоимость выбранных товаров");
+        model.addAttribute("items", selectDataFromTable.selectWholeTable(new Costs()));
+        model.addAttribute("insertcosts", createCostsTable.sqlInsertCheck());
         return "cost";
     }
 
@@ -73,9 +77,22 @@ public class AppController {
         return "admin";
     }
 
+    @RequestMapping("/tableselect")
+    public String tableselect(Model model) {
+        model.addAttribute("dropdownlist", "Please, select the table");
+        return "tableselect";
+    }
+
     @RequestMapping("/menu")
     public String menu(Model model) {
-        model.addAttribute("menu", "Menu page text - added to testing!");
+        customerCart = new CustomerCart();
+        model.addAttribute("textInTopBlock", "In the WebStore your may buy: "+productDAO.getAll().get(0).getPname()+", "
+                +productDAO.getAll().get(1).getPname()+", "+productDAO.getAll().get(2).getPname()+" and etc.");
+        model.addAttribute("nameOfProductInFirstBlock", productDAO.getAll().get(0).getPname()
+                +" TEST of select and insert in customerCart");
+        model.addAttribute("insertChoosenProductOfFirstBlock", customerCart.addItemInMenuPage(productDAO.getAll().
+                get(0).getPname(), "TEST FROM MENU page ", productDAO.getAll().get(0).getID()));
+
         return "menu";
     }
 
