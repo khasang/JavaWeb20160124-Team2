@@ -35,9 +35,6 @@ public class AppController {
     @Autowired
     CreateCostsTable createCostsTable;
 
-    @Autowired
-    SelectDataFromTable selectDataFromTable;
-
     @RequestMapping("/")
     public String welcome(Model model) {
         model.addAttribute("greeting", "Welcome to our best Shop!");
@@ -58,7 +55,6 @@ public class AppController {
 
     @RequestMapping("/cost") // todo yminee join tables product and cost with id, select all columns
         public String cost(Model model) {
-        selectDataFromTable.initConnection();
         model.addAttribute("cost", "Стоимость выбранных товаров");
         model.addAttribute("items", selectDataFromTable.selectWholeTable(new Costs()));
         model.addAttribute("insertcosts", createCostsTable.sqlInsertCheck());
