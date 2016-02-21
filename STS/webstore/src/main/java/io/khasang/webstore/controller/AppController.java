@@ -86,7 +86,10 @@ public class AppController {
     @RequestMapping("/menu")
     public String menu(Model model) {
         customerCart = new CustomerCart();
-        model.addAttribute("nameOfProductInFirstBlock", productDAO.getAll().get(0).getPname()+" TEST of select and insert in customerCart");
+        model.addAttribute("textInTopBlock", "In the WebStore your may buy: "+productDAO.getAll().get(0).getPname()+", "
+                +productDAO.getAll().get(1).getPname()+", "+productDAO.getAll().get(2).getPname()+" and etc.");
+        model.addAttribute("nameOfProductInFirstBlock", productDAO.getAll().get(0).getPname()
+                +" TEST of select and insert in customerCart");
         model.addAttribute("insertChoosenProductOfFirstBlock", customerCart.addItemInMenuPage(productDAO.getAll().
                 get(0).getPname(), "TEST FROM MENU page ", productDAO.getAll().get(0).getID()));
 
