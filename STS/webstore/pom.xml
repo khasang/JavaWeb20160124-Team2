@@ -10,6 +10,7 @@
     <properties>
         <spring.version>4.2.4.RELEASE</spring.version>
         <jdk.version>1.8</jdk.version>
+        <thymeleaf.version>2.0.14</thymeleaf.version>
     </properties>
 
     <dependencies>
@@ -40,14 +41,20 @@
             <version>1.2</version>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.9</version>
-        </dependency>
-        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.6</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
     </dependencies>
+
 </project>
