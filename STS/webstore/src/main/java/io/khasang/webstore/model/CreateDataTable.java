@@ -17,7 +17,7 @@ public class CreateDataTable {
             System.out.println("Creating tables");
             jdbcTemplate.execute("DROP TABLE IF EXISTS products");
             jdbcTemplate.execute("create table products(ID INT NOT NULL,"
-                    + " pName MEDIUMTEXT NOT NULL, description LONGTEXT)");*/
+                    + " pName MEDIUMTEXT NOT NULL, description LONGTEXT)");
             jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(1, 'apple', 'red')");
             jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(2, 'banan', 'yellow')");
             jdbcTemplate.update("INSERT INTO products(ID, pName, description) VALUES(3, 'bread', null)");

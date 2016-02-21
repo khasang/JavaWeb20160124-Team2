@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import java.util.List;
 
 @Controller
@@ -85,11 +86,13 @@ public class AppController {
     @RequestMapping("/menu")
     public String menu(Model model) {
         customerCart = new CustomerCart();
-        model.addAttribute("menu", "Menu page text - added to testing!");
-        model.addAttribute("nameOfProductInFirstBlock", "Big Red Apple"); //TODO select product from table
-        model.addAttribute("insertChoosenProductOfFirstBlock", customerCart.addItemInMenuPage("apple", "big red", 415));//
-        model.addAttribute("nameOfProductInSecondBlock", "Green Banana"); //TODO select product from table
-        model.addAttribute("insertChoosenProductOfSecondBlock", customerCart.addItemInMenuPage("banana", "green", 999));
+        model.addAttribute("textInTopBlock", "In the WebStore your may buy: "+productDAO.getAll().get(0).getPname()+", "
+                +productDAO.getAll().get(1).getPname()+", "+productDAO.getAll().get(2).getPname()+" and etc.");
+        model.addAttribute("nameOfProductInFirstBlock", productDAO.getAll().get(0).getPname()
+                +" TEST of select and insert in customerCart");
+        model.addAttribute("insertChoosenProductOfFirstBlock", customerCart.addItemInMenuPage(productDAO.getAll().
+                get(0).getPname(), "TEST FROM MENU page ", productDAO.getAll().get(0).getID()));
+
         return "menu";
     }
 
