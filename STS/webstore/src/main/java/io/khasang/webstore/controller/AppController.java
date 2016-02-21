@@ -32,6 +32,9 @@ public class AppController {
     @Qualifier("customerCart")
     CustomerCart customerCart;
 
+    @Autowired
+    CreateCostsTable createCostsTable;
+
     @RequestMapping("/")
     public String welcome(Model model) {
         model.addAttribute("greeting", "Welcome to our best Shop!");
@@ -52,7 +55,9 @@ public class AppController {
 
     @RequestMapping("/cost") // todo yminee join tables product and cost with id, select all columns
         public String cost(Model model) {
-        model.addAttribute("cost", "");
+        model.addAttribute("cost", "Стоимость выбранных товаров");
+        model.addAttribute("items", selectDataFromTable.selectWholeTable(new Costs()));
+        model.addAttribute("insertcosts", createCostsTable.sqlInsertCheck());
         return "cost";
     }
 
@@ -69,6 +74,12 @@ public class AppController {
     public String admin(Model model) {
         model.addAttribute("admin", "You are number 1!");
         return "admin";
+    }
+
+    @RequestMapping("/tableselect")
+    public String tableselect(Model model) {
+        model.addAttribute("dropdownlist", "Please, select the table");
+        return "tableselect";
     }
 
     @RequestMapping("/menu")

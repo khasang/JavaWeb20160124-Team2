@@ -45,6 +45,9 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
     <!-- This tag allows for mapping the dispatcher-servlet to "/" -->
     <mvc:default-servlet-handler/>
 
+    <bean id="createCostsTable" class="io.khasang.webstore.model.CreateCostsTable"/>
+    <bean id="selectDataFromTable" class="io.khasang.webstore.model.SelectDataFromTable"/>
+
     <!-- resources exclusions from servlet mapping -->
     <mvc:resources mapping="/css/**" location="/WEB-INF/views/css/"/>
     <mvc:resources mapping="/gif/**" location="/WEB-INF/views/css"/>
