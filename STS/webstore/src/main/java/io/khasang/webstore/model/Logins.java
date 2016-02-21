@@ -27,19 +27,28 @@ public class Logins {
     }
 
     public List<Login> getAll() {
-        String sql = "SELECT * FROM logins;";
-        List<Login> logins = this.jdbcTemplate.query(sql, new LoginMapper());
-        return logins;
+        return this.jdbcTemplate.query("SELECT * FROM logins;",
+                new RowMapper<Login>() {
+                    public Login mapRow(ResultSet result, int i) throws SQLException {
+                        return new Login(
+                                result.getInt("id"),
+                                result.getString("login"),
+                                result.getString("password"),
+                                result.getString("security")
+                        );
+                    }
+                }
+        );
     }
 
-    final private class LoginMapper implements RowMapper<Login> {
-        public Login mapRow(ResultSet result, int i) throws SQLException {
-            return new Login(
-                    result.getInt("id"),
-                    result.getString("login"),
-                    result.getString("password"),
-                    result.getString("security")
-            );
-        }
-    }
+//    final private class LoginMapper implements RowMapper<Login> {
+//        public Login mapRow(ResultSet result, int i) throws SQLException {
+//            return new Login(
+//                    result.getInt("id"),
+//                    result.getString("login"),
+//                    result.getString("password"),
+//                    result.getString("security")
+//            );
+//        }
+//    }
 }
