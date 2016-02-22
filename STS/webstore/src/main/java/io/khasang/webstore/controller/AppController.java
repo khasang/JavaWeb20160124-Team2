@@ -49,7 +49,7 @@ public class AppController {
         return "backup";
     }
 
-    @RequestMapping("/drop") // todo vzatch input table name and button to drop
+    @RequestMapping("/drop")
     public String drop(Model model) {
         return "drop";
     }
