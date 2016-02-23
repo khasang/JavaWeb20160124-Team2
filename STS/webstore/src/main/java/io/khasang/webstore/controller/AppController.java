@@ -43,9 +43,11 @@ public class AppController {
         return "welcome";
     }
 
-    @RequestMapping("/backup")
+    @RequestMapping("/backup") // todo eborod select current tables and backup with mysqldump Runtime runtime = Runtime.getRuntime();
+    // todo "mysqldump eshop -u root -proot -r \"C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Uploads\\backup.sql\"");
     public String backup(Model model) {
-        model.addAttribute("backup", "Success");
+        BackupDatabase backupDatabase = new BackupDatabase();
+        model.addAttribute("backup", backupDatabase.backupResultOut());
         return "backup";
     }
 
