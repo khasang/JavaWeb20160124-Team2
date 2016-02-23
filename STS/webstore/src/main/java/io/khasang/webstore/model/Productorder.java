@@ -13,7 +13,7 @@ public class Productorder implements TableObjectInterface {
     private JdbcTemplate jdbcTemplate;
     private int id;
     private int orderid;
-    private String product;
+    private String productorder;
     private int count;
     private int cost;
     private int totalcost;
@@ -44,12 +44,12 @@ public class Productorder implements TableObjectInterface {
         this.orderid = orderid;
     }
 
-    public String getProduct() {
-        return product;
+    public String getProductorder() {
+        return productorder;
     }
 
-    public void setProduct(String product) {
-        this.product = product;
+    public void setProductorder(String productorder) {
+        this.productorder = productorder;
     }
 
     public int getCount() {
@@ -112,6 +112,11 @@ public class Productorder implements TableObjectInterface {
         return this.jdbcTemplate.query("select id, orderid, product, count, cost,  totalcost, status, userid " +
                 "from productorder", new ItemMapper());
     }
+
+    public List selectByStatusAndUserid(String status, String userid) {
+        return this.jdbcTemplate.query("select * from productorder where status = ? and userid = ?", new ItemMapper(),
+                status, userid);
+    }
 }
 
 final class ItemMapper implements RowMapper<Productorder> {
@@ -119,7 +124,7 @@ final class ItemMapper implements RowMapper<Productorder> {
         Productorder productorder = new Productorder();
         productorder.setId(rs.getInt("id"));
         productorder.setOrderid(rs.getInt("orderid"));
-        productorder.setProduct(rs.getString("product"));
+        productorder.setProductorder(rs.getString("productorder"));
         productorder.setCount(rs.getInt("count"));
         productorder.setCost(rs.getInt("cost"));
         productorder.setTotalcost(rs.getInt("totalcost"));

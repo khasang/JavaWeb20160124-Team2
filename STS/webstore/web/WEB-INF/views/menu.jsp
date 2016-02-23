@@ -37,7 +37,7 @@
     </a>
     <a href="/viewproducts">
         <div class="block" title="link to /viewproducts">
-            <h4 align="center">View all product</h4>
+            <h4 align="center">View all productorder</h4>
         </div>
     </a>
     <a href="/deletecurrentorder">

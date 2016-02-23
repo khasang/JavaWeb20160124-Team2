@@ -39,6 +39,8 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
         <constructor-arg ref="dataSource"/>
         <constructor-arg ref="jdbcTemplate"/></bean>
 
+    <bean id="deprecatedCustomerCart" class="io.khasang.webstore.model.DeprecatedCustomerCart" scope="prototype"></bean>
+
     <bean id="customerCart" class="io.khasang.webstore.model.CustomerCart" scope="prototype"></bean>
 
     <bean id="insertDataTable" class="io.khasang.webstore.model.InsertDataTable"></bean>
