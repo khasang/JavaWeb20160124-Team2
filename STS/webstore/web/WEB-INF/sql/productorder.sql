@@ -1,5 +1,5 @@
 CREATE TABLE `webstore`.`productorder` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `orderid` INT NOT NULL,
   `productorder` MEDIUMTEXT NOT NULL,
   `count` INT NOT NULL,

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -28,6 +30,10 @@ public class AppController {
     @Autowired
     @Qualifier("productorder")
     TableObjectInterface tableObjectInterface;
+
+    @Autowired
+    @Qualifier("deprecatedCustomerCart")
+    DeprecatedCustomerCart deprecatedCustomerCart;
 
     @Autowired
     @Qualifier("customerCart")
@@ -87,12 +93,12 @@ public class AppController {
 
     @RequestMapping("/menu")
     public String menu(Model model) {
-        customerCart = new CustomerCart();
+        deprecatedCustomerCart = new DeprecatedCustomerCart();
         model.addAttribute("textInTopBlock", "In the WebStore your may buy: "+productDAO.getAll().get(0).getPname()+", "
                 +productDAO.getAll().get(1).getPname()+", "+productDAO.getAll().get(2).getPname()+" and etc.");
         model.addAttribute("nameOfProductInFirstBlock", productDAO.getAll().get(0).getPname()
-                +" TEST of select and insert in customerCart");
-        model.addAttribute("insertChoosenProductOfFirstBlock", customerCart.addItemInMenuPage(productDAO.getAll().
+                +" TEST of select and insert in deprecatedCustomerCart");
+        model.addAttribute("insertChoosenProductOfFirstBlock", deprecatedCustomerCart.addItemInMenuPage(productDAO.getAll().
                 get(0).getPname(), "TEST FROM MENU page ", productDAO.getAll().get(0).getID()));
 
         return "menu";
@@ -134,27 +140,30 @@ public class AppController {
         return "insert";
     }
 
-    @RequestMapping("/select") //todo ekarpov select from productorder with id + status in progress and done
-    public String select(Model model) {
-        model.addAttribute("items", selectDataFromTable.selectWholeTable(tableObjectInterface));
-        return "select";
+    //todo done. What's next?
+    @RequestMapping(value = "/customercart") //todo ekarpov select from productorder with id + status in progress and done
+    public String select(Model model, @RequestParam(value="status", required=false) String status,
+                         @RequestParam(value="userid", required=false) String userid) {
+        model.addAttribute("items", customerCart.listProductOrder(status, userid));
+        return "customercart";
     }
 
+    @Deprecated
     /*Иной способ отображения корзины клиента
     Имеет методы addItem, removeItem и getCartItems
     Корректно пересчитывает quantity одинаковых товаров при добавлении и удалении товара*/
     @RequestMapping("/managecustomercart")
     public String managecustomercart(Model model) {
-        /*пример добавления и удаления элементов из корзины*/
-        customerCart.addItem("Apple", "Red one", 415);
-        customerCart.addItem("Apple", "Red one", 415);
-        customerCart.addItem("Apple", "Red one", 415);
-        customerCart.addItem("Apple", "Red one", 415);
-        customerCart.removeItem("Apple");
-        customerCart.addItem("Orange", "Orange one", 415);
-        customerCart.addItem("Orange", "Another one", 415);
-        /**/
-        model.addAttribute("cartitems", customerCart.getCartItems());
+//        /*пример добавления и удаления элементов из корзины*/
+//        deprecatedCustomerCart.addItem("Apple", "Red one", 415);
+//        deprecatedCustomerCart.addItem("Apple", "Red one", 415);
+//        deprecatedCustomerCart.addItem("Apple", "Red one", 415);
+//        deprecatedCustomerCart.addItem("Apple", "Red one", 415);
+//        deprecatedCustomerCart.removeItem("Apple");
+//        deprecatedCustomerCart.addItem("Orange", "Orange one", 415);
+//        deprecatedCustomerCart.addItem("Orange", "Another one", 415);
+//        /**/
+//        model.addAttribute("cartitems", deprecatedCustomerCart.getCartItems());
         return "managecustomercart";
     }
 }
