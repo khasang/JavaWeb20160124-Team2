@@ -93,14 +93,15 @@ public class AppController {
 
     @RequestMapping("/menu")
     public String menu(Model model) {
-        deprecatedCustomerCart = new DeprecatedCustomerCart();
-        model.addAttribute("textInTopBlock", "In the WebStore your may buy: "+productDAO.getAll().get(0).getPname()+", "
-                +productDAO.getAll().get(1).getPname()+", "+productDAO.getAll().get(2).getPname()+" and etc.");
-        model.addAttribute("nameOfProductInFirstBlock", productDAO.getAll().get(0).getPname()
-                +" TEST of select and insert in deprecatedCustomerCart");
-        model.addAttribute("insertChoosenProductOfFirstBlock", deprecatedCustomerCart.addItemInMenuPage(productDAO.getAll().
-                get(0).getPname(), "TEST FROM MENU page ", productDAO.getAll().get(0).getID()));
-
+        model.addAttribute("textInTopBlock", "In the WebStore your may buy: apple, milk, bread, coffee");
+        model.addAttribute("nameOfFirstBlock", " Category of product");
+        model.addAttribute("actionOnclickFirstBlock", "there will be some action");
+        model.addAttribute("nameOfSecondBlock", "link to second page");
+        model.addAttribute("nameOfThirdBlock", "link to third page");
+        model.addAttribute("nameOfFourthBlock", "link to fourth page");
+        model.addAttribute("nameOfFifthlock", "link to fifth page");
+        model.addAttribute("nameOfSixBlock", "link to six page");
+        model.addAttribute("nameOfSevenBlock", "link to seven page");
         return "menu";
     }
 
