@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -30,10 +29,6 @@ public class AppController {
     @Autowired
     @Qualifier("productorder")
     TableObjectInterface tableObjectInterface;
-
-    @Autowired
-    @Qualifier("deprecatedCustomerCart")
-    DeprecatedCustomerCart deprecatedCustomerCart;
 
     @Autowired
     @Qualifier("customerCart")
@@ -97,9 +92,9 @@ public class AppController {
         model.addAttribute("nameOfFirstBlock", " Category of product");
         model.addAttribute("actionOnclickFirstBlock", "there will be some action");
         model.addAttribute("nameOfSecondBlock", "link to second page");
-        model.addAttribute("nameOfThirdBlock", "link to third page");
-        model.addAttribute("nameOfFourthBlock", "link to fourth page");
-        model.addAttribute("nameOfFifthlock", "link to fifth page");
+        model.addAttribute("nameOfThirdBlock", "cost of your product");
+        model.addAttribute("nameOfFourthBlock", "View your product");
+        model.addAttribute("nameOfFifthlock", "View your product");
         model.addAttribute("nameOfSixBlock", "link to six page");
         model.addAttribute("nameOfSevenBlock", "link to seven page");
         return "menu";
