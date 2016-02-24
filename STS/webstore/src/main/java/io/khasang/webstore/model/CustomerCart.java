@@ -1,53 +1,43 @@
 package io.khasang.webstore.model;
 
-import java.util.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by 134 on 23.02.2016.
+ */
 public class CustomerCart {
-    protected List<CartItem> cartItems;
+    @Autowired
+    private SimpleDriverDataSource dataSource;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+    private List<Productorder> productorderList = new ArrayList<Productorder>();
 
     public CustomerCart() {
-        this.cartItems = new ArrayList<CartItem>();
     }
 
-    public List<CartItem> getCartItems() {
-        return cartItems;
+    public CustomerCart(List<Productorder> productorderList) {
+        this.productorderList = productorderList;
     }
 
-    public void addItem(String productName, String description, int vendorName) {
-        CartItem cartItem = new CartItem(productName, description, vendorName);
-        // проверка на пустую корзину товаров
-        if (cartItems.isEmpty()) {
-            cartItems.add(cartItem);
-        } else {
-            // проверка на наличие одинакового элемента
-            boolean isEqual = false;
-            for (CartItem next : cartItems) {
-                if (next.equals(cartItem)) {
-                    next.quantity++;
-                    isEqual = true;
-                }
-            }
-            if (!isEqual) {
-                cartItems.add(cartItem);
-            }
-        }
+    public List<Productorder> getProductorderList() {
+        return productorderList;
     }
 
-    public void removeItem(String productName) {
-        for (Iterator<CartItem> iterator = cartItems.iterator(); iterator.hasNext(); ) {
-            CartItem next = iterator.next();
-            if (next.getProductName().equals(productName)) {
-                if (next.quantity > 1) {
-                    next.quantity--;
-                } else {
-                    iterator.remove();
-                }
-            }
-        }
+    public void setProductorderList(List<Productorder> productorderList) {
+        this.productorderList = productorderList;
     }
 
-    public String addItemInMenuPage(String productName, String description, int vendorName){
-        addItem(productName, description, vendorName);
-        return "Product added!";
+    public void addProductorderItem(Productorder productorderitem) {
+
+    }
+
+    public List listProductOrder(String status, String userid) {
+        productorderList = new Productorder(dataSource, jdbcTemplate).selectByStatusAndUserid(status, userid);
+        return productorderList;
     }
 }

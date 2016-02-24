@@ -59,12 +59,12 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${viewproducts}" var="product">
+                    <c:forEach items="${viewproducts}" var="productorder">
                         <tr>
-                            <td><c:out value="${product.ID}"/></td>
+                            <td><c:out value="${productorder.ID}"/></td>
                             <td><img style="width:100px" alt="Фото товара отсутствует" src="css/fotonotfound.png"/></td>
-                            <td><c:out value="${product.pname}"/></td>
-                            <td><c:out value="${product.product}"/></td>
+                            <td><c:out value="${productorder.pname}"/></td>
+                            <td><c:out value="${productorder.productorder}"/></td>
                             <td>100</td>
                         </tr>
                     </c:forEach>
