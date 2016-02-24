@@ -32,10 +32,6 @@ public class AppController {
     TableObjectInterface tableObjectInterface;
 
     @Autowired
-    @Qualifier("deprecatedCustomerCart")
-    DeprecatedCustomerCart deprecatedCustomerCart;
-
-    @Autowired
     @Qualifier("customerCart")
     CustomerCart customerCart;
 

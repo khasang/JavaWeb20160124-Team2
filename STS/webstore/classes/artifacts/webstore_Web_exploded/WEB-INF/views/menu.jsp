@@ -15,29 +15,29 @@
     </center>
 </div>
 <div class="blockDown">
-    <a href="/managecustomercart" onclick=${insertChoosenProductOfFirstBlock}>
-        <div class="block" title="TEST SELECT AND INSERT THIS PRODUCT">
-            <h4 align="center">${nameOfProductInFirstBlock}</h4>
+    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2/blob/iserba/aboutShop.txt" onclick=${actionOnclickFirstBlock}>
+        <div class="block" title="link to first page of this shop">
+            <h4 align="center">${nameOfFirstBlock}</h4>
         </div>
     </a>
-    <a href="/managecustomercart">
-        <div class="block" title="link to /managecustomercart">
-            <h4 align="center">Your choosen Item v.1</h4>
+    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2/blob/iserba/userStory.txt">
+        <div class="block" title="link to second page of this shop">
+            <h4 align="center">${nameOfSecondBlock}</h4>
         </div>
     </a>
     <a href="/select">
         <div class="block" title="link to /select">
-            <h4 align="center">Your choosen Item v.2</h4>
+            <h4 align="center">${nameOfThirdBlock}</h4>
         </div>
     </a>
     <a href="/cart">
         <div class="block" title="link to /cart">
-            <h4 align="center">Your choosen Item v.3</h4>
+            <h4 align="center">${nameOfFourthBlock}</h4>
         </div>
     </a>
     <a href="/viewproducts">
         <div class="block" title="link to /viewproducts">
-            <h4 align="center">View all product</h4>
+            <h4 align="center">${nameOfFifthlock}</h4>
         </div>
     </a>
     <a href="/deletecurrentorder">
