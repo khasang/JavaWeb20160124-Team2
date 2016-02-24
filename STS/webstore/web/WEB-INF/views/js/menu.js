@@ -1,3 +1,109 @@
+//function ElementFactory() {}
+//
+//ElementFactory.prototype.moveToLeft = function() {
+//    this.el.style.left = this.xPosition + "%";
+//    this.xPosition += 1;
+//    if (this.xPosition >= this.xPositionOpen) {
+//        this.xPosition = this.xPositionOpen;
+//        this.el.style.left = this.xPosition + "%";
+//        this.el.classList.add("open");
+//        this.el.classList.remove("close");
+//        return false;
+//    }
+//};
+//
+//ElementFactory.prototype.moveToRight = function() {
+//    this.el.style.left = this.xPosition + "%";
+//    this.xPosition -= 1;
+//    if (this.xPosition <= this.xPositionClose) {
+//        this.xPosition = this.xPositionClose;
+//        this.el.style.left = sidebarX + "%";
+//        this.el.classList.add("close");
+//        this.el.classList.remove("open");
+//        return false;
+//    }
+//};
+//
+//ElementFactory.factory = function(type) {
+//    var construct = type,
+//        newElement;
+//
+//    if(typeof ElementFactory[construct] !== "function") {
+//        throw {
+//            name: 'Error',
+//            message: "Construct doesn't function"
+//        };
+//    }
+//
+//    if(typeof ElementFactory[construct].moveToLeft === 'undefined') {
+//        console.log("PROTOTYPE");
+//        ElementFactory[construct].prototype = new ElementFactory();
+//    }
+//
+//    newElement = new ElementFactory[construct]();
+//
+//    return newElement;
+//}
+//
+//ElementFactory.Sidebar = function() {
+//    this.el = document.getElementById("sidebar");
+//    this.xPosition = -20;
+//    this.xPositionOpen = 0;
+//    this.xPositionClose = -20;
+//};
+//
+//ElementFactory.MenuButton = function() {
+//    this.el = document.getElementById("sidebar-toggle");
+//    this.xPosition = 0;
+//    this.xPositionOpen = 20;
+//    this.xPositionClose = 0;
+//};
+//
+//ElementFactory.DivContainer = function() {
+//    this.el = document.getElementById("div_container");
+//    this.xPosition = 0;
+//    this.xPositionOpen = 20;
+//    this.xPositionClose = 0;
+//};
+//
+//ElementFactory.ContainerNav = function() {
+//    this.el = document.getElementById("containerNav");
+//    this.xPosition = 0;
+//    this.xPositionOpen = 20;
+//    this.xPositionClose = 0;
+//};
+//
+//var sidebar = ElementFactory.factory('Sidebar'),
+//    menuButton = ElementFactory.factory('MenuButton'),
+//    divContainer = ElementFactory.factory('DivContainer'),
+//    containerNav = ElementFactory.factory('ContainerNav');
+//
+//utils.addListener(menuButton.el, "click", function (event) {
+//    if (event.preventDefault) {
+//        event.preventDefault();
+//    } else {
+//        event.returnValue = false;
+//    }
+//
+//    if (sidebar.el.classList.contains("inTheLeftPosition") && menuButton.el.classList.contains("inTheLeftPosition")) {
+//        timers.stop();
+//        timers.add(sidebar.moveToRight);
+//        timers.add(menuButton.moveToRight);
+//        timers.add(divContainer.moveToRight);
+//        timers.add(containerNav.moveToRight);
+//    } else if (sidebar.el.classList.contains("inTheRightPosition") && menuButton.el.classList.contains("inTheRightPosition")) {
+//        timers.stop();
+//        timers.add(sidebar.moveToLeft);
+//        timers.add(menuButton.moveToLeft);
+//        timers.add(divContainer.moveToLeft);
+//        timers.add(containerNav.moveToLeft);
+//    } else {
+//        return false;
+//    }
+//
+//    timers.setTimeout(100);
+//    timers.start();
+//});
 /**
  * Анимация бокового меню и элементов страницы при клике на кнопку открытия меню. Пока без возможности
  * клиентской настройки.
