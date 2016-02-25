@@ -77,12 +77,15 @@ public class AppController {
 
     @RequestMapping("/menu")
     public String menu(Model model) {
-        customerCart = new CustomerCart();
-        model.addAttribute("menu", "Menu page text - added to testing!");
-        model.addAttribute("nameOfProductInFirstBlock", "Big Red Apple"); //TODO select product from table
-        model.addAttribute("insertChoosenProductOfFirstBlock", customerCart.addItemInMenuPage("apple", "big red", 415));//
-        model.addAttribute("nameOfProductInSecondBlock", "Green Banana"); //TODO select product from table
-        model.addAttribute("insertChoosenProductOfSecondBlock", customerCart.addItemInMenuPage("banana", "green", 999));
+        model.addAttribute("textInTopBlock", "In the WebStore your may buy: apple, milk, bread, coffee");
+        model.addAttribute("nameOfFirstBlock", " Category of product");
+        model.addAttribute("actionOnclickFirstBlock", "there will be some action");
+        model.addAttribute("nameOfSecondBlock", "link to second page");
+        model.addAttribute("nameOfThirdBlock", "cost of your product");
+        model.addAttribute("nameOfFourthBlock", "View your product");
+        model.addAttribute("nameOfFifthlock", "View your product");
+        model.addAttribute("nameOfSixBlock", "link to six page");
+        model.addAttribute("nameOfSevenBlock", "link to seven page");
         return "menu";
     }
 
