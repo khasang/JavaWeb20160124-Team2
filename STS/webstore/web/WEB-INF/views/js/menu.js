@@ -1,7 +1,7 @@
 /**
  * Анимация бокового меню и элементов страницы при клике на кнопку открытия меню.
  * @author LevSeleznev
- * @version 1.0
+ * @version 2.0
  */
 function ElementFactory() {}
 
