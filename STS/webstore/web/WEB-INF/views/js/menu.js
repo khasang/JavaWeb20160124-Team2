@@ -13,7 +13,7 @@ ElementFactory.prototype.moveToLeft = function() {
     var that = this;
     return function() {
         that.elem.style.left = that.xPosition + "%";
-        that.xPosition -= 1;
+        that.xPosition -= that.moveToLeftInterval;
         if (that.xPosition <= that.xPositionClose) {
             that.xPosition = that.xPositionClose;
             that.elem.style.left = that.xPosition + "%";
@@ -32,7 +32,7 @@ ElementFactory.prototype.moveToRight = function() {
     var that = this;
     return function() {
         that.elem.style.left = that.xPosition + "%";
-        that.xPosition += 1;
+        that.xPosition += that.moveToRightInterval;
         if (that.xPosition >= that.xPositionOpen) {
             that.xPosition = that.xPositionOpen;
             that.elem.style.left = that.xPosition + "%";
@@ -79,6 +79,8 @@ ElementFactory.Sidebar = function() {
     this.xPosition = -20;
     this.xPositionOpen = 0;
     this.xPositionClose = -20;
+    this.moveToLeftInterval = 1;
+    this.moveToRightInterval = 1;
 };
 
 /**
@@ -89,6 +91,8 @@ ElementFactory.MenuButton = function() {
     this.xPosition = 0;
     this.xPositionOpen = 20;
     this.xPositionClose = 0;
+    this.moveToLeftInterval = 1;
+    this.moveToRightInterval = 1;
 };
 
 /**
@@ -99,6 +103,8 @@ ElementFactory.DivContainer = function() {
     this.xPosition = 0;
     this.xPositionOpen = 20;
     this.xPositionClose = 0;
+    this.moveToLeftInterval = 1;
+    this.moveToRightInterval = 1;
 };
 
 /**
@@ -109,6 +115,8 @@ ElementFactory.ContainerNav = function() {
     this.xPosition = 0;
     this.xPositionOpen = 20;
     this.xPositionClose = 0;
+    this.moveToLeftInterval = 1;
+    this.moveToRightInterval = 1;
 };
 
 var sidebar = ElementFactory.factory('Sidebar'),
@@ -123,13 +131,19 @@ utils.addListener(menuButton.elem, "click", function (event) {
         event.returnValue = false;
     }
 
-    if (sidebar.elem.classList.contains("inTheLeftPosition") && menuButton.elem.classList.contains("inTheLeftPosition")) {
+    if (sidebar.elem.classList.contains("inTheLeftPosition")
+        && menuButton.elem.classList.contains("inTheLeftPosition")
+        && divContainer.elem.classList.contains("inTheLeftPosition")
+        && containerNav.elem.classList.contains("inTheLeftPosition")) {
         timers.stop();
         timers.add(sidebar.moveToRight());
         timers.add(menuButton.moveToRight());
         timers.add(divContainer.moveToRight());
         timers.add(containerNav.moveToRight());
-    } else if (sidebar.elem.classList.contains("inTheRightPosition") && menuButton.elem.classList.contains("inTheRightPosition")) {
+    } else if (sidebar.elem.classList.contains("inTheRightPosition")
+        && menuButton.elem.classList.contains("inTheRightPosition")
+        && divContainer.elem.classList.contains("inTheRightPosition")
+        && containerNav.elem.classList.contains("inTheRightPosition")) {
         timers.stop();
         timers.add(sidebar.moveToLeft());
         timers.add(menuButton.moveToLeft());
@@ -139,6 +153,6 @@ utils.addListener(menuButton.elem, "click", function (event) {
         return false;
     }
 
-    timers.setTimeout(100);
+    timers.setTimeout(90);
     timers.start();
 });
