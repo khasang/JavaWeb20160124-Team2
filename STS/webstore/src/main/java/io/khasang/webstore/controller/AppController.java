@@ -17,6 +17,10 @@ public class AppController {
     ProductDAO productDAO;
 
     @Autowired
+    @Qualifier("createDataTable")
+    CreateDataTable createDataTable;
+
+    @Autowired
     @Qualifier("insertDataTable")
     InsertDataTable insertDataTable;
 
@@ -88,11 +92,11 @@ public class AppController {
         return "cart";
     }
 
-    @RequestMapping("/createtable")
-    public String crateTable(Model model) {
-        model.addAttribute("createtable", insertDataTable.sqlInsertCheck());
-        return "createtable";
-    }
+   @RequestMapping("/createtable")
+  public String crateTable(Model model) {
+      model.addAttribute("createtable", createDataTable.sqlInsertCheck());
+      return "createtable";
+  }
 
     @RequestMapping("/deletecurrentorder")
     public String deleteCurrentOrder(Model model) {
