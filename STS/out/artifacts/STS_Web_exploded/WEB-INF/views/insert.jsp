@@ -11,7 +11,7 @@
     <title>Create and insert data</title>
 </head>
 <body>
-<h1>We will create and insert data into the table webstore. We will also drop table if exists</h1>
+<h1>We will insert data into the table webstore.</h1>
 <h2>${insert}</h2>
 </body>
 </html>
