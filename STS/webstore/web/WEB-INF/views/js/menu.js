@@ -35,7 +35,7 @@ ElementFactory.prototype.moveToRight = function() {
         that.xPosition += 1;
         if (that.xPosition >= that.xPositionOpen) {
             that.xPosition = that.xPositionOpen;
-            that.elem.style.left = this.xPosition + "%";
+            that.elem.style.left = that.xPosition + "%";
             that.elem.classList.add("inTheRightPosition");
             that.elem.classList.remove("inTheLeftPosition");
             return false;
