@@ -25,7 +25,7 @@
             <h4 align="center">${nameOfSecondBlock}</h4>
         </div>
     </a>
-    <a href="/select">
+    <a href="/cost">
         <div class="block" title="link to /select">
             <h4 align="center">${nameOfThirdBlock}</h4>
         </div>
@@ -45,9 +45,9 @@
             <h4 align="center">DeleteOrder</h4>
         </div>
     </a>
-    <a href="/drop">
-        <div class="block" title="link to /drop">
-            <h4 align="center">Drop table</h4>
+    <a href="">
+        <div class="block" title="link to seven page">
+            <h4 align="center">${nameOfSevenBlock}</h4>
         </div>
     </a>
 </div>
