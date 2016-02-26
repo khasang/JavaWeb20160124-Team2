@@ -46,7 +46,6 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
     <bean id="customerCart" class="io.khasang.webstore.model.CustomerCart" scope="prototype"/>
 
-<<<<<<< f9075c88e6a0529fc4e3627efdedd6bfefe84f7d
     <bean id="insertDataTable" class="io.khasang.webstore.model.InsertDataTable">
         <constructor-arg ref="dataSource"/>
         <constructor-arg ref="jdbcTemplate"/></bean>
@@ -55,6 +54,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
         <constructor-arg ref="dataSource"/>
         <constructor-arg ref="jdbcTemplate"/></bean>
 
+    <bean id="buyattime" class="io.khasang.webstore.model.BuyAtTime"/>
 
     <!-- resources exclusions from servlet mapping -->
     <mvc:resources mapping="/css/**" location="/WEB-INF/views/css/"/>

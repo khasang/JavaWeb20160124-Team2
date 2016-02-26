@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import java.util.List;
 
 @Controller
@@ -55,13 +56,14 @@ public class AppController {
     }
 
     @RequestMapping("/cost") // todo yminee join tables product and cost with id, select all columns
-        public String cost(Model model) {
+    public String cost(Model model) {
         model.addAttribute("cost", "");
         return "cost";
     }
 
     // todo lselez show all productorders from table productorders like table with image and prices
-    @RequestMapping("/viewproducts") // todo lselez show all products from table products like table with image and prices
+    @RequestMapping("/viewproducts")
+    // todo lselez show all products from table products like table with image and prices
     public String viewProducts(Model model) {
         List<ProductPojo> products = productDAO.getAll();
         model.addAttribute("page_name", "Список товаров");
@@ -95,11 +97,11 @@ public class AppController {
         return "cart";
     }
 
-   @RequestMapping("/createtable")
-  public String crateTable(Model model) {
-      model.addAttribute("createtable", createDataTable.sqlInsertCheck());
-      return "createtable";
-  }
+    @RequestMapping("/createtable")
+    public String crateTable(Model model) {
+        model.addAttribute("createtable", createDataTable.sqlInsertCheck());
+        return "createtable";
+    }
 
     @RequestMapping("/deletecurrentorder")
     public String deleteCurrentOrder(Model model) {
