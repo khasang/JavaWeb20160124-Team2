@@ -15,43 +15,47 @@
     </center>
 </div>
 <div class="blockDown">
-    <a href="" onclick=${menuHelper.addSelectedProductToTempList(nameOfFirstBlock)}>
         <div class="block" title="click to add this product">
             <h4 align="center">${nameOfFirstBlock} with cost: </h4>
+            <button type="button" class="btn" onclick=${menuHelper.addSelectedProductToTempList(nameOfFirstBlock)}>
+                Got it!
+            </button>
         </div>
-    </a>
-    <a href="" >
         <div class="block" title="click to add this product">
             <h4 align="center">${nameOfSecondBlock} with cost: </h4>
+            <button type="button" class="btn" onclick=${menuHelper.addSelectedProductToTempList(nameOfSecondBlock)}>
+                Got it!
+            </button>
         </div>
-    </a>
-    <a href="" >
         <div class="block" title="click to add this product">
             <h4 align="center">${nameOfThirdBlock} with cost: </h4>
+            <button type="button" class="btn" onclick=${menuHelper.addSelectedProductToTempList(nameOfThirdBlock)}>
+                Got it!
+            </button>
         </div>
-    </a>
-    <a href="" >
         <div class="block" title="click to add this product">
             <h4 align="center">${nameOfFourthBlock} with cost: </h4>
+            <button type="button" class="btn" onclick=${menuHelper.addSelectedProductToTempList(nameOfFourthBlock)}>
+                Got it!
+            </button>
         </div>
-    </a>
-    <a href="" >
         <div class="block" title="link to /viewproducts">
             <h4 align="center">${nameOfFifthlock} with cost: </h4>
+            <button type="button" class="btn" onclick=${menuHelper.addSelectedProductToTempList(nameOfFifthBlock)}>
+                Got it!
+            </button>
         </div>
-    </a>
-    <a href="" >
         <div class="block" title="click to add this product" >
             <h4 align="center">${nameOfSixBlock} with cost: </h4>
+            <button type="button" class="btn" onclick=${menuHelper.addSelectedProductToTempList(nameOfSixBlock)}>
+                Got it!
+            </button>
         </div>
-    </a>
-    <a href="" onclick=${insert}>
         <div class="block" title="click to see your products" >
             <h4 align="center">${nameOfSevenBlock}</h4>
         </div>
-    </a>
 </div>
 </body>
-<p>Count of choosen product =${menuHelper.sizeProdIdSelectedFromUser()}+${nameOfFirstBlock}</p>
-
+<p>choosen product =${menuHelper.sizeProdIdSelectedFromUser()}+${nameOfFirstBlock}</p>
+<p>product = ${menuHelper.pnametest()}</p>
 </html>
