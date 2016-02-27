@@ -60,6 +60,8 @@
 
     <bean id="createCostsTable" class="io.khasang.webstore.model.CreateCostsTable"/>
 
+    <bean id="menuHelper" class="io.khasang.webstore.model.MenuHelper"/>
+
     <!-- resources exclusions from servlet mapping -->
     <mvc:resources mapping="/css/**" location="/WEB-INF/views/css/"/>
     <mvc:resources mapping="/gif/**" location="/WEB-INF/views/css"/>
