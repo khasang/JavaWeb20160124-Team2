@@ -15,7 +15,7 @@
     </center>
 </div>
 <div class="blockDown">
-    <a href="" onclick=${menuHelper.addSelectedProductToTempList(nameOfFirstBlock)}> //if onclick to other div whenever this product added?
+    <a href="" onclick=${menuHelper.addSelectedProductToTempList(nameOfFirstBlock)}>
         <div class="block" title="click to add this product">
             <h4 align="center">${nameOfFirstBlock} with cost: </h4>
         </div>
