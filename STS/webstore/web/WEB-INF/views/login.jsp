@@ -21,7 +21,7 @@
         <input list="users" name="browser">
         <datalist id="users">
             <c:forEach items="${login}" var="users">
-                <option value=${users.login} />
+                <option value=${users.login} ></option>
             </c:forEach>
         </datalist>
         <br>

@@ -56,7 +56,7 @@ public class AppController {
         return "backup";
     }
 
-    @RequestMapping("/drop") // todo vzatch input table name and button to drop
+    @RequestMapping("/drop")
     public String drop(Model model) {
         return "drop";
     }
@@ -66,11 +66,14 @@ public class AppController {
         model.addAttribute("cost", "Стоимость выбранных товаров");
         model.addAttribute("items", selectDataFromTable.selectWholeTable(new Costs()));
         model.addAttribute("insertcosts", createCostsTable.sqlInsertCheck());
+    public String cost(Model model) {
+        model.addAttribute("cost", "");
         return "cost";
     }
 
     // todo lselez show all productorders from table productorders like table with image and prices
-    @RequestMapping("/viewproducts") // todo lselez show all products from table products like table with image and prices
+    @RequestMapping("/viewproducts")
+    // todo lselez show all products from table products like table with image and prices
     public String viewProducts(Model model) {
         List<ProductPojo> products = productDAO.getAll();
         model.addAttribute("page_name", "Список товаров");
@@ -110,11 +113,11 @@ public class AppController {
         return "cart";
     }
 
-   @RequestMapping("/createtable")
-  public String crateTable(Model model) {
-      model.addAttribute("createtable", createDataTable.sqlInsertCheck());
-      return "createtable";
-  }
+    @RequestMapping("/createtable")
+    public String crateTable(Model model) {
+        model.addAttribute("createtable", createDataTable.sqlInsertCheck());
+        return "createtable";
+    }
 
     @RequestMapping("/deletecurrentorder")
     public String deleteCurrentOrder(Model model) {
