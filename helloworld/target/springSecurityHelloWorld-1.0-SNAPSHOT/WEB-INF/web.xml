@@ -38,4 +38,13 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
+	<servlet>
+		<servlet-name>userData</servlet-name>
+		<servlet-class>com.khasang.hello.model.UserData</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>userData</servlet-name>
+		<url-pattern>/secure</url-pattern>
+	</servlet-mapping>
+
 </web-app>

@@ -10,25 +10,16 @@ public class HelloController {
 
 	@RequestMapping(value = { "/", "/welcome**" }, method = RequestMethod.GET)
 	public ModelAndView welcomePage() {
-
 		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Hello Security World!");
 		model.addObject("message", "This is welcome page!");
 		model.setViewName("hello");
 		return model;
-
 	}
 
 	@RequestMapping(value = "/secure**", method = RequestMethod.GET)
 	public ModelAndView adminPage() {
-
 		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Hello Security World!");
-		model.addObject("message", "This is protected page!");
 		model.setViewName("admin");
-
 		return model;
-
 	}
-
 }
