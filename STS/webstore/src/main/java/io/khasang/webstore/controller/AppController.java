@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class AppController {
@@ -40,6 +41,9 @@ public class AppController {
 
     @Autowired
     CreateCostsTable createCostsTable;
+
+    @Autowired
+    MenuHelper menuHelper;
 
     @RequestMapping("/")
     public String welcome(Model model) {
@@ -91,15 +95,19 @@ public class AppController {
 
     @RequestMapping("/menu")
     public String menu(Model model) {
-        model.addAttribute("textInTopBlock", "In the WebStore your may buy: apple, milk, bread, coffee");
-        model.addAttribute("nameOfFirstBlock", " Category of product");
-        model.addAttribute("actionOnclickFirstBlock", "there will be some action");
-        model.addAttribute("nameOfSecondBlock", "link to second page");
-        model.addAttribute("nameOfThirdBlock", "cost of your product");
-        model.addAttribute("nameOfFourthBlock", "View your product");
-        model.addAttribute("nameOfFifthlock", "View your product");
-        model.addAttribute("nameOfSixBlock", "link to six page");
-        model.addAttribute("nameOfSevenBlock", "link to seven page");
+        int count= 0;
+        menuHelper.selectProductNameFromProductsTableToViewIntoMenu();
+        String textInTopBlock = menuHelper.getAllpNameOfProducts();
+        model.addAttribute("menuHelper", menuHelper);
+        model.addAttribute("textInTopBlock", "In the WebStore your may buy: " + textInTopBlock);
+        model.addAttribute("nameOfFirstBlock", menuHelper.getpNameOfProducts(0));
+        model.addAttribute("nameOfSecondBlock", menuHelper.getpNameOfProducts(1));
+        model.addAttribute("nameOfThirdBlock", menuHelper.getpNameOfProducts(2));
+        model.addAttribute("nameOfFourthBlock", menuHelper.getpNameOfProducts(3));
+        model.addAttribute("nameOfFifthlock", menuHelper.getpNameOfProducts(4));
+        model.addAttribute("nameOfSixBlock", menuHelper.getpNameOfProducts(5));
+        model.addAttribute("nameOfSevenBlock", "Link to see your choosen product");
+        model.addAttribute("insert", menuHelper.insertUserSelectedProductToOrderItemTable());
         return "menu";
     }
 

@@ -15,41 +15,43 @@
     </center>
 </div>
 <div class="blockDown">
-    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2/blob/iserba/aboutShop.txt" onclick=${actionOnclickFirstBlock}>
-        <div class="block" title="link to first page of this shop">
-            <h4 align="center">${nameOfFirstBlock}</h4>
+    <a href="" onclick=${menuHelper.addSelectedProductToTempList(nameOfFirstBlock)}>
+        <div class="block" title="click to add this product">
+            <h4 align="center">${nameOfFirstBlock} with cost: </h4>
         </div>
     </a>
-    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2/blob/iserba/userStory.txt">
-        <div class="block" title="link to second page of this shop">
-            <h4 align="center">${nameOfSecondBlock}</h4>
+    <a href="" >
+        <div class="block" title="click to add this product">
+            <h4 align="center">${nameOfSecondBlock} with cost: </h4>
         </div>
     </a>
-    <a href="/cost">
-        <div class="block" title="link to /select">
-            <h4 align="center">${nameOfThirdBlock}</h4>
+    <a href="" >
+        <div class="block" title="click to add this product">
+            <h4 align="center">${nameOfThirdBlock} with cost: </h4>
         </div>
     </a>
-    <a href="/cart">
-        <div class="block" title="link to /cart">
-            <h4 align="center">${nameOfFourthBlock}</h4>
+    <a href="" >
+        <div class="block" title="click to add this product">
+            <h4 align="center">${nameOfFourthBlock} with cost: </h4>
         </div>
     </a>
-    <a href="/viewproducts">
+    <a href="" >
         <div class="block" title="link to /viewproducts">
-            <h4 align="center">${nameOfFifthlock}</h4>
+            <h4 align="center">${nameOfFifthlock} with cost: </h4>
         </div>
     </a>
-    <a href="/deletecurrentorder">
-        <div class="block" title="link to /deletecurrentorder">
-            <h4 align="center">DeleteOrder</h4>
+    <a href="" >
+        <div class="block" title="click to add this product" >
+            <h4 align="center">${nameOfSixBlock} with cost: </h4>
         </div>
     </a>
-    <a href="">
-        <div class="block" title="link to seven page">
+    <a href="" onclick=${insert}>
+        <div class="block" title="click to see your products" >
             <h4 align="center">${nameOfSevenBlock}</h4>
         </div>
     </a>
 </div>
 </body>
+<p>Count of choosen product =${menuHelper.sizeProdIdSelectedFromUser()}+${nameOfFirstBlock}</p>
+
 </html>
