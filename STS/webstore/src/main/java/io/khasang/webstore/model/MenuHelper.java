@@ -87,6 +87,7 @@ public class MenuHelper {
 
     public void addSelectedProductToTempList(String productName){
         pNameSelectedFromUser.add(productName);
+        System.err.println(pNameSelectedFromUser.size());
     }
 
     public String insertUserSelectedProductToOrderItemTable() {
@@ -96,8 +97,15 @@ public class MenuHelper {
     public String sizeProdIdSelectedFromUser() {
         String productsName = "";
         for (int i = 0; i < pNameSelectedFromUser.size(); i++) {
-            productsName = productsName+pNameSelectedFromUser.get(i)+", ";
+            productsName = productsName+pNameSelectedFromUser.get(i)+" "+i+";";
         }
         return productsName;
+    }
+    public String pnametest(){
+        String s = "";
+        for (int i = 0; i < pNameOfProducts.size(); i++) {
+            s = s+pNameOfProducts.get(i)+" "+i+";";
+        }
+        return s;
     }
 }
