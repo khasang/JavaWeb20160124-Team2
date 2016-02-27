@@ -48,7 +48,8 @@ public class AppController {
         return "welcome";
     }
 
-    @RequestMapping("/backup") // todo eborod select current tables and backup with mysqldump Runtime runtime = Runtime.getRuntime();
+    @RequestMapping("/backup")
+    // todo eborod select current tables and backup with mysqldump Runtime runtime = Runtime.getRuntime();
     // todo "mysqldump eshop -u root -proot -r \"C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Uploads\\backup.sql\"");
     public String backup(Model model) {
         BackupDatabase backupDatabase = new BackupDatabase();
@@ -62,7 +63,7 @@ public class AppController {
     }
 
     @RequestMapping("/cost") // todo yminee join tables product and cost with id, select all columns
-        public String cost(Model model) {
+    public String cost(Model model) {
         model.addAttribute("cost", "Стоимость выбранных товаров");
         model.addAttribute("items", selectDataFromTable.selectWholeTable(new Costs()));
         model.addAttribute("insertcosts", createCostsTable.sqlInsertCheck());
@@ -70,7 +71,8 @@ public class AppController {
     }
 
     // todo lselez show all productorders from table productorders like table with image and prices
-    @RequestMapping("/viewproducts") // todo lselez show all products from table products like table with image and prices
+    @RequestMapping("/viewproducts")
+    // todo lselez show all products from table products like table with image and prices
     public String viewProducts(Model model) {
         List<ProductPojo> products = productDAO.getAll();
         model.addAttribute("page_name", "Список товаров");
@@ -110,11 +112,11 @@ public class AppController {
         return "cart";
     }
 
-   @RequestMapping("/createtable")
-  public String crateTable(Model model) {
-      model.addAttribute("createtable", createDataTable.sqlInsertCheck());
-      return "createtable";
-  }
+    @RequestMapping("/createtable")
+    public String crateTable(Model model) {
+        model.addAttribute("createtable", createDataTable.sqlInsertCheck());
+        return "createtable";
+    }
 
     @RequestMapping("/deletecurrentorder")
     public String deleteCurrentOrder(Model model) {
@@ -141,9 +143,10 @@ public class AppController {
     }
 
     //todo done. What's next?
-    @RequestMapping(value = "/customercart") //todo ekarpov select from productorder with id + status in progress and done
-    public String select(Model model, @RequestParam(value="status", required=false) String status,
-                         @RequestParam(value="userid", required=false) String userid) {
+    @RequestMapping(value = "/customercart")
+    //todo ekarpov select from productorder with id + status in progress and done
+    public String select(Model model, @RequestParam(value = "status", required = false) String status,
+                         @RequestParam(value = "userid", required = false) String userid) {
         model.addAttribute("items", customerCart.listProductOrder(status, userid));
         return "customercart";
     }
