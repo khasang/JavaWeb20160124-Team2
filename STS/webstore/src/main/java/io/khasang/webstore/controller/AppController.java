@@ -62,10 +62,6 @@ public class AppController {
     }
 
     @RequestMapping("/cost") // todo yminee join tables product and cost with id, select all columns
-        public String cost(Model model) {
-        model.addAttribute("cost", "Стоимость выбранных товаров");
-        model.addAttribute("items", selectDataFromTable.selectWholeTable(new Costs()));
-        model.addAttribute("insertcosts", createCostsTable.sqlInsertCheck());
     public String cost(Model model) {
         model.addAttribute("cost", "");
         return "cost";
