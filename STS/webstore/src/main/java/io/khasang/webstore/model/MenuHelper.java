@@ -4,12 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
 
-public class MenuHelper {
+public class MenuHelper extends HttpServlet{
     @Autowired
     private SimpleDriverDataSource dataSource;
     @Autowired
@@ -23,7 +29,7 @@ public class MenuHelper {
         return 0;
     }
 
-    public void selectProductNameFromProductsTableToViewIntoMenu(){
+    public void selectInfoFromProductsTableToViewIntoMenu(){
         pNameOfProducts.clear();
         idFromProducts.clear();
         String query = "SELECT ID, pName FROM products";//TODO iserba - when new table products created, correct this
@@ -107,5 +113,20 @@ public class MenuHelper {
             s = s+pNameOfProducts.get(i)+" "+i+";";
         }
         return s;
+    }
+
+    @Override
+    protected void doPost (HttpServletRequest request, HttpServletResponse responce) throws ServletException, IOException{
+        responce.setContentType("text/html;charset=UTF-8");
+        String currentValue = request.getParameter("first");
+        if (currentValue.equals("Got it!")){
+            addSelectedProductToTempList(getpNameOfProducts(0));
+            System.err.println("added");
+        }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse responce) throws ServletException, IOException {
+        doPost(request, responce);
     }
 }
