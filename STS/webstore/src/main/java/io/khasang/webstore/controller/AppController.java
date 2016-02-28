@@ -93,7 +93,7 @@ public class AppController {
     }
 
     @RequestMapping("/menu")
-    public String menu(Model model) {  //bug- do not work responce/request from menu.jsp and menuHelper
+    public String menu(Model model) {  
         menuHelper.selectInfoFromProductsTableToViewIntoMenu();
         String textInTopBlock = menuHelper.getAllpNameOfProducts();
         model.addAttribute("menuHelper", menuHelper);
