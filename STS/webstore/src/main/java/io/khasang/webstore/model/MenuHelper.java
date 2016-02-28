@@ -2,7 +2,6 @@ package io.khasang.webstore.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,17 +15,11 @@ import java.util.*;
 
 public class MenuHelper extends HttpServlet{
     @Autowired
-    private SimpleDriverDataSource dataSource;
-    @Autowired
     private JdbcTemplate jdbcTemplate;
 
     List<String> pNameOfProducts = new ArrayList<String>();
     List<Integer> idFromProducts = new ArrayList<Integer>();
     public List<String> pNameSelectedFromUser = new ArrayList<String>();
-
-    private int addImageToTableImage(String url){
-        return 0;
-    }
 
     public void selectInfoFromProductsTableToViewIntoMenu(){
         pNameOfProducts.clear();
@@ -39,7 +32,7 @@ public class MenuHelper extends HttpServlet{
             resultSet = statement.executeQuery(query);
             while (resultSet.next()){
                 Integer id = Integer.parseInt(resultSet.getString("ID")); //new table products - do not created, so I get old values
-                String pName = resultSet.getString("pName");//new table products - do not created, so I get old values
+                String pName = resultSet.getString("pName"); //new table products - do not created, so I get old values
                 System.err.println(id+pName);
                 idFromProducts.add(id);
                 pNameOfProducts.add(pName);
@@ -66,8 +59,8 @@ public class MenuHelper extends HttpServlet{
 
     public String getAllpNameOfProducts(){
         String allpNameOfProducts ="";
-        for (int i=0;i<pNameOfProducts.size();i++){
-            allpNameOfProducts = allpNameOfProducts +" "+pNameOfProducts.get(i)+",";
+        for (String pNameOfProduct : pNameOfProducts) {
+            allpNameOfProducts = allpNameOfProducts + " " + pNameOfProduct + ",";
         }
         return allpNameOfProducts;
     }
@@ -75,20 +68,7 @@ public class MenuHelper extends HttpServlet{
     public String getpNameOfProducts(int index){
         return pNameOfProducts.get(index);
     }
-
-    public int getprodIDfrompName(String pName){
-        int requredIndex=0;
-        for (int i=0;i<pNameOfProducts.size();i++){
-            if (pName.equals(pNameOfProducts.get(i))){
-                requredIndex = idFromProducts.get(i);
-            }
-        }
-        return requredIndex;
-    }
-
-    public int loginBeforeCreateOrder(){
-        return 0;
-    }
+    
 
     public void addSelectedProductToTempList(String productName){
         pNameSelectedFromUser.add(productName);
@@ -99,55 +79,33 @@ public class MenuHelper extends HttpServlet{
         return "insert test";
     }
 
-    public String sizeProdIdSelectedFromUser() {
-        String productsName = "";
-        for (int i = 0; i < pNameSelectedFromUser.size(); i++) {
-            productsName = productsName+pNameSelectedFromUser.get(i)+" "+i+";";
-        }
-        return productsName;
-    }
-    public String pnametest(){
-        String s = "";
-        for (int i = 0; i < pNameOfProducts.size(); i++) {
-            s = s+pNameOfProducts.get(i)+" "+i+";";
-        }
-        return s;
-    }
-
     @Override
     protected void doPost (HttpServletRequest request, HttpServletResponse responce) throws ServletException, IOException{
         responce.setContentType("text/html;charset=UTF-8");
         String currentValue = request.getParameter("name");
-
         if (currentValue.equals("Get first!")){
             addSelectedProductToTempList("apple");
             System.err.println("apple added");
         }
-
         if (currentValue.equals("Get two!")){
             addSelectedProductToTempList("banan");
             System.err.println("banan added");
         }
-
         if (currentValue.equals("Get three!")){
             addSelectedProductToTempList("bread");
             System.err.println("bread added");
         }
-
         if (currentValue.equals("Get four!")){
             addSelectedProductToTempList("milk");
             System.err.println("milk added");
         }
-
         if (currentValue.equals("Get five!")){
             addSelectedProductToTempList("becon");
             System.err.println("becon added");
         }
-
         if (currentValue.equals("Get six!")){
-            addSelectedProductToTempList("six");
+            addSelectedProductToTempList("bread");
             System.err.println("bread added");
         }
-
     }
 }
