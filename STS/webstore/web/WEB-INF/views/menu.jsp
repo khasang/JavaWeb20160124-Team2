@@ -18,30 +18,30 @@
     </center>
 </div>
 <div class="blockDown">
-    <form action="menu" method="POST">
+    <form action="menuHelper" method="POST">
         <div class="block" title="click to add this product">
             <h4 align="center">${nameOfFirstBlock} with cost: </h4>
-            <input type="submit" class="btn" name="first" value="Got it!"/>
+            <input type="submit" class="btn" name="name" value="Get first!"/>
         </div>
         <div class="block" title="click to add this product">
             <h4 align="center">${nameOfSecondBlock} with cost: </h4>
-            <input type="submit" class="btn" name="second" value="Got it!"/>
+            <input type="submit" class="btn" name="name" value="Get two!"/>
         </div>
         <div class="block" title="click to add this product">
             <h4 align="center">${nameOfThirdBlock} with cost: </h4>
-            <input type="submit" class="btn" name="third" value="Got it!"/>
+            <input type="submit" class="btn" name="name" value="Get three!"/>
         </div>
         <div class="block" title="click to add this product">
             <h4 align="center">${nameOfFourthBlock} with cost: </h4>
-            <input type="submit" class="btn" name="four" value="Got it!"/>
+            <input type="submit" class="btn" name="name" value="Get four!"/>
         </div>
         <div class="block" title="click to add this product">
             <h4 align="center">${nameOfFifthlock} with cost: </h4>
-            <input type="submit" class="btn" name="five" value="Got it!"/>
+            <input type="submit" class="btn" name="name" value="Get five!"/>
         </div>
         <div class="block" title="click to add this product" >
             <h4 align="center">${nameOfSixBlock} with cost: </h4>
-            <input type="submit" class="btn" name="six" value="Got it!"/>
+            <input type="submit" class="btn" name="name" value="Get six!"/>
         </div>
         <div class="block" title="click to see your products">
             <h4 align="center">${nameOfSevenBlock}</h4>
