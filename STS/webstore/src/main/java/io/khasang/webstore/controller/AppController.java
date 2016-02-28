@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class AppController {
@@ -95,8 +94,7 @@ public class AppController {
 
     @RequestMapping("/menu")
     public String menu(Model model) {
-        int count= 0;
-        menuHelper.selectProductNameFromProductsTableToViewIntoMenu();
+        menuHelper.selectInfoFromProductsTableToViewIntoMenu();
         String textInTopBlock = menuHelper.getAllpNameOfProducts();
         model.addAttribute("menuHelper", menuHelper);
         model.addAttribute("textInTopBlock", "In the WebStore your may buy: " + textInTopBlock);
@@ -106,7 +104,7 @@ public class AppController {
         model.addAttribute("nameOfFourthBlock", menuHelper.getpNameOfProducts(3));
         model.addAttribute("nameOfFifthlock", menuHelper.getpNameOfProducts(4));
         model.addAttribute("nameOfSixBlock", menuHelper.getpNameOfProducts(5));
-        model.addAttribute("nameOfSevenBlock", "Link to see your choosen product");
+        model.addAttribute("nameOfSevenBlock", "Link to see your product");
         model.addAttribute("insert", menuHelper.insertUserSelectedProductToOrderItemTable());
         return "menu";
     }

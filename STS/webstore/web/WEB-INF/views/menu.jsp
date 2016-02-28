@@ -1,3 +1,6 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <link href="css/style_of_menu.css" rel="stylesheet">
@@ -15,47 +18,37 @@
     </center>
 </div>
 <div class="blockDown">
+    <form action="menu" method="POST">
         <div class="block" title="click to add this product">
             <h4 align="center">${nameOfFirstBlock} with cost: </h4>
-            <button type="button" class="btn" onclick=${menuHelper.addSelectedProductToTempList(nameOfFirstBlock)}>
-                Got it!
-            </button>
+            <input type="submit" class="btn" name="first" value="Got it!"/>
         </div>
         <div class="block" title="click to add this product">
             <h4 align="center">${nameOfSecondBlock} with cost: </h4>
-            <button type="button" class="btn" onclick=${menuHelper.addSelectedProductToTempList(nameOfSecondBlock)}>
-                Got it!
-            </button>
+            <input type="submit" class="btn" name="second" value="Got it!"/>
         </div>
         <div class="block" title="click to add this product">
             <h4 align="center">${nameOfThirdBlock} with cost: </h4>
-            <button type="button" class="btn" onclick=${menuHelper.addSelectedProductToTempList(nameOfThirdBlock)}>
-                Got it!
-            </button>
+            <input type="submit" class="btn" name="third" value="Got it!"/>
         </div>
         <div class="block" title="click to add this product">
             <h4 align="center">${nameOfFourthBlock} with cost: </h4>
-            <button type="button" class="btn" onclick=${menuHelper.addSelectedProductToTempList(nameOfFourthBlock)}>
-                Got it!
-            </button>
+            <input type="submit" class="btn" name="four" value="Got it!"/>
         </div>
-        <div class="block" title="link to /viewproducts">
+        <div class="block" title="click to add this product">
             <h4 align="center">${nameOfFifthlock} with cost: </h4>
-            <button type="button" class="btn" onclick=${menuHelper.addSelectedProductToTempList(nameOfFifthBlock)}>
-                Got it!
-            </button>
+            <input type="submit" class="btn" name="five" value="Got it!"/>
         </div>
         <div class="block" title="click to add this product" >
             <h4 align="center">${nameOfSixBlock} with cost: </h4>
-            <button type="button" class="btn" onclick=${menuHelper.addSelectedProductToTempList(nameOfSixBlock)}>
-                Got it!
-            </button>
+            <input type="submit" class="btn" name="six" value="Got it!"/>
         </div>
-        <div class="block" title="click to see your products" >
+        <div class="block" title="click to see your products">
             <h4 align="center">${nameOfSevenBlock}</h4>
+            <button type="button" class="btn" onclick='location.href="/cart"'>Link</button>
         </div>
+    </form>
 </div>
 </body>
-<p>choosen product =${menuHelper.sizeProdIdSelectedFromUser()}+${nameOfFirstBlock}</p>
-<p>product = ${menuHelper.pnametest()}</p>
+
 </html>
