@@ -92,7 +92,7 @@ public class MenuHelper extends HttpServlet{
 
     public void addSelectedProductToTempList(String productName){
         pNameSelectedFromUser.add(productName);
-        System.err.println(pNameSelectedFromUser.size());
+        System.err.println("size of list "+pNameSelectedFromUser.size());
     }
 
     public String insertUserSelectedProductToOrderItemTable() {
@@ -117,15 +117,37 @@ public class MenuHelper extends HttpServlet{
     @Override
     protected void doPost (HttpServletRequest request, HttpServletResponse responce) throws ServletException, IOException{
         responce.setContentType("text/html;charset=UTF-8");
-        String currentValue = request.getParameter("first");
-        if (currentValue.equals("Got it!")){
-            addSelectedProductToTempList(getpNameOfProducts(0));
-            System.err.println("added");
-        }
-    }
+        String currentValue = request.getParameter("name");
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse responce) throws ServletException, IOException {
-        doPost(request, responce);
+        if (currentValue.equals("Get first!")){
+            addSelectedProductToTempList("apple");
+            System.err.println("apple added");
+        }
+
+        if (currentValue.equals("Get two!")){
+            addSelectedProductToTempList("banan");
+            System.err.println("banan added");
+        }
+
+        if (currentValue.equals("Get three!")){
+            addSelectedProductToTempList("bread");
+            System.err.println("bread added");
+        }
+
+        if (currentValue.equals("Get four!")){
+            addSelectedProductToTempList("milk");
+            System.err.println("milk added");
+        }
+
+        if (currentValue.equals("Get five!")){
+            addSelectedProductToTempList("becon");
+            System.err.println("becon added");
+        }
+
+        if (currentValue.equals("Get six!")){
+            addSelectedProductToTempList("six");
+            System.err.println("bread added");
+        }
+
     }
 }
