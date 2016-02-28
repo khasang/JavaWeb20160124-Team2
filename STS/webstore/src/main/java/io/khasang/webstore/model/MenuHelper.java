@@ -145,7 +145,7 @@ public class MenuHelper extends HttpServlet{
         }
 
         if (currentValue.equals("Get six!")){
-            addSelectedProductToTempList("six");
+            addSelectedProductToTempList("bread");
             System.err.println("bread added");
         }
 
