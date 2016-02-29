@@ -56,7 +56,7 @@
         <constructor-arg ref="dataSource"/>
         <constructor-arg ref="jdbcTemplate"/></bean>
 
-    <bean id="buyattime" class="io.khasang.webstore.model.BuyAtTime"/>
+   <!-- <bean id="buyattime" class="io.khasang.webstore.model.BuyAtTime"/>-->
 
     <bean id="createCostsTable" class="io.khasang.webstore.model.CreateCostsTable"/>
 
