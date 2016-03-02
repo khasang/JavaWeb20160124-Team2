@@ -1,0 +1,26 @@
+.about {
+    display: inline-block;
+    height:30%;
+    width: 30%;
+    font-size:14px;
+    font-family:Calibri;
+    text-align: center;
+    border:10px solid transparent;
+    border-bottom: 80px solid transparent;
+    color: gray;
+}
+
+.img {
+    max-width:80%;
+    height:auto;
+    text-align:center
+}
+
+span {
+    color: red;
+}
+
+.text {
+    color: gray;
+    line-height: 0.2;
+}

@@ -34,6 +34,12 @@
             <add-attribute value="css/style_product.css" />
         </put-list-attribute>
     </definition>
+    <definition name="catalog" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/catalog.jsp" />
+        <put-list-attribute name="stylesheets" inherit="true">
+            <add-attribute value="css/style_catalog.css" />
+        </put-list-attribute>
+    </definition>
     <definition name="cart" extends="base">
         <put-attribute name="body" value="/WEB-INF/views/cart.jsp" />
         <put-list-attribute name="stylesheets" inherit="true">
