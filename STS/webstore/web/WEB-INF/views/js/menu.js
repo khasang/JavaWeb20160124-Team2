@@ -3,15 +3,16 @@
  * @author LevSeleznev
  * @version 2.0
  */
-function ElementFactory() {}
+function ElementFactory() {
+}
 
 /**
  * Сдвигает элементы влево
  * @returns {Function} - функция обратного вызова для сохранения контекста
  */
-ElementFactory.prototype.moveToLeft = function() {
+ElementFactory.prototype.moveToLeft = function () {
     var that = this;
-    return function() {
+    return function () {
         that.elem.style.left = that.xPosition + "%";
         that.xPosition -= that.moveToLeftInterval;
         if (that.xPosition <= that.xPositionClose) {
@@ -28,9 +29,9 @@ ElementFactory.prototype.moveToLeft = function() {
  * Сдвигает элементы вправо
  * @returns {Function} - функция обратного вызова для сохранения контекста
  */
-ElementFactory.prototype.moveToRight = function() {
+ElementFactory.prototype.moveToRight = function () {
     var that = this;
-    return function() {
+    return function () {
         that.elem.style.left = that.xPosition + "%";
         that.xPosition += that.moveToRightInterval;
         if (that.xPosition >= that.xPositionOpen) {
@@ -48,22 +49,22 @@ ElementFactory.prototype.moveToRight = function() {
  * @param type - тип элемента
  * @returns {*} - возвращает созданный элемент указанного типа, который унаследовал необходимы методы фабрики
  */
-ElementFactory.factory = function(type) {
+ElementFactory.factory = function (type) {
     var constr = type,
         newElement;
 
-    if(typeof ElementFactory[constr] !== "function") {
+    if (typeof ElementFactory[constr] !== "function") {
         throw {
             name: 'Error',
             message: "Construct doesn't function"
         };
     }
 
-    if(typeof ElementFactory[constr].prototype.moveToLeft !== 'function') {
+    if (typeof ElementFactory[constr].prototype.moveToLeft !== 'function') {
         ElementFactory[constr].prototype.moveToLeft = ElementFactory.prototype.moveToLeft;
     }
 
-    if(typeof ElementFactory[constr].prototype.moveToRight !== 'function') {
+    if (typeof ElementFactory[constr].prototype.moveToRight !== 'function') {
         ElementFactory[constr].prototype.moveToRight = ElementFactory.prototype.moveToRight;
     }
 
@@ -74,55 +75,68 @@ ElementFactory.factory = function(type) {
 /**
  * Отвечает за анимацию бокового меню
  */
-ElementFactory.Sidebar = function() {
+ElementFactory.Sidebar = function () {
     this.elem = document.getElementById("sidebar");
     this.xPosition = -20;
     this.xPositionOpen = 0;
     this.xPositionClose = -20;
-    this.moveToLeftInterval = 1;
-    this.moveToRightInterval = 1;
+    this.moveToLeftInterval = 0.1;
+    this.moveToRightInterval = 0.1;
 };
 
 /**
  * Отвечает за анимацию кнопки открытия меню
  */
-ElementFactory.MenuButton = function() {
+ElementFactory.MenuButton = function () {
     this.elem = document.getElementById("sidebar-toggle");
     this.xPosition = 0;
     this.xPositionOpen = 20;
     this.xPositionClose = 0;
-    this.moveToLeftInterval = 1;
-    this.moveToRightInterval = 1;
+    this.moveToLeftInterval = 0.1;
+    this.moveToRightInterval = 0.1;
 };
 
 /**
  * Отвечает за анимацию контента
  */
-ElementFactory.DivContainer = function() {
+ElementFactory.DivContainer = function () {
     this.elem = document.getElementById("div_container");
     this.xPosition = 0;
     this.xPositionOpen = 20;
     this.xPositionClose = 0;
-    this.moveToLeftInterval = 1;
-    this.moveToRightInterval = 1;
+    this.moveToLeftInterval = 0.1;
+    this.moveToRightInterval = 0.1;
 };
 
 /**
  * Отвечает за анимацию верхнего меню
  */
-ElementFactory.ContainerNav = function() {
+ElementFactory.ContainerNav = function () {
     this.elem = document.getElementById("containerNav");
     this.xPosition = 0;
     this.xPositionOpen = 20;
     this.xPositionClose = 0;
-    this.moveToLeftInterval = 1;
-    this.moveToRightInterval = 1;
+    this.moveToLeftInterval = 0.1;
+    this.moveToRightInterval = 0.1;
+};
+
+/**
+ * Отвечает за анимацию подвала
+ */
+ElementFactory.Footer = function() {
+    this.elem = document.getElementById("footer_inform");
+    this.xPosition = 0;
+    this.xPositionOpen = 20;
+    this.xPositionClose = 0;
+    this.moveToLeftInterval = 0.1;
+    this.moveToRightInterval = 0.1;
 };
 
 var sidebar = ElementFactory.factory('Sidebar'),
     menuButton = ElementFactory.factory('MenuButton'),
     divContainer = ElementFactory.factory('DivContainer'),
-    containerNav = ElementFactory.factory('ContainerNav');
+    containerNav = ElementFactory.factory('ContainerNav'),
+    footer = ElementFactory.factory('Footer');
 
 utils.addListener(menuButton.elem, "click", function (event) {
     if (event.preventDefault) {
@@ -134,25 +148,29 @@ utils.addListener(menuButton.elem, "click", function (event) {
     if (sidebar.elem.classList.contains("inTheLeftPosition")
         && menuButton.elem.classList.contains("inTheLeftPosition")
         && divContainer.elem.classList.contains("inTheLeftPosition")
-        && containerNav.elem.classList.contains("inTheLeftPosition")) {
+        && containerNav.elem.classList.contains("inTheLeftPosition")
+        && footer.elem.classList.contains("inTheLeftPosition")) {
         timers.stop();
         timers.add(sidebar.moveToRight());
         timers.add(menuButton.moveToRight());
         timers.add(divContainer.moveToRight());
         timers.add(containerNav.moveToRight());
+        timers.add(footer.moveToRight());
     } else if (sidebar.elem.classList.contains("inTheRightPosition")
         && menuButton.elem.classList.contains("inTheRightPosition")
         && divContainer.elem.classList.contains("inTheRightPosition")
-        && containerNav.elem.classList.contains("inTheRightPosition")) {
+        && containerNav.elem.classList.contains("inTheRightPosition")
+        && footer.elem.classList.contains("inTheRightPosition")) {
         timers.stop();
         timers.add(sidebar.moveToLeft());
         timers.add(menuButton.moveToLeft());
         timers.add(divContainer.moveToLeft());
         timers.add(containerNav.moveToLeft());
+        timers.add(footer.moveToLeft());
     } else {
         return false;
     }
 
-    timers.setTimeout(90);
+    timers.setTimeout(30);
     timers.start();
 });

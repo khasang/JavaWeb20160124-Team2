@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -46,9 +48,50 @@ public class AppController {
 
     @RequestMapping("/")
     public String welcome(Model model) {
-        model.addAttribute("greeting", "Welcome to our best Shop!");
-        model.addAttribute("tagline", "The one and only amazing shop system!");
+
         return "welcome";
+    }
+
+    @RequestMapping("/login")
+    public String login(HttpServletRequest request, Model model) {
+        if (request.getParameter("error") != null) {
+            model.addAttribute("error", "Пользователь не найден");
+        }
+        if (request.getParameter("logout") != null) {
+            model.addAttribute("message", "Вы вышли");
+        }
+        model.addAttribute("pageName", "Авторизация");
+        return "login";
+    }
+
+    @RequestMapping(value = "/product", method = RequestMethod.GET)
+    public String product(@RequestParam("id") int id, Model model) {
+
+        return "product";
+    }
+
+    @RequestMapping(value = "/catalog", method = RequestMethod.GET)
+    public String catalog(@RequestParam("id") int id, Model model) {
+
+        return "catalog";
+    }
+
+    @RequestMapping("/cart")
+    public String cart(Model model) {
+
+        return "cart";
+    }
+
+    @RequestMapping("/about")
+    public String about(HttpServletRequest request, Model model) {
+
+        return "about";
+    }
+
+    @RequestMapping("/contacts")
+    public String contacts(HttpServletRequest request, Model model) {
+
+        return "contacts";
     }
 
     @RequestMapping("/backup") // todo eborod select current tables and backup with mysqldump Runtime runtime = Runtime.getRuntime();
@@ -109,11 +152,11 @@ public class AppController {
         return "menu";
     }
 
-    @RequestMapping("/cart")
-    public String cart(Model model) {
-        model.addAttribute("page_name", "Корзина товаров");
-        return "cart";
-    }
+//    @RequestMapping("/cart")
+//    public String cart(Model model) {
+//        model.addAttribute("page_name", "Корзина товаров");
+//        return "cart";
+//    }
 
     @RequestMapping("/createtable")
     public String crateTable(Model model) {
@@ -127,11 +170,11 @@ public class AppController {
         return "deletecurrentorder";
     }
 
-    @RequestMapping("/login") // todo mbedr jsp login, select user from table logins with login name.
-    public String login(Model model) {
-        model.addAttribute("login", new Logins(new LocalDataSource().getSource()).getAll());
-        return "login";
-    }
+//    @RequestMapping("/login") // todo mbedr jsp login, select user from table logins with login name.
+//    public String login(Model model) {
+//        model.addAttribute("login", new Logins(new LocalDataSource().getSource()).getAll());
+//        return "login";
+//    }
 
     @RequestMapping("/front")
     public String front(Model model) {

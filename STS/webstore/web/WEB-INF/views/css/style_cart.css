@@ -1,0 +1,32 @@
+#prod_table {
+    margin-top: 20px;
+    width: 100%;
+    border-bottom: 1px solid #CD5C5C;
+    border-collapse: collapse;
+}
+.left_img {
+    width: 40%;
+}
+.inline_i {
+    display: inline-block;
+    vertical-align: middle;
+}
+.left_img img {
+    max-width: 100%;
+}
+#first {
+    width: 40%;
+    text-align: left;
+    padding: 5px 10px;
+}
+#second, #third, #fourth {
+    width: 20%;
+    text-align: left;
+    padding: 5px 10px;
+}
+.table-head {
+    background: #F5F5F5;
+}
+.table-head th {
+    border-bottom: 1px solid #CD5C5C;
+}
