@@ -41,6 +41,9 @@ public class AppController {
     @Autowired
     CreateCostsTable createCostsTable;
 
+    @Autowired
+    MenuHelper menuHelper;
+
     @RequestMapping("/")
     public String welcome(Model model) {
         model.addAttribute("greeting", "Welcome to our best Shop!");
@@ -48,8 +51,7 @@ public class AppController {
         return "welcome";
     }
 
-    @RequestMapping("/backup")
-    // todo eborod select current tables and backup with mysqldump Runtime runtime = Runtime.getRuntime();
+    @RequestMapping("/backup") // todo eborod select current tables and backup with mysqldump Runtime runtime = Runtime.getRuntime();
     // todo "mysqldump eshop -u root -proot -r \"C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Uploads\\backup.sql\"");
     public String backup(Model model) {
         BackupDatabase backupDatabase = new BackupDatabase();
@@ -57,16 +59,14 @@ public class AppController {
         return "backup";
     }
 
-    @RequestMapping("/drop") // todo vzatch input table name and button to drop
+    @RequestMapping("/drop")
     public String drop(Model model) {
         return "drop";
     }
 
     @RequestMapping("/cost") // todo yminee join tables product and cost with id, select all columns
     public String cost(Model model) {
-        model.addAttribute("cost", "Стоимость выбранных товаров");
-        model.addAttribute("items", selectDataFromTable.selectWholeTable(new Costs()));
-        model.addAttribute("insertcosts", createCostsTable.sqlInsertCheck());
+        model.addAttribute("cost", "");
         return "cost";
     }
 
@@ -93,16 +93,19 @@ public class AppController {
     }
 
     @RequestMapping("/menu")
-    public String menu(Model model) {
-        model.addAttribute("textInTopBlock", "In the WebStore your may buy: apple, milk, bread, coffee");
-        model.addAttribute("nameOfFirstBlock", " Category of product");
-        model.addAttribute("actionOnclickFirstBlock", "there will be some action");
-        model.addAttribute("nameOfSecondBlock", "link to second page");
-        model.addAttribute("nameOfThirdBlock", "cost of your product");
-        model.addAttribute("nameOfFourthBlock", "View your product");
-        model.addAttribute("nameOfFifthlock", "View your product");
-        model.addAttribute("nameOfSixBlock", "link to six page");
-        model.addAttribute("nameOfSevenBlock", "link to seven page");
+    public String menu(Model model) {  
+        menuHelper.selectInfoFromProductsTableToViewIntoMenu();
+        String textInTopBlock = menuHelper.getAllpNameOfProducts();
+        model.addAttribute("menuHelper", menuHelper);
+        model.addAttribute("textInTopBlock", "In the WebStore your may buy: " + textInTopBlock);
+        model.addAttribute("nameOfFirstBlock", menuHelper.getpNameOfProducts(0));
+        model.addAttribute("nameOfSecondBlock", menuHelper.getpNameOfProducts(1));
+        model.addAttribute("nameOfThirdBlock", menuHelper.getpNameOfProducts(2));
+        model.addAttribute("nameOfFourthBlock", menuHelper.getpNameOfProducts(3));
+        model.addAttribute("nameOfFifthlock", menuHelper.getpNameOfProducts(4));
+        model.addAttribute("nameOfSixBlock", menuHelper.getpNameOfProducts(5));
+        model.addAttribute("nameOfSevenBlock", "Link to see your product");
+        model.addAttribute("insert", menuHelper.insertUserSelectedProductToOrderItemTable());
         return "menu";
     }
 
@@ -143,10 +146,9 @@ public class AppController {
     }
 
     //todo done. What's next?
-    @RequestMapping(value = "/customercart")
-    //todo ekarpov select from productorder with id + status in progress and done
-    public String select(Model model, @RequestParam(value = "status", required = false) String status,
-                         @RequestParam(value = "userid", required = false) String userid) {
+    @RequestMapping(value = "/customercart") //todo ekarpov select from productorder with id + status in progress and done
+    public String select(Model model, @RequestParam(value="status", required=false) String status,
+                         @RequestParam(value="userid", required=false) String userid) {
         model.addAttribute("items", customerCart.listProductOrder(status, userid));
         return "customercart";
     }
