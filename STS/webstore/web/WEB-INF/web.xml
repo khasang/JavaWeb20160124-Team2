@@ -21,4 +21,14 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
         <url-pattern>/drop</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>menuHelper</servlet-name>
+        <servlet-class>io.khasang.webstore.model.MenuHelper</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>menuHelper</servlet-name>
+        <url-pattern>/menuHelper</url-pattern>
+    </servlet-mapping>
+
 </web-app>

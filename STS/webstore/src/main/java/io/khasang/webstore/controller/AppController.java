@@ -19,6 +19,10 @@ public class AppController {
     ProductDAO productDAO;
 
     @Autowired
+    @Qualifier("createDataTable")
+    CreateDataTable createDataTable;
+
+    @Autowired
     @Qualifier("insertDataTable")
     InsertDataTable insertDataTable;
 
@@ -37,6 +41,9 @@ public class AppController {
     @Autowired
     CreateCostsTable createCostsTable;
 
+    @Autowired
+    MenuHelper menuHelper;
+
     @RequestMapping("/")
     public String welcome(Model model) {
         model.addAttribute("greeting", "Welcome to our best Shop!");
@@ -52,21 +59,20 @@ public class AppController {
         return "backup";
     }
 
-    @RequestMapping("/drop") // todo vzatch input table name and button to drop
+    @RequestMapping("/drop")
     public String drop(Model model) {
         return "drop";
     }
 
     @RequestMapping("/cost") // todo yminee join tables product and cost with id, select all columns
-        public String cost(Model model) {
-        model.addAttribute("cost", "Стоимость выбранных товаров");
-        model.addAttribute("items", selectDataFromTable.selectWholeTable(new Costs()));
-        model.addAttribute("insertcosts", createCostsTable.sqlInsertCheck());
+    public String cost(Model model) {
+        model.addAttribute("cost", "");
         return "cost";
     }
 
     // todo lselez show all productorders from table productorders like table with image and prices
-    @RequestMapping("/viewproducts") // todo lselez show all products from table products like table with image and prices
+    @RequestMapping("/viewproducts")
+    // todo lselez show all products from table products like table with image and prices
     public String viewProducts(Model model) {
         List<ProductPojo> products = productDAO.getAll();
         model.addAttribute("page_name", "Список товаров");
@@ -87,16 +93,19 @@ public class AppController {
     }
 
     @RequestMapping("/menu")
-    public String menu(Model model) {
-        model.addAttribute("textInTopBlock", "In the WebStore your may buy: apple, milk, bread, coffee");
-        model.addAttribute("nameOfFirstBlock", " Category of product");
-        model.addAttribute("actionOnclickFirstBlock", "there will be some action");
-        model.addAttribute("nameOfSecondBlock", "link to second page");
-        model.addAttribute("nameOfThirdBlock", "cost of your product");
-        model.addAttribute("nameOfFourthBlock", "View your product");
-        model.addAttribute("nameOfFifthlock", "View your product");
-        model.addAttribute("nameOfSixBlock", "link to six page");
-        model.addAttribute("nameOfSevenBlock", "link to seven page");
+    public String menu(Model model) {  
+        menuHelper.selectInfoFromProductsTableToViewIntoMenu();
+        String textInTopBlock = menuHelper.getAllpNameOfProducts();
+        model.addAttribute("menuHelper", menuHelper);
+        model.addAttribute("textInTopBlock", "In the WebStore your may buy: " + textInTopBlock);
+        model.addAttribute("nameOfFirstBlock", menuHelper.getpNameOfProducts(0));
+        model.addAttribute("nameOfSecondBlock", menuHelper.getpNameOfProducts(1));
+        model.addAttribute("nameOfThirdBlock", menuHelper.getpNameOfProducts(2));
+        model.addAttribute("nameOfFourthBlock", menuHelper.getpNameOfProducts(3));
+        model.addAttribute("nameOfFifthlock", menuHelper.getpNameOfProducts(4));
+        model.addAttribute("nameOfSixBlock", menuHelper.getpNameOfProducts(5));
+        model.addAttribute("nameOfSevenBlock", "Link to see your product");
+        model.addAttribute("insert", menuHelper.insertUserSelectedProductToOrderItemTable());
         return "menu";
     }
 
@@ -108,7 +117,7 @@ public class AppController {
 
     @RequestMapping("/createtable")
     public String crateTable(Model model) {
-        model.addAttribute("createtable", insertDataTable.sqlInsertCheck());
+        model.addAttribute("createtable", createDataTable.sqlInsertCheck());
         return "createtable";
     }
 

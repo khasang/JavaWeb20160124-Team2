@@ -8,10 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>insertdata</title>
+    <title>create DataTables</title>
 </head>
 <body>
-<h1>Add data to productorder table!</h1>
+<h1>We will create all datatables into the table webstore.</h1>
 <p>${createtable}</p>
 </body>
 </html>
