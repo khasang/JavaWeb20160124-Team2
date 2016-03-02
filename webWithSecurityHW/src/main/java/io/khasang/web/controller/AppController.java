@@ -8,9 +8,10 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class AppController {
 
-    @RequestMapping(value = "/", method= RequestMethod.GET)
+    @RequestMapping(value = {"/hello**", "/"}, method= {RequestMethod.GET})
     public ModelAndView hello(){
         ModelAndView model = new ModelAndView();
+        model.setViewName("hello");         // insert this name and get path to jsp
         return model;
     }
 }
