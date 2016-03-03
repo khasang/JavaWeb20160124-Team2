@@ -7,8 +7,8 @@
         <put-attribute name="header" value="/WEB-INF/views/header.jsp" />
         <put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
         <put-list-attribute name="stylesheets">
-            <add-attribute value="css/style.css" />
-            <add-attribute value="css/style_viewproducts.css" />
+            <add-attribute value="css/webstore_style.css" />
+            <add-attribute value="css/webstore_viewproducts.css" />
         </put-list-attribute>
         <put-list-attribute name="javascript">
             <add-attribute value="js/helpers.js" />
@@ -19,8 +19,8 @@
         <put-attribute name="header" value="/WEB-INF/views/admin/header.jsp" />
         <put-attribute name="footer" value="/WEB-INF/views/admin/footer.jsp" />
         <put-list-attribute name="stylesheets">
-            <add-attribute value="/admin/css/style.css" />
-            <add-attribute value="/admin/css/style_viewproducts.css" />
+            <add-attribute value="/admin/css/webstore_style.css" />
+            <add-attribute value="/admin/css/webstore_viewproducts.css" />
         </put-list-attribute>
         <put-list-attribute name="javascript">
         </put-list-attribute>
@@ -28,7 +28,7 @@
     <definition name="welcome" extends="base">
         <put-attribute name="body" value="/WEB-INF/views/welcome.jsp" />
         <put-list-attribute name="stylesheets" inherit="true">
-            <add-attribute value="css/style_catalog.css" />
+            <add-attribute value="css/webstore_catalog.css" />
         </put-list-attribute>
     </definition>
     <definition name="login" extends="base">
@@ -41,19 +41,19 @@
     <definition name="product" extends="base">
         <put-attribute name="body" value="/WEB-INF/views/product.jsp" />
         <put-list-attribute name="stylesheets" inherit="true">
-            <add-attribute value="css/style_product.css" />
+            <add-attribute value="css/webstore_product.css" />
         </put-list-attribute>
     </definition>
     <definition name="catalog" extends="base">
         <put-attribute name="body" value="/WEB-INF/views/catalog.jsp" />
         <put-list-attribute name="stylesheets" inherit="true">
-            <add-attribute value="css/style_catalog.css" />
+            <add-attribute value="css/webstore_catalog.css" />
         </put-list-attribute>
     </definition>
     <definition name="cart" extends="base">
         <put-attribute name="body" value="/WEB-INF/views/cart.jsp" />
         <put-list-attribute name="stylesheets" inherit="true">
-            <add-attribute value="css/style_cart.css" />
+            <add-attribute value="css/webstore_cart.css" />
         </put-list-attribute>
     </definition>
     <definition name="about" extends="base">
@@ -65,13 +65,19 @@
     <definition name="account" extends="base">
         <put-attribute name="body" value="/WEB-INF/views/account.jsp" />
         <put-list-attribute name="stylesheets" inherit="true">
-            <add-attribute value="css/style_cart.css" />
+            <add-attribute value="css/webstore_cart.css" />
+        </put-list-attribute>
+    </definition>
+    <definition name="recovery" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/recovery.jsp" />
+        <put-list-attribute name="stylesheets" inherit="true">
+            <add-attribute value="css/webstore_registry.css" />
         </put-list-attribute>
     </definition>
     <definition name="registry" extends="base">
         <put-attribute name="body" value="/WEB-INF/views/registry.jsp" />
         <put-list-attribute name="stylesheets" inherit="true">
-            <add-attribute value="css/style_registry.css" />
+            <add-attribute value="css/webstore_registry.css" />
         </put-list-attribute>
     </definition>
     <definition name="admin" extends="admin_base">
