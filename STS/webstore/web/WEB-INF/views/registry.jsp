@@ -42,6 +42,6 @@
         <input class="in_reg" type="text" name="address" id="address"/>
     </div>
     <div class="form_element">
-        <input class="button" id="registry" type="submit" value="Регистрация"/>
+        <input class="button" id="registry" type="submit" value="Регистрация" onclick="history.back()"/>
     </div>
 </div>
