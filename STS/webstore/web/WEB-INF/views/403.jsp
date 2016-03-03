@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <title>403 ошибка</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/style_viewproducts.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/webstore_style.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/webstore_viewproducts.css"/>
 </head>
 <body>
 <div id="main_container">
