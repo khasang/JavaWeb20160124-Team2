@@ -335,3 +335,9 @@ footer {
         font-size: 12px;
     }
 }
+a.href {
+    border-right: 20px;
+    color: black;
+    font-size: 15px;
+    margin-right: 100px
+}
