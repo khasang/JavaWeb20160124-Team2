@@ -38,7 +38,7 @@
     <div class="form_element">
         <label for="meta_description" class="label">Цвет</label>
         <br />
-        
+
     </div>
     <div class="form_element">
         <label for="description" class="label">Описание</label>
