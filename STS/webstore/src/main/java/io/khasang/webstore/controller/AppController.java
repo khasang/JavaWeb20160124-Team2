@@ -178,6 +178,11 @@ public class AppController {
         return "registry";
     }
 
+    @RequestMapping(value = "/recovery", method = RequestMethod.GET)
+    public String recovery(Model model) {
+        return "recovery";
+    }
+
     @RequestMapping("/backup") // todo eborod select current tables and backup with mysqldump Runtime runtime = Runtime.getRuntime();
     // todo "mysqldump eshop -u root -proot -r \"C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Uploads\\backup.sql\"");
     public String backup(Model model) {
