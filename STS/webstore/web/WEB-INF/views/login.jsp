@@ -43,6 +43,10 @@
             <input id="btn_login" type="submit" value="Войти" class="btn btn-login"/>
         </div>
     </form>
+    <div class="form_element">
+        <a class="href" href="/registry">Регистрация</a>
+        <a class="href" href="/recovery">Забыли пароль?</a>
+    </div>
 </sec:authorize>
 <%--Skip to content--%>
 <%--This repository--%>
