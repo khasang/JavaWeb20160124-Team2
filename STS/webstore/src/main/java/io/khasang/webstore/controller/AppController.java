@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -18,6 +20,10 @@ public class AppController {
     @Autowired
     @Qualifier("viewProducts")
     ProductDAO productDAO;
+
+    @Autowired
+    @Qualifier("createDataTable")
+    CreateDataTable createDataTable;
 
     @Autowired
     @Qualifier("insertDataTable")
@@ -32,21 +38,139 @@ public class AppController {
     TableObjectInterface tableObjectInterface;
 
     @Autowired
-    @Qualifier("deprecatedCustomerCart")
-    DeprecatedCustomerCart deprecatedCustomerCart;
-
-    @Autowired
     @Qualifier("customerCart")
     CustomerCart customerCart;
 
     @Autowired
     CreateCostsTable createCostsTable;
 
+    @Autowired
+    MenuHelper menuHelper;
+
     @RequestMapping("/")
     public String welcome(Model model) {
-        model.addAttribute("greeting", "Welcome to our best Shop!");
-        model.addAttribute("tagline", "The one and only amazing shop system!");
+        List<ProductPojo> productHitsList = new ArrayList<ProductPojo>();
+        for (int i = 0; i < 6; i++) {
+            ProductPojo productPojo = new ProductPojo(i + 1, "Название товара", "Описание");
+            productHitsList.add(productPojo);
+        }
+        List<ProductPojo> productRecommendedList = new ArrayList<ProductPojo>();
+        for (int i = 0; i < 6; i++) {
+            ProductPojo productPojo = new ProductPojo(i + 1, "Название товара", "Описание");
+            productRecommendedList.add(productPojo);
+        }
+        model.addAttribute("pageName", "Название интернет магазина с намёком на сферу деятельности");
+        model.addAttribute("productHitsList", productHitsList);
+        model.addAttribute("productRecommendedList", productRecommendedList);
         return "welcome";
+    }
+
+    @RequestMapping("/login")
+    public String login(HttpServletRequest request, Model model) {
+        if (request.getParameter("error") != null) {
+            model.addAttribute("error", "Пользователь не найден");
+        }
+        if (request.getParameter("logout") != null) {
+            model.addAttribute("message", "Вы вышли");
+        }
+        model.addAttribute("pageName", "Авторизация");
+        return "login";
+    }
+
+    @RequestMapping(value = "/product", method = RequestMethod.GET)
+    public String product(@RequestParam("id") int id, Model model) {
+        model.addAttribute("pageName", "Название товара");
+        return "product";
+    }
+
+    @RequestMapping(value = "/catalog", method = RequestMethod.GET)
+    public String catalog(@RequestParam("id") int id, Model model) {
+        List<ProductPojo> productsList = new ArrayList<ProductPojo>();
+        for (int i = 0; i < 9; i++) {
+            ProductPojo productPojo = new ProductPojo(i + 1, "Название товара", "Описание");
+            productsList.add(productPojo);
+        }
+        model.addAttribute("pageName", "Название каталога");
+        model.addAttribute("productsList", productsList);
+        return "catalog";
+    }
+
+    @RequestMapping("/cart")
+    public String cart(Model model) {
+        model.addAttribute("pageName", "Корзина");
+        return "cart";
+    }
+
+    @RequestMapping("/about")
+    public String about(Model model) {
+        model.addAttribute("pageName", "О нас");
+        return "about";
+    }
+
+    @RequestMapping("/contacts")
+    public String contacts(Model model) {
+        model.addAttribute("pageName", "Контакты");
+        return "contacts";
+    }
+
+    @RequestMapping("/account")
+    public String account(Model model) {
+        model.addAttribute("pageName", "Личный кабинет");
+        return "account";
+    }
+
+    @RequestMapping("/admin")
+    public String admin(Model model) {
+        model.addAttribute("pageName", "Панель администратора");
+        return "admin";
+    }
+
+    @RequestMapping("/admin/pages")
+    public String admin_pages(Model model) {
+        model.addAttribute("pageName", "Просмотр страниц");
+        return "admin_pages";
+    }
+
+    @RequestMapping("/admin/categories")
+    public String admin_categories(Model model) {
+        model.addAttribute("pageName", "Просмотр категорий");
+        return "admin_categories";
+    }
+
+    @RequestMapping("/admin/products")
+    public String admin_products(Model model) {
+        model.addAttribute("pageName", "Просмотр товаров");
+        return "admin_products";
+    }
+
+    @RequestMapping("/admin/deliveries")
+    public String admin_deliveries(Model model) {
+        model.addAttribute("pageName", "Просмотр заказов");
+        return "admin_deliveries";
+    }
+
+    @RequestMapping("/admin/page")
+    public String admin_page(@RequestParam("id") int id, Model model) {
+        model.addAttribute("pageName", "Изменение страницы");
+        return "admin_page";
+    }
+
+    @RequestMapping("/admin/category")
+    public String admin_category(@RequestParam("id") int id, Model model) {
+        model.addAttribute("pageName", "Изменение категории");
+        return "admin_category";
+    }
+
+    @RequestMapping("/admin/product")
+    public String admin_product(@RequestParam("id") int id, Model model) {
+        model.addAttribute("pageName", "Изменение товара");
+        return "admin_product";
+    }
+
+    @RequestMapping("/admin/delivery")
+    public String admin_delivery(@RequestParam("id") int id, Model model) {
+        model.addAttribute("pageName", "Изменение заказа");
+        return "admin_delivery";
     }
 
     @RequestMapping("/backup") // todo eborod select current tables and backup with mysqldump Runtime runtime = Runtime.getRuntime();
@@ -57,21 +181,20 @@ public class AppController {
         return "backup";
     }
 
-    @RequestMapping("/drop") // todo vzatch input table name and button to drop
+    @RequestMapping("/drop")
     public String drop(Model model) {
         return "drop";
     }
 
     @RequestMapping("/cost") // todo yminee join tables product and cost with id, select all columns
-        public String cost(Model model) {
-        model.addAttribute("cost", "Стоимость выбранных товаров");
-        model.addAttribute("items", selectDataFromTable.selectWholeTable(new Costs()));
-        model.addAttribute("insertcosts", createCostsTable.sqlInsertCheck());
+    public String cost(Model model) {
+        model.addAttribute("cost", "");
         return "cost";
     }
 
     // todo lselez show all productorders from table productorders like table with image and prices
-    @RequestMapping("/viewproducts") // todo lselez show all products from table products like table with image and prices
+    @RequestMapping("/viewproducts")
+    // todo lselez show all products from table products like table with image and prices
     public String viewProducts(Model model) {
         List<ProductPojo> products = productDAO.getAll();
         model.addAttribute("page_name", "Список товаров");
@@ -79,11 +202,11 @@ public class AppController {
         return "viewproducts";
     }
 
-    @RequestMapping("/admin")
-    public String admin(Model model) {
-        model.addAttribute("admin", "You are number 1!");
-        return "admin";
-    }
+//    @RequestMapping("/admin")
+//    public String admin(Model model) {
+//        model.addAttribute("admin", "You are number 1!");
+//        return "admin";
+//    }
 
     @RequestMapping("/tableselect")
     public String tableselect(Model model) {
@@ -92,27 +215,31 @@ public class AppController {
     }
 
     @RequestMapping("/menu")
-    public String menu(Model model) {
-        deprecatedCustomerCart = new DeprecatedCustomerCart();
-        model.addAttribute("textInTopBlock", "In the WebStore your may buy: "+productDAO.getAll().get(0).getPname()+", "
-                +productDAO.getAll().get(1).getPname()+", "+productDAO.getAll().get(2).getPname()+" and etc.");
-        model.addAttribute("nameOfProductInFirstBlock", productDAO.getAll().get(0).getPname()
-                +" TEST of select and insert in deprecatedCustomerCart");
-        model.addAttribute("insertChoosenProductOfFirstBlock", deprecatedCustomerCart.addItemInMenuPage(productDAO.getAll().
-                get(0).getPname(), "TEST FROM MENU page ", productDAO.getAll().get(0).getID()));
-
+    public String menu(Model model) {  
+        menuHelper.selectInfoFromProductsTableToViewIntoMenu();
+        String textInTopBlock = menuHelper.getAllpNameOfProducts();
+        model.addAttribute("menuHelper", menuHelper);
+        model.addAttribute("textInTopBlock", "In the WebStore your may buy: " + textInTopBlock);
+        model.addAttribute("nameOfFirstBlock", menuHelper.getpNameOfProducts(0));
+        model.addAttribute("nameOfSecondBlock", menuHelper.getpNameOfProducts(1));
+        model.addAttribute("nameOfThirdBlock", menuHelper.getpNameOfProducts(2));
+        model.addAttribute("nameOfFourthBlock", menuHelper.getpNameOfProducts(3));
+        model.addAttribute("nameOfFifthlock", menuHelper.getpNameOfProducts(4));
+        model.addAttribute("nameOfSixBlock", menuHelper.getpNameOfProducts(5));
+        model.addAttribute("nameOfSevenBlock", "Link to see your product");
+        model.addAttribute("insert", menuHelper.insertUserSelectedProductToOrderItemTable());
         return "menu";
     }
 
-    @RequestMapping("/cart")
-    public String cart(Model model) {
-        model.addAttribute("page_name", "Корзина товаров");
-        return "cart";
-    }
+//    @RequestMapping("/cart")
+//    public String cart(Model model) {
+//        model.addAttribute("page_name", "Корзина товаров");
+//        return "cart";
+//    }
 
     @RequestMapping("/createtable")
     public String crateTable(Model model) {
-        model.addAttribute("createtable", insertDataTable.sqlInsertCheck());
+        model.addAttribute("createtable", createDataTable.sqlInsertCheck());
         return "createtable";
     }
 
@@ -122,11 +249,11 @@ public class AppController {
         return "deletecurrentorder";
     }
 
-    @RequestMapping("/login") // todo mbedr jsp login, select user from table logins with login name.
-    public String login(Model model) {
-        model.addAttribute("login", new Logins(new LocalDataSource().getSource()).getAll());
-        return "login";
-    }
+//    @RequestMapping("/login") // todo mbedr jsp login, select user from table logins with login name.
+//    public String login(Model model) {
+//        model.addAttribute("login", new Logins(new LocalDataSource().getSource()).getAll());
+//        return "login";
+//    }
 
     @RequestMapping("/front")
     public String front(Model model) {

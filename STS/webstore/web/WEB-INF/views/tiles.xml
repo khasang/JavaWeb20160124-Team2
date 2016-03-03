@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="base" template="/WEB-INF/views/page.jsp">
+        <put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+        <put-list-attribute name="stylesheets">
+            <add-attribute value="css/style.css" />
+            <add-attribute value="css/style_viewproducts.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascript">
+            <add-attribute value="js/helpers.js" />
+            <add-attribute value="js/menu.js" />
+        </put-list-attribute>
+    </definition>
+    <definition name="admin_base" template="/WEB-INF/views/admin/admin_page.jsp">
+        <put-attribute name="header" value="/WEB-INF/views/admin/header.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/views/admin/footer.jsp" />
+        <put-list-attribute name="stylesheets">
+            <add-attribute value="/admin/css/style.css" />
+            <add-attribute value="/admin/css/style_viewproducts.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascript">
+        </put-list-attribute>
+    </definition>
+    <definition name="welcome" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/welcome.jsp" />
+        <put-list-attribute name="stylesheets" inherit="true">
+            <add-attribute value="css/style_catalog.css" />
+        </put-list-attribute>
+    </definition>
+    <definition name="login" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/login.jsp" />
+        <put-list-attribute name="javascript" inherit="true">
+            <add-attribute value="js/validator.js" />
+            <add-attribute value="js/login.js" />
+        </put-list-attribute>
+    </definition>
+    <definition name="product" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/product.jsp" />
+        <put-list-attribute name="stylesheets" inherit="true">
+            <add-attribute value="css/style_product.css" />
+        </put-list-attribute>
+    </definition>
+    <definition name="catalog" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/catalog.jsp" />
+        <put-list-attribute name="stylesheets" inherit="true">
+            <add-attribute value="css/style_catalog.css" />
+        </put-list-attribute>
+    </definition>
+    <definition name="cart" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/cart.jsp" />
+        <put-list-attribute name="stylesheets" inherit="true">
+            <add-attribute value="css/style_cart.css" />
+        </put-list-attribute>
+    </definition>
+    <definition name="about" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/about.jsp" />
+    </definition>
+    <definition name="contacts" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/contacts.jsp" />
+    </definition>
+    <definition name="account" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/account.jsp" />
+        <put-list-attribute name="stylesheets" inherit="true">
+            <add-attribute value="css/style_cart.css" />
+        </put-list-attribute>
+    </definition>
+    <definition name="admin" extends="admin_base">
+        <put-attribute name="body" value="/WEB-INF/views/admin/main.jsp" />
+    </definition>
+    <definition name="admin_pages" extends="admin_base">
+        <put-attribute name="body" value="/WEB-INF/views/admin/pages.jsp" />
+    </definition>
+    <definition name="admin_categories" extends="admin_base">
+        <put-attribute name="body" value="/WEB-INF/views/admin/categories.jsp" />
+    </definition>
+    <definition name="admin_products" extends="admin_base">
+        <put-attribute name="body" value="/WEB-INF/views/admin/products.jsp" />
+    </definition>
+    <definition name="admin_deliveries" extends="admin_base">
+        <put-attribute name="body" value="/WEB-INF/views/admin/deliveries.jsp" />
+    </definition>
+    <definition name="admin_page" extends="admin_base">
+        <put-attribute name="body" value="/WEB-INF/views/admin/page.jsp" />
+    </definition>
+    <definition name="admin_category" extends="admin_base">
+        <put-attribute name="body" value="/WEB-INF/views/admin/category.jsp" />
+    </definition>
+    <definition name="admin_product" extends="admin_base">
+        <put-attribute name="body" value="/WEB-INF/views/admin/product.jsp" />
+    </definition>
+    <definition name="admin_delivery" extends="admin_base">
+        <put-attribute name="body" value="/WEB-INF/views/admin/delivery.jsp" />
+    </definition>
+</tiles-definitions>

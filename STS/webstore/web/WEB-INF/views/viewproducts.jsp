@@ -20,7 +20,7 @@
             </ul>
         </div>
     </nav>
-    <div id="sidebar" class="close">
+    <div id="sidebar" class="inTheLeftPosition">
         <div class="sidebar_logo_container"><img id="sidebar-logo" src="css/sidebar-logo.png" alt="WebStore"
                                                  title="WebStore"/></div>
         <ul>

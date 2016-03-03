@@ -1,173 +1,184 @@
 /**
- * Анимация бокового меню и элементов страницы при клике на кнопку открытия меню. Пока без возможности
- * клиентской настройки.
+ * Анимация бокового меню и элементов страницы при клике на кнопку открытия меню.
  * @author LevSeleznev
- * @version 1.0
+ * @version 2.0
  */
-var menuButtonEl = document.getElementById("sidebar-toggle"),
-    sidebarEl = document.getElementById("sidebar"),
-    divContainerEl = document.getElementById("div_container"),
-    containerNavEl = document.getElementById("containerNav"),
-    sidebarXPositionOpen = 0,
-    sidebarXPositionClose = -20,
-    menuButtonXLeftPosition = 0,
-    menuButtonXRightPosition = 20,
-    divContainerXLeftPosition = 0,
-    divContainerXRightPosition = 20,
-    containerNavXLeftPosition = 0,
-    containerNavXRightPosition = 20,
-    sidebarX = sidebarXPositionClose,
-    sidebarY,
-    menuButtonX = menuButtonXLeftPosition,
-    menuButtonY,
-    divContainerX = divContainerXLeftPosition,
-    divContainerY,
-    containerNavX = containerNavXLeftPosition,
-    containerNavY;
+function ElementFactory() {
+}
 
 /**
- * Отвечает за анимацию бокового меню
- * @type {{openMenu: sidebar.openMenu, closeMenu: sidebar.closeMenu}}
+ * Сдвигает элементы влево
+ * @returns {Function} - функция обратного вызова для сохранения контекста
  */
-var sidebar = {
-    openMenu: function () {
-        sidebarEl.style.left = sidebarX + "%";
-        sidebarX += 1;
-        if (sidebarX >= sidebarXPositionOpen) {
-            sidebarX = sidebarXPositionOpen;
-            sidebarEl.style.left = sidebarX + "%";
-            sidebarEl.classList.add("open");
-            sidebarEl.classList.remove("close");
-            return false;
-        }
-    },
-    closeMenu: function () {
-        sidebarEl.style.left = sidebarX + "%";
-        sidebarX -= 1;
-        if (sidebarX <= sidebarXPositionClose) {
-            sidebarX = sidebarXPositionClose;
-            sidebarEl.style.left = sidebarX + "%";
-            sidebarEl.classList.add("close");
-            sidebarEl.classList.remove("open");
+ElementFactory.prototype.moveToLeft = function () {
+    var that = this;
+    return function () {
+        that.elem.style.left = that.xPosition + "%";
+        that.xPosition -= that.moveToLeftInterval;
+        if (that.xPosition <= that.xPositionClose) {
+            that.xPosition = that.xPositionClose;
+            that.elem.style.left = that.xPosition + "%";
+            that.elem.classList.add("inTheLeftPosition");
+            that.elem.classList.remove("inTheRightPosition");
             return false;
         }
     }
 };
 
 /**
- * Отвечает за анимацию кнопки открытия меню
- * @type {{moveButtonToRight: menuButton.moveButtonToRight, moveButtonToLeft: menuButton.moveButtonToLeft}}
+ * Сдвигает элементы вправо
+ * @returns {Function} - функция обратного вызова для сохранения контекста
  */
-var menuButton = {
-    moveButtonToRight: function () {
-        menuButtonEl.style.left = menuButtonX + "%";
-        menuButtonX += 1;
-        if (menuButtonX >= menuButtonXRightPosition) {
-            menuButtonX = menuButtonXRightPosition;
-            menuButtonEl.style.left = menuButtonX + "%";
-            menuButtonEl.classList.add("inTheRightPosition");
-            menuButtonEl.classList.remove("inTheLeftPosition");
-            return false;
-        }
-    },
-    moveButtonToLeft: function () {
-        menuButtonEl.style.left = menuButtonX + "%";
-        menuButtonX -= 1;
-        if (menuButtonX <= menuButtonXLeftPosition) {
-            menuButtonX = menuButtonXLeftPosition;
-            menuButtonEl.style.left = menuButtonX + "%";
-            menuButtonEl.classList.add("inTheLeftPosition");
-            menuButtonEl.classList.remove("inTheRightPosition");
+ElementFactory.prototype.moveToRight = function () {
+    var that = this;
+    return function () {
+        that.elem.style.left = that.xPosition + "%";
+        that.xPosition += that.moveToRightInterval;
+        if (that.xPosition >= that.xPositionOpen) {
+            that.xPosition = that.xPositionOpen;
+            that.elem.style.left = that.xPosition + "%";
+            that.elem.classList.add("inTheRightPosition");
+            that.elem.classList.remove("inTheLeftPosition");
             return false;
         }
     }
+};
+
+/**
+ * Фабрика, создающая необходимые для анимации элементы
+ * @param type - тип элемента
+ * @returns {*} - возвращает созданный элемент указанного типа, который унаследовал необходимы методы фабрики
+ */
+ElementFactory.factory = function (type) {
+    var constr = type,
+        newElement;
+
+    if (typeof ElementFactory[constr] !== "function") {
+        throw {
+            name: 'Error',
+            message: "Construct doesn't function"
+        };
+    }
+
+    if (typeof ElementFactory[constr].prototype.moveToLeft !== 'function') {
+        ElementFactory[constr].prototype.moveToLeft = ElementFactory.prototype.moveToLeft;
+    }
+
+    if (typeof ElementFactory[constr].prototype.moveToRight !== 'function') {
+        ElementFactory[constr].prototype.moveToRight = ElementFactory.prototype.moveToRight;
+    }
+
+    newElement = new ElementFactory[constr]();
+    return newElement;
 }
+
+/**
+ * Отвечает за анимацию бокового меню
+ */
+ElementFactory.Sidebar = function () {
+    this.elem = document.getElementById("sidebar");
+    this.xPosition = -20;
+    this.xPositionOpen = 0;
+    this.xPositionClose = -20;
+    this.moveToLeftInterval = 0.1;
+    this.moveToRightInterval = 0.1;
+};
+
+/**
+ * Отвечает за анимацию кнопки открытия меню
+ */
+ElementFactory.MenuButton = function () {
+    this.elem = document.getElementById("sidebar-toggle");
+    this.xPosition = 0;
+    this.xPositionOpen = 20;
+    this.xPositionClose = 0;
+    this.moveToLeftInterval = 0.1;
+    this.moveToRightInterval = 0.1;
+};
 
 /**
  * Отвечает за анимацию контента
- * @type {{moveContainerToRight: divContainer.moveContainerToRight, moveContainerToLeft: divContainer.moveContainerToLeft}}
  */
-var divContainer = {
-    moveContainerToRight: function () {
-        divContainerEl.style.left = divContainerX + "%";
-        divContainerX += 1;
-        if (divContainerX >= divContainerXRightPosition) {
-            divContainerX = divContainerXRightPosition;
-            divContainerEl.style.left = divContainerX + "%";
-            divContainerEl.classList.add("inTheRightPosition");
-            divContainerEl.classList.remove("inTheLeftPosition");
-            return false;
-        }
-    },
-    moveContainerToLeft: function () {
-        divContainerEl.style.left = menuButtonX + "%";
-        divContainerX -= 1;
-        if (divContainerX <= divContainerXLeftPosition) {
-            divContainerX = divContainerXLeftPosition;
-            divContainerEl.style.left = divContainerX + "%";
-            divContainerEl.classList.add("inTheLeftPosition");
-            divContainerEl.classList.remove("inTheRightPosition");
-            return false;
-        }
-    }
-}
+ElementFactory.DivContainer = function () {
+    this.elem = document.getElementById("div_container");
+    this.xPosition = 0;
+    this.xPositionOpen = 20;
+    this.xPositionClose = 0;
+    this.moveToLeftInterval = 0.1;
+    this.moveToRightInterval = 0.1;
+};
 
 /**
  * Отвечает за анимацию верхнего меню
- * @type {{moveContainerToRight: containerNav.moveContainerToRight, moveContainerToLeft: containerNav.moveContainerToLeft}}
  */
-var containerNav = {
-    moveContainerToRight: function () {
-        containerNavEl.style.left = containerNavX + "%";
-        containerNavX += 1;
-        if (containerNavX >= containerNavXRightPosition) {
-            containerNavX = containerNavXRightPosition;
-            containerNavEl.style.left = containerNavX + "%";
-            containerNavEl.classList.add("inTheRightPosition");
-            containerNavEl.classList.remove("inTheLeftPosition");
-            return false;
-        }
-    },
-    moveContainerToLeft: function () {
-        containerNavEl.style.left = containerNavX + "%";
-        containerNavX -= 1;
-        if (containerNavX <= containerNavXLeftPosition) {
-            containerNavX = containerNavXLeftPosition;
-            containerNavEl.style.left = containerNavX + "%";
-            containerNavEl.classList.add("inTheLeftPosition");
-            containerNavEl.classList.remove("inTheRightPosition");
-            return false;
-        }
-    }
-}
+ElementFactory.ContainerNav = function () {
+    this.elem = document.getElementById("containerNav");
+    this.xPosition = 0;
+    this.xPositionOpen = 20;
+    this.xPositionClose = 0;
+    this.moveToLeftInterval = 0.1;
+    this.moveToRightInterval = 0.1;
+};
 
 /**
- * При клике по кнопке меню будет вызываться функция, переданная 3-м параметром, и воспроизводить анимацию
- * с помощью таймеров.
+ * Отвечает за анимацию подвала
  */
-utils.addListener(menuButtonEl, "click", function (event) {
+ElementFactory.Footer = function() {
+    this.elem = document.getElementById("footer_inform");
+    this.xPosition = 0;
+    this.xPositionOpen = 20;
+    this.xPositionClose = 0;
+    this.moveToLeftInterval = 0.1;
+    this.moveToRightInterval = 0.1;
+};
+
+function moveMenu(event) {
     if (event.preventDefault) {
         event.preventDefault();
     } else {
         event.returnValue = false;
     }
 
-    if (sidebarEl.classList.contains("close") && menuButtonEl.classList.contains("inTheLeftPosition")) {
+    if (sidebar.elem.classList.contains("inTheLeftPosition")
+        && menuButton.elem.classList.contains("inTheLeftPosition")
+        && divContainer.elem.classList.contains("inTheLeftPosition")
+        && containerNav.elem.classList.contains("inTheLeftPosition")
+        && footer.elem.classList.contains("inTheLeftPosition")) {
         timers.stop();
-        timers.add(sidebar.openMenu);
-        timers.add(menuButton.moveButtonToRight);
-        timers.add(divContainer.moveContainerToRight);
-        timers.add(containerNav.moveContainerToRight);
-    } else if (sidebarEl.classList.contains("open") && menuButtonEl.classList.contains("inTheRightPosition")) {
+        timers.add(sidebar.moveToRight());
+        timers.add(menuButton.moveToRight());
+        timers.add(divContainer.moveToRight());
+        timers.add(containerNav.moveToRight());
+        timers.add(footer.moveToRight());
+    } else if (sidebar.elem.classList.contains("inTheRightPosition")
+        && menuButton.elem.classList.contains("inTheRightPosition")
+        && divContainer.elem.classList.contains("inTheRightPosition")
+        && containerNav.elem.classList.contains("inTheRightPosition")
+        && footer.elem.classList.contains("inTheRightPosition")) {
         timers.stop();
-        timers.add(sidebar.closeMenu);
-        timers.add(menuButton.moveButtonToLeft);
-        timers.add(divContainer.moveContainerToLeft);
-        timers.add(containerNav.moveContainerToLeft);
+        timers.add(sidebar.moveToLeft());
+        timers.add(menuButton.moveToLeft());
+        timers.add(divContainer.moveToLeft());
+        timers.add(containerNav.moveToLeft());
+        timers.add(footer.moveToLeft());
     } else {
         return false;
     }
 
-    timers.setTimeout(100);
+    timers.setTimeout(30);
     timers.start();
+}
+
+var sidebar = ElementFactory.factory('Sidebar'),
+    menuButton = ElementFactory.factory('MenuButton'),
+    divContainer = ElementFactory.factory('DivContainer'),
+    containerNav = ElementFactory.factory('ContainerNav'),
+    footer = ElementFactory.factory('Footer'),
+    catalogLink = document.getElementById('getCatalog');
+
+utils.addListener(menuButton.elem, "click", function (event) {
+    moveMenu(event);
+});
+utils.addListener(catalogLink, "click", function (event) {
+    moveMenu(event);
 });
