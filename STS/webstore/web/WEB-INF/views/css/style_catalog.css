@@ -1,23 +1,25 @@
 .about {
     display: inline-block;
-    height:30%;
-    width: 30%;
+    width: 20%;
     font-size:14px;
-    font-family:Calibri;
     text-align: center;
-    border:10px solid transparent;
-    border-bottom: 80px solid transparent;
-    color: gray;
+    color: #222222;
+    margin: 0 6% 40px;
+}
+
+.about a {
+    color: #222222;
+    text-decoration: none;
 }
 
 .img {
-    max-width:80%;
+    max-width:70%;
     height:auto;
     text-align:center
 }
 
 span {
-    color: red;
+    color: #CD5C5C;
 }
 
 .text {

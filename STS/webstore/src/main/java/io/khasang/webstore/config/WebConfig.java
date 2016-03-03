@@ -22,15 +22,6 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
                 @ComponentScan.Filter(type= FilterType.ANNOTATION, value= EnableWebMvc.class)
         })
 public class WebConfig extends WebMvcConfigurerAdapter{
-
-//    @Bean
-//    public InternalResourceViewResolver viewResolver() {
-//        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-//        viewResolver.setViewClass(JstlView.class);
-//        viewResolver.setPrefix("/WEB-INF/views/");
-//        viewResolver.setSuffix(".jsp");
-//        return viewResolver;
-//    }
     @Bean
     public ViewResolver viewResolver() {
         TilesViewResolver resolver = new TilesViewResolver();
@@ -48,9 +39,12 @@ public class WebConfig extends WebMvcConfigurerAdapter{
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/css/**").addResourceLocations("/WEB-INF/views/css/");
+        registry.addResourceHandler("/admin/css/**").addResourceLocations("/WEB-INF/views/admin/css/");
         registry.addResourceHandler("/gif/**").addResourceLocations("/WEB-INF/views/css");
         registry.addResourceHandler("/js/**").addResourceLocations("/WEB-INF/views/js/");
+        registry.addResourceHandler("/admin/js/**").addResourceLocations("/WEB-INF/views/admin/js/");
         registry.addResourceHandler("/images/**").addResourceLocations("/WEB-INF/views/images/");
+        registry.addResourceHandler("/admin/images/**").addResourceLocations("/WEB-INF/views/admin/images/");
     }
 
     @Override
