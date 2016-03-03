@@ -19,8 +19,8 @@
         <put-attribute name="header" value="/WEB-INF/views/admin/header.jsp" />
         <put-attribute name="footer" value="/WEB-INF/views/admin/footer.jsp" />
         <put-list-attribute name="stylesheets">
-            <add-attribute value="/admin/css/webstore_style.css" />
-            <add-attribute value="/admin/css/webstore_viewproducts.css" />
+            <add-attribute value="/admin/css/style.css" />
+            <add-attribute value="/admin/css/style_viewproducts.css" />
         </put-list-attribute>
         <put-list-attribute name="javascript">
         </put-list-attribute>
