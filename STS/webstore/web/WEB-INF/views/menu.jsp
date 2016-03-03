@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
     <link href="css/style_of_menu.css" rel="stylesheet">
@@ -7,73 +6,48 @@
 </head>
 <body>
 <div class="blockUp">
-    <h1 align="center">Program's Shop</h1>
+    <h1 align="center">WebStore</h1>
     <h1 align="center">${menu}</h1>
 </div>
 <div class="blockTop">
     <center>
-        <h1 class="textWhite">Text advertising with slogan</h1>
+        <h1 class="textWhite">${textInTopBlock}</h1>
     </center>
 </div>
 <div class="blockDown">
-        <div class="block" title="click to buy it">
-            <h3 align="center">${nameOfProductInFirstBlock}</h3>
-            <button class="btn" type="button" align="center" onclick=${insertChoosenProductOfFirstBlock}>
-                Got it!
-            </button>
-        </div>
-        <div class="block" title="click to buy it">
-            <h3 align="center">${nameOfProductInSecondBlock}</h3>
-            <button class="btn" type="button" align="center" onclick="${insertChoosenProductOfSecondBlock}">
-                Got it!
-            </button>
-        </div>
-    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
-        <div class="block">
-            <h3 align="center">Juicy Orange</h3>
-            <div class="btn" align="center">
-                <h4 align="center">Put </h4>
-            </div>
+    <a href="/managecustomercart" onclick=${insertChoosenProductOfFirstBlock}>
+        <div class="block" title="TEST SELECT AND INSERT THIS PRODUCT">
+            <h4 align="center">${nameOfProductInFirstBlock}</h4>
         </div>
     </a>
-    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
-        <div class="block">
-            <h3 align="center">Tasty strawberries</h3>
-            <div class="btn" align="center">
-                <h4 align="center">Got it!</h4>
-            </div>
+    <a href="/managecustomercart">
+        <div class="block" title="link to /managecustomercart">
+            <h4 align="center">Your choosen Item v.1</h4>
         </div>
     </a>
-    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
-        <div class="block">
-            <h3 align="center">Text of Block5</h3>
-            <div class="btn" align="center">
-                <h4 align="center">Got it!</h4>
-            </div>
+    <a href="/select">
+        <div class="block" title="link to /select">
+            <h4 align="center">Your choosen Item v.2</h4>
         </div>
     </a>
-    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
-        <div class="block">
-            <h3 align="center">Text of Block6</h3>
-            <div class="btn" align="center">
-                <h4 align="center">Got it!</h4>
-            </div>
+    <a href="/cart">
+        <div class="block" title="link to /cart">
+            <h4 align="center">Your choosen Item v.3</h4>
         </div>
     </a>
-    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
-        <div class="block">
-            <h3 align="center">Text of Block7</h3>
-            <div class="btn" align="center">
-                <h4 align="center">Got it!</h4>
-            </div>
+    <a href="/viewproducts">
+        <div class="block" title="link to /viewproducts">
+            <h4 align="center">View all productorder</h4>
         </div>
     </a>
-    <a href="https://github.com/khasang-incubator/JavaWeb20160124-Team2" title="click to buy it">
-        <div class="block">
-            <h3 align="center">Text of Block8</h3>
-            <div class="btn" align="center">
-                <h4 align="center">Got it!</h4>
-            </div>
+    <a href="/deletecurrentorder">
+        <div class="block" title="link to /deletecurrentorder">
+            <h4 align="center">DeleteOrder</h4>
+        </div>
+    </a>
+    <a href="/drop">
+        <div class="block" title="link to /drop">
+            <h4 align="center">Drop table</h4>
         </div>
     </a>
 </div>

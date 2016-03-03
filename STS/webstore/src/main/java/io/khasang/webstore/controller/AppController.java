@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.util.List;
 
 @Controller
@@ -29,8 +32,15 @@ public class AppController {
     TableObjectInterface tableObjectInterface;
 
     @Autowired
+    @Qualifier("deprecatedCustomerCart")
+    DeprecatedCustomerCart deprecatedCustomerCart;
+
+    @Autowired
     @Qualifier("customerCart")
     CustomerCart customerCart;
+
+    @Autowired
+    CreateCostsTable createCostsTable;
 
     @RequestMapping("/")
     public String welcome(Model model) {
@@ -39,9 +49,11 @@ public class AppController {
         return "welcome";
     }
 
-    @RequestMapping("/backup")
+    @RequestMapping("/backup") // todo eborod select current tables and backup with mysqldump Runtime runtime = Runtime.getRuntime();
+    // todo "mysqldump eshop -u root -proot -r \"C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Uploads\\backup.sql\"");
     public String backup(Model model) {
-        model.addAttribute("backup", "Success");
+        BackupDatabase backupDatabase = new BackupDatabase();
+        model.addAttribute("backup", backupDatabase.backupResultOut());
         return "backup";
     }
 
@@ -52,7 +64,9 @@ public class AppController {
 
     @RequestMapping("/cost") // todo yminee join tables product and cost with id, select all columns
         public String cost(Model model) {
-        model.addAttribute("cost", "");
+        model.addAttribute("cost", "Стоимость выбранных товаров");
+        model.addAttribute("items", selectDataFromTable.selectWholeTable(new Costs()));
+        model.addAttribute("insertcosts", createCostsTable.sqlInsertCheck());
         return "cost";
     }
 
@@ -71,14 +85,22 @@ public class AppController {
         return "admin";
     }
 
+    @RequestMapping("/tableselect")
+    public String tableselect(Model model) {
+        model.addAttribute("dropdownlist", "Please, select the table");
+        return "tableselect";
+    }
+
     @RequestMapping("/menu")
     public String menu(Model model) {
-        customerCart = new CustomerCart();
-        model.addAttribute("menu", "Menu page text - added to testing!");
-        model.addAttribute("nameOfProductInFirstBlock", "Big Red Apple"); //TODO select product from table
-        model.addAttribute("insertChoosenProductOfFirstBlock", customerCart.addItemInMenuPage("apple", "big red", 415));//
-        model.addAttribute("nameOfProductInSecondBlock", "Green Banana"); //TODO select product from table
-        model.addAttribute("insertChoosenProductOfSecondBlock", customerCart.addItemInMenuPage("banana", "green", 999));
+        deprecatedCustomerCart = new DeprecatedCustomerCart();
+        model.addAttribute("textInTopBlock", "In the WebStore your may buy: "+productDAO.getAll().get(0).getPname()+", "
+                +productDAO.getAll().get(1).getPname()+", "+productDAO.getAll().get(2).getPname()+" and etc.");
+        model.addAttribute("nameOfProductInFirstBlock", productDAO.getAll().get(0).getPname()
+                +" TEST of select and insert in deprecatedCustomerCart");
+        model.addAttribute("insertChoosenProductOfFirstBlock", deprecatedCustomerCart.addItemInMenuPage(productDAO.getAll().
+                get(0).getPname(), "TEST FROM MENU page ", productDAO.getAll().get(0).getID()));
+
         return "menu";
     }
 
@@ -118,27 +140,30 @@ public class AppController {
         return "insert";
     }
 
-    @RequestMapping("/select") //todo ekarpov select from productorder with id + status in progress and done
-    public String select(Model model) {
-        model.addAttribute("items", selectDataFromTable.selectWholeTable(tableObjectInterface));
-        return "select";
+    //todo done. What's next?
+    @RequestMapping(value = "/customercart") //todo ekarpov select from productorder with id + status in progress and done
+    public String select(Model model, @RequestParam(value="status", required=false) String status,
+                         @RequestParam(value="userid", required=false) String userid) {
+        model.addAttribute("items", customerCart.listProductOrder(status, userid));
+        return "customercart";
     }
 
+    @Deprecated
     /*Иной способ отображения корзины клиента
     Имеет методы addItem, removeItem и getCartItems
     Корректно пересчитывает quantity одинаковых товаров при добавлении и удалении товара*/
     @RequestMapping("/managecustomercart")
     public String managecustomercart(Model model) {
-        /*пример добавления и удаления элементов из корзины*/
-        customerCart.addItem("Apple", "Red one", 415);
-        customerCart.addItem("Apple", "Red one", 415);
-        customerCart.addItem("Apple", "Red one", 415);
-        customerCart.addItem("Apple", "Red one", 415);
-        customerCart.removeItem("Apple");
-        customerCart.addItem("Orange", "Orange one", 415);
-        customerCart.addItem("Orange", "Another one", 415);
-        /**/
-        model.addAttribute("cartitems", customerCart.getCartItems());
+//        /*пример добавления и удаления элементов из корзины*/
+//        deprecatedCustomerCart.addItem("Apple", "Red one", 415);
+//        deprecatedCustomerCart.addItem("Apple", "Red one", 415);
+//        deprecatedCustomerCart.addItem("Apple", "Red one", 415);
+//        deprecatedCustomerCart.addItem("Apple", "Red one", 415);
+//        deprecatedCustomerCart.removeItem("Apple");
+//        deprecatedCustomerCart.addItem("Orange", "Orange one", 415);
+//        deprecatedCustomerCart.addItem("Orange", "Another one", 415);
+//        /**/
+//        model.addAttribute("cartitems", deprecatedCustomerCart.getCartItems());
         return "managecustomercart";
     }
 }
