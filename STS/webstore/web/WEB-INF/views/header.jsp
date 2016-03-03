@@ -11,7 +11,9 @@
             <li><a id="getCatalog" href="/catalog">Товары</a></li>
             <sec:authorize access="isAuthenticated()">
                 <sec:authorize access="hasRole('USER')">
-                    <li><a href="/account">Личный кабинет</a></li>
+                    <sec:authorize access="!hasRole('ADMIN')">
+                        <li><a href="/account">Личный кабинет</a></li>
+                    </sec:authorize>
                 </sec:authorize>
                 <sec:authorize access="hasRole('ADMIN')">
                     <li><a href="/admin">Панель администратора</a></li>
