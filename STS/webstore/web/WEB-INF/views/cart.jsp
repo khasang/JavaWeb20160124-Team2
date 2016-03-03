@@ -36,9 +36,36 @@
         </tbody>
     </table>
     <p><b>Итого:</b> 15000 рублей</p>
-    <form id="buy_product_form" method="post">
+    <div>
         <div class="form_element">
-            <input id="btn_cart" type="submit" value="Заказать" class="btn btn-login"/>
+            <label class="label">Имя:</label>
+            <br />
+            <input class="in_reg" type="text" name="name" id="name"/>
         </div>
-    </form>
+        <div class="form_element">
+            <label class="label">Телефон:</label>
+            <br />
+            <input class="in_reg" type="text" name="telephone" id="telephone"/>
+        </div>
+        <div class="form_element">
+            <label class="label">Email:</label>
+            <br />
+            <input class="in_reg" type="text" name="email" id="email"/>
+        </div>
+        <div class="form_element">
+            <label class="label">Адрес:</label>
+            <br />
+            <input class="in_reg" type="text" name="address" id="address"/>
+        </div>
+        <div class="form_element">
+            <label class="label">Время:</label>
+            <br />
+            <input class="in_reg" type="text" name="time" id="time"/>
+        </div>
+        <form id="buy_product_form" method="post">
+            <div class="form_element">
+            <input id="btn_cart" type="submit" value="Заказать" class="btn btn-login"/>
+            </div>
+        </form>
+    </div>
 </div>
