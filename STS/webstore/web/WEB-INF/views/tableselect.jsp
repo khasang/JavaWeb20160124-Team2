@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>tableselect</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/webstore_style.css"/>
 </head>
 <body>
 <h2> ${dropdownlist} </h2>
