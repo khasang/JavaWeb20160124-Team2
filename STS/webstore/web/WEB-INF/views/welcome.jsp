@@ -2,6 +2,18 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
+<div id="slider">
+    <div id="img_container">
+        <img class="slider_img" src="images/slider2.png" />
+    </div>
+    <span class="slider_nav">
+        <span class="navButton"></span>
+        <span class="navButton"></span>
+        <span class="navButton"></span>
+        <span class="navButton"></span>
+        <span class="navButton"></span>
+    </span>
+</div>
 <div id="hitsList">
 <c:choose>
     <c:when test="${productHitsList.size() > '0'}">

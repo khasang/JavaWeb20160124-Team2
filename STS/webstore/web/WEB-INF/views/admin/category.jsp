@@ -32,9 +32,14 @@
     </div>
     <div class="form_element">
         <label for="description" class="label">Описание</label>
-        <br />
-        <textarea class="input input_up" name="description" id="description" placeholder="Description"></textarea>
-        <span id="description_help_text" class="help_message"></span>
+        <br/>
+        <div class="container-editor">
+            <div class="text-wrapper">
+            <textarea id="description" class="input input_up editor-container" name="description" id="description"
+                      placeholder="Description"></textarea>
+            </div>
+            <%@include file="editor.jsp" %>
+        </div>
     </div>
     <div class="form_element">
         <input id="btn_up" type="submit" value="Изменить" class="btn btn-login"/>

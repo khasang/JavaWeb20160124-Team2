@@ -27,6 +27,35 @@ h2 {
     color: #CD5C5C;
 }
 
+#slider {
+    width: 90%;
+    margin: 0 auto 60px;
+    position: relative;
+}
+
+.slider_img {
+    max-width: 100%;
+}
+
+.slider_nav {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.navButton {
+    float: left;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: #FFF;
+    margin-left: 10px;
+    text-indent: -999px;
+    cursor: pointer;
+    position: relative;
+}
+
 .input {
     display: inline-block;
     width: 40%;

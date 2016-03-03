@@ -1,6 +1,6 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <div class="advanced-wrapper">
-    <div class="toolbar-container"><span class="ql-format-group">
+    <div class="toolbar-container">
+        <span class="ql-format-group">
             <select title="Font" class="ql-font">
                 <option value="sans-serif" selected>Sans Serif</option>
                 <option value="Georgia, serif">Serif</option>
@@ -11,7 +11,16 @@
                 <option value="13px" selected>Normal</option>
                 <option value="18px">Large</option>
                 <option value="32px">Huge</option>
-            </select></span><span class="ql-format-group"><span title="Bold" class="ql-format-button ql-bold"></span><span class="ql-format-separator"></span><span title="Italic" class="ql-format-button ql-italic"></span><span class="ql-format-separator"></span><span title="Underline" class="ql-format-button ql-underline"></span></span><span class="ql-format-group">
+            </select>
+        </span>
+        <span class="ql-format-group">
+            <span title="Bold" class="ql-format-button ql-bold"></span>
+            <span class="ql-format-separator"></span>
+            <span title="Italic" class="ql-format-button ql-italic"></span>
+            <span class="ql-format-separator"></span>
+            <span title="Underline" class="ql-format-button ql-underline"></span>
+        </span>
+        <span class="ql-format-group">
             <select title="Text Color" class="ql-color">
                 <option value="rgb(0, 0, 0)" selected></option>
                 <option value="rgb(230, 0, 0)"></option>
@@ -48,7 +57,8 @@
                 <option value="rgb(0, 55, 0)"></option>
                 <option value="rgb(0, 41, 102)"></option>
                 <option value="rgb(61, 20, 102)"></option>
-            </select><span class="ql-format-separator"></span>
+            </select>
+            <span class="ql-format-separator"></span>
             <select title="Background Color" class="ql-background">
                 <option value="rgb(0, 0, 0)"></option>
                 <option value="rgb(230, 0, 0)"></option>
@@ -85,12 +95,22 @@
                 <option value="rgb(0, 55, 0)"></option>
                 <option value="rgb(0, 41, 102)"></option>
                 <option value="rgb(61, 20, 102)"></option>
-            </select><span class="ql-format-separator"></span>
+            </select>
+            <span class="ql-format-separator"></span>
             <select title="Text Alignment" class="ql-align">
                 <option value="left" selected></option>
                 <option value="center"></option>
                 <option value="right"></option>
                 <option value="justify"></option>
-            </select></span><span class="ql-format-group"><span title="Link" class="ql-format-button ql-link"></span><span class="ql-format-separator"></span><span title="Image" class="ql-format-button ql-image"></span><span class="ql-format-separator"></span><span title="List" class="ql-format-button ql-list"></span></span></div>
+            </select>
+        </span>
+        <span class="ql-format-group">
+            <span title="Link" class="ql-format-button ql-link"></span>
+            <span class="ql-format-separator"></span>
+            <span title="Image" class="ql-format-button ql-image"></span>
+            <span class="ql-format-separator"></span>
+            <span title="List" class="ql-format-button ql-list"></span>
+        </span>
+    </div>
     <div class="editor-container"></div>
 </div>

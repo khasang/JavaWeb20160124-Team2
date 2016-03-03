@@ -1,25 +1,20 @@
-.basic-wrapper,
 .advanced-wrapper {
-  border: 1px solid #ccc;
-  margin: 15px auto;
+    border: 1px solid #ccc;
+    margin: 15px auto;
 }
-.basic-wrapper {
-  width: 40%;
-}
+
 .advanced-wrapper {
-  width: 100%;
+    width: 100%;
 }
+
 .editor-container {
-  height: 400px;
+    height: 400px;
 }
+
 .toolbar-container {
-  border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
 }
-.basic-wrapper .toolbar-container {
-  padding: 8px 14px;
-}
-.basic-wrapper .toolbar-container .ql-active,
-.basic-wrapper .toolbar-container button:hover {
-  color: #008000;
-  font-weight: bold;
+
+.text-wrapper .editor-container {
+    display: none;
 }

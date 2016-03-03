@@ -30,6 +30,9 @@
         <put-list-attribute name="stylesheets" inherit="true">
             <add-attribute value="css/style_catalog.css" />
         </put-list-attribute>
+        <put-list-attribute name="javascript" inherit="true">
+            <add-attribute value="js/slider.js" />
+        </put-list-attribute>
     </definition>
     <definition name="login" extends="base">
         <put-attribute name="body" value="/WEB-INF/views/login.jsp" />
@@ -91,9 +94,29 @@
     </definition>
     <definition name="admin_page" extends="admin_base">
         <put-attribute name="body" value="/WEB-INF/views/admin/page.jsp" />
+        <put-list-attribute name="stylesheets" inherit="true">
+            <add-attribute value="/admin/css/quillsnow.css" />
+            <add-attribute value="/admin/css/advanced.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascript" inherit="true">
+            <add-attribute value="/admin/js/jquery.js" />
+            <add-attribute value="/admin/js/lodash.js" />
+            <add-attribute value="/admin/js/quill.js" />
+            <add-attribute value="/admin/js/advanced.js" />
+        </put-list-attribute>
     </definition>
     <definition name="admin_category" extends="admin_base">
         <put-attribute name="body" value="/WEB-INF/views/admin/category.jsp" />
+        <put-list-attribute name="stylesheets" inherit="true">
+            <add-attribute value="/admin/css/quillsnow.css" />
+            <add-attribute value="/admin/css/advanced.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascript" inherit="true">
+            <add-attribute value="/admin/js/jquery.js" />
+            <add-attribute value="/admin/js/lodash.js" />
+            <add-attribute value="/admin/js/quill.js" />
+            <add-attribute value="/admin/js/advanced.js" />
+        </put-list-attribute>
     </definition>
     <definition name="admin_product" extends="admin_base">
         <put-attribute name="body" value="/WEB-INF/views/admin/product.jsp" />
