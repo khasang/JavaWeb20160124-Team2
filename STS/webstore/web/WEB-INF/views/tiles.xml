@@ -68,6 +68,12 @@
             <add-attribute value="css/style_cart.css" />
         </put-list-attribute>
     </definition>
+    <definition name="registry" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/registry.jsp" />
+        <put-list-attribute name="stylesheets" inherit="true">
+            <add-attribute value="css/style_registry.css" />
+        </put-list-attribute>
+    </definition>
     <definition name="admin" extends="admin_base">
         <put-attribute name="body" value="/WEB-INF/views/admin/main.jsp" />
     </definition>
