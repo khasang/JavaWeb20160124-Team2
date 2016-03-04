@@ -31,17 +31,58 @@ h2 {
     width: 90%;
     margin: 0 auto 60px;
     position: relative;
+    overflow: hidden;
+}
+
+#img_container {
+    width: 500%;
+    position: relative;
+    right: 0%;
 }
 
 .slider_img {
-    max-width: 100%;
+    max-width: 20%;
+    min-width: 20%;
+    float: left;
+    margin: 0;
+    padding: 0;
 }
 
-.slider_nav {
+#slider_nav {
     position: absolute;
     bottom: 10px;
     left: 50%;
     margin-left: -60px;
+}
+
+#slider:hover #navButtonContainer {
+    display: block;
+}
+
+#navButtonContainer {
+    position: absolute;
+    width: 100%;
+    bottom: 50%;
+    display: none;
+}
+
+#sliderPrev, #sliderNext {
+    cursor: pointer;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+}
+
+#sliderPrev {
+    background-image: url('/images/prev.png');
+    margin-left: 10px;
+}
+
+#sliderNext {
+    background-image: url('/images/next.png');
+    float: right;
+    margin-right: 10px;
 }
 
 .navButton {
@@ -54,6 +95,10 @@ h2 {
     text-indent: -999px;
     cursor: pointer;
     position: relative;
+}
+
+.current_nav_button {
+    background-color: #CD5C5C;
 }
 
 .input {
@@ -196,6 +241,18 @@ button {
     position: fixed;
     padding: 10px 7px;
     float: left;
+}
+
+.menu_open_container #cart_link {
+    display: block;
+    position: fixed;
+    padding: 5px 7px;
+    right: 0;
+    z-index: 2;
+}
+
+.menu_open_container #cart_link img {
+    max-height: 40px;
 }
 
 .menu_open_container #sidebar-toggle .bar {

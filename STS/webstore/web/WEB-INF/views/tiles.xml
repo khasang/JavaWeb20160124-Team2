@@ -12,6 +12,7 @@
         </put-list-attribute>
         <put-list-attribute name="javascript">
             <add-attribute value="js/helpers.js" />
+            <add-attribute value="js/moveFactory.js" />
             <add-attribute value="js/menu.js" />
         </put-list-attribute>
     </definition>

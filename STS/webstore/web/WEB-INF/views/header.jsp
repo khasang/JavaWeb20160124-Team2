@@ -48,4 +48,7 @@
         <span class="bar"></span>
         <span class="bar"></span>
     </a>
+    <a href="/cart" id="cart_link" class="inTheLeftPosition">
+        <img src="/images/cart.png" />
+    </a>
 </div>

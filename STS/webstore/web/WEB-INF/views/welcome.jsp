@@ -4,15 +4,23 @@
 <%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
 <div id="slider">
     <div id="img_container">
-        <img class="slider_img" src="images/slider2.png" />
+            <img class="slider_img" src="images/slider1.png" />
+            <img class="slider_img" src="images/slider2.png" />
+            <img class="slider_img" src="images/slider3.png" />
+            <img class="slider_img" src="images/slider4.png" />
+            <img class="slider_img" src="images/slider5.png" />
     </div>
-    <span class="slider_nav">
-        <span class="navButton"></span>
+    <span id="slider_nav">
+        <span class="navButton current_nav_button"></span>
         <span class="navButton"></span>
         <span class="navButton"></span>
         <span class="navButton"></span>
         <span class="navButton"></span>
     </span>
+    <div id="navButtonContainer">
+        <a id="sliderPrev"></a>
+        <a id="sliderNext"></a>
+    </div>
 </div>
 <div id="hitsList">
 <c:choose>
