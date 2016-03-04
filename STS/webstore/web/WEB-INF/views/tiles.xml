@@ -130,15 +130,26 @@
         <put-list-attribute name="stylesheets" inherit="true">
             <add-attribute value="/admin/css/quillsnow.css" />
             <add-attribute value="/admin/css/advanced.css" />
+            <add-attribute value="/admin/css/select2.min.css" />
         </put-list-attribute>
         <put-list-attribute name="javascript" inherit="true">
             <add-attribute value="/admin/js/jquery.js" />
             <add-attribute value="/admin/js/lodash.js" />
             <add-attribute value="/admin/js/quill.js" />
             <add-attribute value="/admin/js/advanced.js" />
+            <add-attribute value="/admin/js/select2.min.js" />
+            <add-attribute value="/admin/js/select.js" />
         </put-list-attribute>
     </definition>
     <definition name="admin_delivery" extends="admin_base">
         <put-attribute name="body" value="/WEB-INF/views/admin/delivery.jsp" />
+        <put-list-attribute name="stylesheets" inherit="true">
+            <add-attribute value="/admin/css/select2.min.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascript" inherit="true">
+            <add-attribute value="/admin/js/jquery.js" />
+            <add-attribute value="/admin/js/select2.min.js" />
+            <add-attribute value="/admin/js/select.js" />
+        </put-list-attribute>
     </definition>
 </tiles-definitions>

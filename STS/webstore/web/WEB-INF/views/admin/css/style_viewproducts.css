@@ -73,6 +73,14 @@ button {
     cursor: pointer;
 }
 
+.select {
+    width: 40%;
+}
+
+.view_status {
+    margin-left: 10px;
+}
+
 #button_menu {
     color: #000;
     background-color: azure;

@@ -35,12 +35,23 @@
     <div class="form_element">
         <label for="meta_description" class="label">Категория</label>
         <br/>
-
+        <select class="select">
+            <option>Магнитофоны</option>
+            <option>Велосипеды</option>
+            <option>Лекарства</option>
+        </select>
     </div>
     <div class="form_element">
         <label for="meta_description" class="label">Цвет</label>
         <br/>
-
+        <select class="select" multiple="multiple">
+            <option>Красный</option>
+            <option>Синий</option>
+            <option>Зелёный</option>
+            <option>Жёлтый</option>
+            <option>Оранжевый</option>
+            <option>Чёрный</option>
+        </select>
     </div>
     <div class="form_element">
         <label for="description" class="label">Описание</label>
