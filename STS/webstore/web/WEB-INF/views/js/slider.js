@@ -128,7 +128,9 @@ utils.addListener(buttonNext, "click", function (event) {
 });
 
 utils.addListener(sliderNav, 'click', function(event) {
-    event = event || window.event;
-    var elem = event.target || event.srcElement;
-})
+    if(timers.getLength() == 0) {
+        event = event || window.event;
+        var elem = event.target || event.srcElement;
+    }
+});
 
