@@ -11,11 +11,11 @@
         <img class="slider_img" src="images/slider5.png"/>
     </div>
     <span id="slider_nav">
-        <span class="navButton current_nav_button"></span>
-        <span class="navButton"></span>
-        <span class="navButton"></span>
-        <span class="navButton"></span>
-        <span class="navButton"></span>
+        <span data-value="0" class="navButton current_nav_button"></span>
+        <span data-value="1" class="navButton"></span>
+        <span data-value="2" class="navButton"></span>
+        <span data-value="3" class="navButton"></span>
+        <span data-value="4" class="navButton"></span>
     </span>
     <div id="navButtonContainer">
         <a id="sliderPrev"></a>

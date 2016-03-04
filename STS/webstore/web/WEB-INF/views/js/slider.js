@@ -26,6 +26,16 @@ var slider = (function () {
             index -= 1;
             return element;
         },
+        position: function (i) {
+            var element;
+            if (!this.hasPosition(i) || i == index) {
+                return null;
+            }
+            element = slides[i];
+            sliderNavElements[index].classList.remove('current_nav_button');
+            index = i;
+            return element;
+        },
         hasNext: function () {
             return index + 1 < length;
         },
@@ -133,10 +143,18 @@ utils.addListener(buttonNext, "click", function (event) {
 utils.addListener(sliderNav, 'click', function (event) {
     if (timers.getLength() == 0) {
         event = event || window.event;
-        var elem = event.target || event.srcElement;
-        if (slider.hasPosition()) {
-
+        var elem = event.target || event.srcElement,
+            index = elem.getAttribute("data-value");
+        if (slider.hasPosition(index)) {
+            timers.stop();
+            if (slider.current() > slider.position(index)) {
+                timers.add(sliderContainer.moveToLeft(slider.current()));
+            } else {
+                timers.add(sliderContainer.moveToRight(slider.current()));
+            }
+            timers.start();
         }
+
     }
 });
 

@@ -19,9 +19,9 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 @EnableWebMvc
 @ComponentScan(basePackages = {"io.khasang.webstore"},
         excludeFilters = {
-                @ComponentScan.Filter(type= FilterType.ANNOTATION, value= EnableWebMvc.class)
+                @ComponentScan.Filter(type = FilterType.ANNOTATION, value = EnableWebMvc.class)
         })
-public class WebConfig extends WebMvcConfigurerAdapter{
+public class WebConfig extends WebMvcConfigurerAdapter {
     @Bean
     public ViewResolver viewResolver() {
         TilesViewResolver resolver = new TilesViewResolver();
@@ -31,7 +31,7 @@ public class WebConfig extends WebMvcConfigurerAdapter{
     @Bean
     public TilesConfigurer tilesConfigurer() {
         TilesConfigurer tiles = new TilesConfigurer();
-        tiles.setDefinitions(new String[] { "/WEB-INF/views/tiles.xml" });
+        tiles.setDefinitions(new String[]{"/WEB-INF/views/tiles.xml"});
         tiles.setCheckRefresh(true);
         return tiles;
     }

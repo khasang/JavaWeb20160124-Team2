@@ -183,7 +183,8 @@ public class AppController {
         return "recovery";
     }
 
-    @RequestMapping("/backup") // todo eborod select current tables and backup with mysqldump Runtime runtime = Runtime.getRuntime();
+    @RequestMapping("/backup")
+    // todo eborod select current tables and backup with mysqldump Runtime runtime = Runtime.getRuntime();
     // todo "mysqldump eshop -u root -proot -r \"C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Uploads\\backup.sql\"");
     public String backup(Model model) {
         BackupDatabase backupDatabase = new BackupDatabase();
@@ -225,7 +226,7 @@ public class AppController {
     }
 
     @RequestMapping("/menu")
-    public String menu(Model model) {  
+    public String menu(Model model) {
         menuHelper.selectInfoFromProductsTableToViewIntoMenu();
         String textInTopBlock = menuHelper.getAllpNameOfProducts();
         model.addAttribute("menuHelper", menuHelper);
@@ -278,9 +279,10 @@ public class AppController {
     }
 
     //todo done. What's next?
-    @RequestMapping(value = "/customercart") //todo ekarpov select from productorder with id + status in progress and done
-    public String select(Model model, @RequestParam(value="status", required=false) String status,
-                         @RequestParam(value="userid", required=false) String userid) {
+    @RequestMapping(value = "/customercart")
+    //todo ekarpov select from productorder with id + status in progress and done
+    public String select(Model model, @RequestParam(value = "status", required = false) String status,
+                         @RequestParam(value = "userid", required = false) String userid) {
         model.addAttribute("items", customerCart.listProductOrder(status, userid));
         return "customercart";
     }
