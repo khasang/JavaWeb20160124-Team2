@@ -84,7 +84,8 @@ ElementFactory.Slider.prototype.moveToRight = function (finishRight) {
 
 var sliderContainer = ElementFactory.factory('Slider'),
     buttonPrev = document.getElementById("sliderPrev"),
-    buttonNext = document.getElementById("sliderNext");
+    buttonNext = document.getElementById("sliderNext"),
+    sliderNav = document.getElementById('slider_nav');
 
 utils.addListener(buttonPrev, "click", function (event) {
     if (event.preventDefault) {
@@ -125,4 +126,9 @@ utils.addListener(buttonNext, "click", function (event) {
         timers.start();
     }
 });
+
+utils.addListener(sliderNav, 'click', function(event) {
+    event = event || window.event;
+    var elem = event.target || event.srcElement;
+})
 
