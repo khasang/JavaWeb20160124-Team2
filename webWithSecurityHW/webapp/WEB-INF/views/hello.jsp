@@ -2,11 +2,11 @@
 <%@ page session="false" %>
 <html>
 <head>
-    <title>HelloWorld</title>
+    <title>hello page</title>
 
 </head>
 <body>
-    <h1>Welcome</h1>
-
+    <h1>Welcome to home page</h1>
+    <a href="protected">Go to protected page</a>
 </body>
 </html>

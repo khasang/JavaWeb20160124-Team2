@@ -14,4 +14,18 @@ public class AppController {
         model.setViewName("hello");         // insert this name and get path to jsp
         return model;
     }
+
+    @RequestMapping(value = {"/protected**"}, method= {RequestMethod.GET})
+    public ModelAndView protectedPage(){
+        ModelAndView modelProt = new ModelAndView();
+        modelProt.setViewName("protected");         // insert this name and get path to jsp
+        return modelProt;
+    }
+
+    @RequestMapping(value = {"/confidential**"}, method= {RequestMethod.GET})
+    public ModelAndView confidentialPage(){
+        ModelAndView modelConfidential = new ModelAndView();
+        modelConfidential.setViewName("confidential");         // insert this name and get path to jsp
+        return modelConfidential;
+    }
 }
