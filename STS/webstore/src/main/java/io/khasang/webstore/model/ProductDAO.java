@@ -18,9 +18,19 @@ public class ProductDAO {
     private JdbcTemplate jdbcTemplate;
     private SimpleDriverDataSource dataSource;
 
+    public static final String TABLE_NAME = "products";
+    public static final String COLUMN_NAME_ID = "ID";
+    public static final String COLUMN_NAME_TITLE = "pname";
+    public static final String COLUMN_NAME_DESCRIPTION = "product";
+    private static final String CREATE_SQL = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "(" +
+            COLUMN_NAME_ID + " INT NOT NULL AUTO_INCREMENT PRIMARY KEY," +
+            COLUMN_NAME_TITLE + " VARCHAR(150) NOT NULL DEFAULT ''," +
+            COLUMN_NAME_DESCRIPTION + " LONGTEXT NOT NULL)";
+
     public ProductDAO(SimpleDriverDataSource dataSource) {
         this.dataSource = dataSource;
         this.jdbcTemplate = new JdbcTemplate(dataSource);
+        init();
     }
 
     public void setDataSource(SimpleDriverDataSource dataSource) {
@@ -29,6 +39,10 @@ public class ProductDAO {
 
     public SimpleDriverDataSource getDataSource() {
         return dataSource;
+    }
+
+    public void init() {
+        this.jdbcTemplate.execute(CREATE_SQL);
     }
 
     public List<ProductPojo> getAll() {

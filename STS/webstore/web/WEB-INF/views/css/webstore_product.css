@@ -1,0 +1,48 @@
+.images {
+    width: 60%;
+}
+
+#big_image {
+    width: 100%;
+    padding-top: 20px;
+}
+
+#width_image {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#big_image #big_img {
+    max-width: 100%;
+}
+
+a img, :link img, :visited img {
+    border: none;
+}
+
+#small_images {
+    margin-top: 20px;
+}
+
+.small_image {
+    display: inline-block;
+    width: 20%;
+    margin: 0 5% 0 7%;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.small_image img {
+    max-width: 100%;
+}
+
+#big_image #width_image .cboxElement {
+    display: block;
+    text-align: center;
+}
+
+#right_column {
+    width: 37%;
+    float: right;
+    padding-top: 20px;
+}
