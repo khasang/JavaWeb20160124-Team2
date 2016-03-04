@@ -49,7 +49,7 @@ ElementFactory.ContainerNav = function () {
 /**
  * Отвечает за анимацию подвала
  */
-ElementFactory.Footer = function() {
+ElementFactory.Footer = function () {
     this.elem = document.getElementById("footer_inform");
     this.xPosition = 0;
     this.xPositionOpen = 20;
@@ -61,7 +61,7 @@ ElementFactory.Footer = function() {
 /**
  * Отвечает за анимацию значка корзины
  */
-ElementFactory.Cart = function() {
+ElementFactory.Cart = function () {
     this.elem = document.getElementById("cart_link");
     this.xPosition = 0;
     this.xPositionOpen = -20;
@@ -107,7 +107,7 @@ function moveMenu(event) {
         event.returnValue = false;
     }
 
-    if(timers.getLength() != 0) {
+    if (timers.getLength() != 0) {
         return false;
     }
 

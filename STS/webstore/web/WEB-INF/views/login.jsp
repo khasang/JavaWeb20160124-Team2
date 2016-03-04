@@ -24,13 +24,13 @@
     <form id="login_form" method="post" th:action="@{/login}">
         <div class="form_element">
             <label for="username" class="label">Логин</label>
-            <br />
+            <br/>
             <input class="input" type="text" name="username" id="username" placeholder="Login"/>
             <span id="username_help_text" class="help_message"></span>
         </div>
         <div class="form_element">
             <label for="password" class="label">Пароль</label>
-            <br />
+            <br/>
             <input class="input" type="password" name="password" id="password" placeholder="Password"/>
             <span id="password_help_text" class="help_message"></span>
         </div>
@@ -66,40 +66,40 @@
 <%--RawBlameHistory     40 lines (39 sloc)  1.07 KB--%>
 <%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 <%--&lt;%&ndash;--%>
-  <%--Created by IntelliJ IDEA.--%>
-  <%--User: admin--%>
-  <%--Date: 17.02.2016--%>
-  <%--Time: 2:08--%>
-  <%--To change this template use File | Settings | File Templates.--%>
+<%--Created by IntelliJ IDEA.--%>
+<%--User: admin--%>
+<%--Date: 17.02.2016--%>
+<%--Time: 2:08--%>
+<%--To change this template use File | Settings | File Templates.--%>
 <%--&ndash;%&gt;--%>
 <%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
 <%--<!DOCTYPE html>--%>
 <%--<html lang="ru">--%>
 <%--<head>--%>
-    <%--<meta charset="UTF-8">--%>
-    <%--<title>Login</title>--%>
-    <%--<link rel="stylesheet" type="text/css" href="css/style_login.css">--%>
+<%--<meta charset="UTF-8">--%>
+<%--<title>Login</title>--%>
+<%--<link rel="stylesheet" type="text/css" href="css/style_login.css">--%>
 <%--</head>--%>
 <%--<body>--%>
 <%--<form>--%>
-    <%--<fieldset>--%>
-        <%--Имя:<br>--%>
-        <%--<input list="users" name="browser">--%>
-        <%--<datalist id="users">--%>
-            <%--<c:forEach items="${login}" var="users">--%>
-                <%--<option value=${users.login} ></option>--%>
-            <%--</c:forEach>--%>
-        <%--</datalist>--%>
-        <%--<br>--%>
-        <%--Пароль:<br>--%>
-        <%--<input type="password" name="password">--%>
-        <%--<br><br>--%>
-        <%--<input type="button" name="okButton" value="Войти">--%>
-        <%--<br><br>--%>
-        <%--<a href="url">Зарегистрироваться</a>--%>
-        <%--<br><br>--%>
-        <%--<a href="url">Вспомнить пароль</a>--%>
-    <%--</fieldset>--%>
+<%--<fieldset>--%>
+<%--Имя:<br>--%>
+<%--<input list="users" name="browser">--%>
+<%--<datalist id="users">--%>
+<%--<c:forEach items="${login}" var="users">--%>
+<%--<option value=${users.login} ></option>--%>
+<%--</c:forEach>--%>
+<%--</datalist>--%>
+<%--<br>--%>
+<%--Пароль:<br>--%>
+<%--<input type="password" name="password">--%>
+<%--<br><br>--%>
+<%--<input type="button" name="okButton" value="Войти">--%>
+<%--<br><br>--%>
+<%--<a href="url">Зарегистрироваться</a>--%>
+<%--<br><br>--%>
+<%--<a href="url">Вспомнить пароль</a>--%>
+<%--</fieldset>--%>
 <%--</form>--%>
 <%--</body>--%>
 <%--</html>--%>

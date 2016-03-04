@@ -1,24 +1,29 @@
 button {
     color: gray;
-    font-size:14px;
-    font-family:Calibri;
+    font-size: 14px;
+    font-family: Calibri;
 }
+
 body {
     background-color: #F5F5F5;
     padding: 0px;
     margin: 0px;
     color: #222222;
 }
+
 a {
     color: #428bca;
     cursor: pointer;
 }
+
 .right-float {
-    float:right;
+    float: right;
 }
+
 .delivery_inform p {
     margin: 0;
 }
+
 .table {
     width: 100%;
     max-width: 100%;

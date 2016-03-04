@@ -1,5 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<p>Показать: <a class="view_status" href="?status=done">Доставленные</a> <a class="view_status" href="?status=new">Новые</a> <a class="view_status" href="?status=processed">В обработке</a> <a class="view_status" href="?status=canceled">Отменённые</a></p>
+<p>Показать: <a class="view_status" href="?status=done">Доставленные</a> <a class="view_status"
+                                                                            href="?status=new">Новые</a> <a
+        class="view_status" href="?status=processed">В обработке</a> <a class="view_status" href="?status=canceled">Отменённые</a>
+</p>
 <table class="table table-border table-striped">
     <thead>
     <tr>
@@ -10,10 +13,10 @@
         <th></th>
     </tr>
     <tr>
-        <td><input type="text" class="input input_table" name="search_id" id="search_id" /></td>
-        <td><input type="text" class="input input_table" name="search_status" id="search_status" /></td>
-        <td><input type="text" class="input input_table" name="search_delivery" id="search_delivery" /></td>
-        <td><input type="text" class="input input_table" name="search_address" id="search_address" /></td>
+        <td><input type="text" class="input input_table" name="search_id" id="search_id"/></td>
+        <td><input type="text" class="input input_table" name="search_status" id="search_status"/></td>
+        <td><input type="text" class="input input_table" name="search_delivery" id="search_delivery"/></td>
+        <td><input type="text" class="input input_table" name="search_address" id="search_address"/></td>
     </tr>
     </thead>
     <tbody>

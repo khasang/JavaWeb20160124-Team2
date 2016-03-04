@@ -32,6 +32,9 @@ var slider = (function () {
         hasPrev: function () {
             return index > 0;
         },
+        hasPosition: function (i) {
+            return (typeof slides[i] !== 'undefined');
+        },
         rewind: function () {
             sliderNavElements[index].classList.remove('current_nav_button');
             index = 0;
@@ -94,7 +97,7 @@ utils.addListener(buttonPrev, "click", function (event) {
         event.returnValue = false;
     }
 
-    if(timers.getLength() == 0) {
+    if (timers.getLength() == 0) {
         timers.stop();
         if (slider.hasPrev()) {
             slider.prev();
@@ -114,7 +117,7 @@ utils.addListener(buttonNext, "click", function (event) {
         event.returnValue = false;
     }
 
-    if(timers.getLength() == 0) {
+    if (timers.getLength() == 0) {
         timers.stop();
         if (slider.hasNext()) {
             slider.next();
@@ -127,10 +130,13 @@ utils.addListener(buttonNext, "click", function (event) {
     }
 });
 
-utils.addListener(sliderNav, 'click', function(event) {
-    if(timers.getLength() == 0) {
+utils.addListener(sliderNav, 'click', function (event) {
+    if (timers.getLength() == 0) {
         event = event || window.event;
         var elem = event.target || event.srcElement;
+        if (slider.hasPosition()) {
+
+        }
     }
 });
 

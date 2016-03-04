@@ -46,13 +46,13 @@ var validator = {
 
                         if (!result_ok) {
                             msg = checker.instruction;
-                            if(this.helpText[i] !== null) {
+                            if (this.helpText[i] !== null) {
                                 this.helpText[i].innerHTML = msg;
                             }
                             this.messages.push(i + " " + msg);
                             break;
                         } else {
-                            if(this.helpText[i] !== null) {
+                            if (this.helpText[i] !== null) {
                                 this.helpText[i].innerHTML = "";
                             }
                         }
@@ -71,12 +71,12 @@ var validator = {
 
                     if (!result_ok) {
                         msg = checker.instruction;
-                        if(this.helpText[i] !== null) {
+                        if (this.helpText[i] !== null) {
                             this.helpText[i].innerHTML = msg;
                         }
                         this.messages.push(i + " " + msg);
                     } else {
-                        if(this.helpText[i] !== null) {
+                        if (this.helpText[i] !== null) {
                             this.helpText[i].innerHTML = "";
                         }
                     }

@@ -8,7 +8,7 @@ validator.type.isNonEmpty = {
 validator.type.inputLength = {
     validate: function (value, num, num2) {
         num2 = num2 || null;
-        if(num2 == null) {
+        if (num2 == null) {
             this.type.inputLength.instruction = " - не может быть меньше " + num + " символов";
             return value.length >= num;
         } else {

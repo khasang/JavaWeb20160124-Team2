@@ -12,15 +12,15 @@
 </head>
 <body>
 <div id="main_container">
-    <t:insertAttribute name="header" />
+    <t:insertAttribute name="header"/>
     <div id="div_container" class="inTheLeftPosition">
         <div id="content_container">
             <h2>${pageName}</h2>
-            <t:insertAttribute name="body" />
+            <t:insertAttribute name="body"/>
         </div>
     </div>
 </div>
-<t:insertAttribute name="footer" />
+<t:insertAttribute name="footer"/>
 <t:importAttribute name="javascript"/>
 <c:forEach var="script" items="${javascript}">
     <script type="text/javascript" src="<c:url value="${script}"/>"></script>

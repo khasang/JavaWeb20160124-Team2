@@ -1,8 +1,8 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>403 ошибка</title>
     <link rel="stylesheet" type="text/css" href="/css/webstore_style.css"/>
     <link rel="stylesheet" type="text/css" href="/css/webstore_viewproducts.css"/>
@@ -18,7 +18,7 @@
     </nav>
     <div id="div_container" class="inTheLeftPosition">
         <div id="content_container">
-            <img src="/images/403.png" />
+            <img src="/images/403.png"/>
             <p>Доступ к этой странице запрещён администратором сайта.</p>
             <p>Вы можете вернуться на <a href="/">главную страницу</a>.</p>
         </div>

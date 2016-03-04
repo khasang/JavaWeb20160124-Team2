@@ -9,25 +9,25 @@
 <form id="contacts_form" method="post">
     <div class="form_element">
         <label for="name" class="label">Имя</label>
-        <br />
+        <br/>
         <input class="input" type="text" name="name" id="name" placeholder="Name"/>
         <span id="name_help_text" class="help_message"></span>
     </div>
     <div class="form_element">
         <label for="email" class="label">Email</label>
-        <br />
+        <br/>
         <input class="input" type="email" name="email" id="email" placeholder="Email"/>
         <span id="email_help_text" class="help_message"></span>
     </div>
     <div class="form_element">
         <label for="email" class="label">Телефон</label>
-        <br />
+        <br/>
         <input class="input" type="tel" name="phone" id="phone" placeholder="Phone"/>
         <span id="phone_help_text" class="help_message"></span>
     </div>
     <div class="form_element">
         <label for="address" class="label">Адрес</label>
-        <br />
+        <br/>
         <input class="input" type="text" name="address" id="address" placeholder="Address"/>
         <span id="address_help_text" class="help_message"></span>
     </div>

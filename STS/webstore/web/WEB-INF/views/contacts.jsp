@@ -3,30 +3,30 @@
 <p>Телефон: 8 800 8001234</p>
 <p>Отдел продаж: sales@webstore.com</p>
 <p>Техническая поддержка: admin@webstore.com</p>
-<br />
+<br/>
 <h2>Обратный звонок</h2>
 <form id="contacts_form" method="post">
     <div class="form_element">
         <label for="name" class="label">Имя</label>
-        <br />
+        <br/>
         <input class="input" type="text" name="name" id="name" placeholder="Name"/>
         <span id="name_help_text" class="help_message"></span>
     </div>
     <div class="form_element">
         <label for="email" class="label">Email</label>
-        <br />
+        <br/>
         <input class="input" type="email" name="email" id="email" placeholder="Email"/>
         <span id="email_help_text" class="help_message"></span>
     </div>
     <div class="form_element">
         <label for="email" class="label">Телефон</label>
-        <br />
+        <br/>
         <input class="input" type="tel" name="phone" id="phone" placeholder="Phone"/>
         <span id="phone_help_text" class="help_message"></span>
     </div>
     <div class="form_element">
         <label for="email" class="label">Комментарий</label>
-        <br />
+        <br/>
         <textarea class="input" name="comment" id="comment" placeholder="Comment"></textarea>
         <span id="comment_help_text" class="help_message"></span>
     </div>

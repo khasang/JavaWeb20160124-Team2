@@ -77,7 +77,7 @@ var timers = {
         clearTimeout(this.timerId);
         this.timerId = 0;
     },
-    getLength: function() {
+    getLength: function () {
         return this.timers.length;
     }
 }

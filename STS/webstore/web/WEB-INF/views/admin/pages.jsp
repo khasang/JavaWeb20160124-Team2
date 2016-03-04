@@ -12,10 +12,10 @@
         <th></th>
     </tr>
     <tr>
-        <td><input type="text" class="input input_table" name="search_id" id="search_id" /></td>
-        <td><input type="text" class="input input_table" name="search_url" id="search_url" /></td>
-        <td><input type="text" class="input input_table" name="search_menu" id="search_h1" /></td>
-        <td><input type="text" class="input input_table" name="search_name" id="search_title" /></td>
+        <td><input type="text" class="input input_table" name="search_id" id="search_id"/></td>
+        <td><input type="text" class="input input_table" name="search_url" id="search_url"/></td>
+        <td><input type="text" class="input input_table" name="search_menu" id="search_h1"/></td>
+        <td><input type="text" class="input input_table" name="search_name" id="search_title"/></td>
     </tr>
     </thead>
     <tbody>
