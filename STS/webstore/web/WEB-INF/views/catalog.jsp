@@ -5,17 +5,17 @@
 <div>
     <c:choose>
         <c:when test="${productsList.size() > '0'}">
-                <c:forEach items="${productsList}" var="product">
-                    <div class="about">
-                        <a href="/product?id=${product.getID()}">
-                            <img class="img" src="images/fotonotfound.png" alt="Product not found"/>
-                            <p class="text">
+            <c:forEach items="${productsList}" var="product">
+                <div class="about">
+                    <a href="/product?id=${product.getID()}">
+                        <img class="img" src="images/fotonotfound.png" alt="Product not found"/>
+                        <p class="text">
                                 ${product.getPname()}
-                            </p>
-                            <p class="text">Цена: <span>15000</span> руб.</p>
-                        </a>
-                    </div>
-                </c:forEach>
+                        </p>
+                        <p class="text">Цена: <span>15000</span> руб.</p>
+                    </a>
+                </div>
+            </c:forEach>
         </c:when>
         <c:otherwise>
             <p>В каталоге на данный момент нет товаров. <a href="/">Главная страница</a></p>

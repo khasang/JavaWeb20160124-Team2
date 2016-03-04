@@ -246,13 +246,13 @@ button {
 .menu_open_container #cart_link {
     display: block;
     position: fixed;
-    padding: 5px 7px;
+    padding: 7px;
     right: 0;
     z-index: 2;
 }
 
 .menu_open_container #cart_link img {
-    max-height: 40px;
+    max-height: 35px;
 }
 
 .menu_open_container #sidebar-toggle .bar {
