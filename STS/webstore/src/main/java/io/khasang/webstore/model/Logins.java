@@ -40,15 +40,4 @@ public class Logins {
                 }
         );
     }
-
-//    final private class LoginMapper implements RowMapper<Login> {
-//        public Login mapRow(ResultSet result, int i) throws SQLException {
-//            return new Login(
-//                    result.getInt("id"),
-//                    result.getString("login"),
-//                    result.getString("password"),
-//                    result.getString("security")
-//            );
-//        }
-//    }
 }
