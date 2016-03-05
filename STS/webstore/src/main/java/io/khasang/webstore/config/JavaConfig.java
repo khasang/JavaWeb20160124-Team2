@@ -29,10 +29,12 @@ public class JavaConfig {
     public ProductDAO productDAO(SimpleDriverDataSource dataSource) {
         return new ProductDAO(dataSource);
     }
+
     @Bean
     public ProductDAO viewProducts(SimpleDriverDataSource dataSource) {
         return new ProductDAO(dataSource);
     }
+
     @Bean
     public SelectDataFromTable selectDataFromTable(SimpleDriverDataSource dataSource) {
         return new SelectDataFromTable(dataSource);
@@ -45,7 +47,7 @@ public class JavaConfig {
 
     @Bean
     public Productorder productorder(SimpleDriverDataSource dataSource, JdbcTemplate jdbcTemplate) {
-        return new Productorder(dataSource,jdbcTemplate);
+        return new Productorder(dataSource, jdbcTemplate);
     }
 
     @Bean
@@ -55,12 +57,12 @@ public class JavaConfig {
 
     @Bean
     public InsertDataTable insertDataTable(JdbcTemplate jdbcTemplate, SimpleDriverDataSource dataSource) {
-        return  new InsertDataTable(jdbcTemplate,dataSource);
+        return new InsertDataTable(jdbcTemplate, dataSource);
     }
 
     @Bean
     public CreateDataTable createDataTable(SimpleDriverDataSource dataSource, JdbcTemplate jdbcTemplate) {
-        return  new CreateDataTable(dataSource,jdbcTemplate);
+        return new CreateDataTable(dataSource, jdbcTemplate);
     }
 
     @Bean
