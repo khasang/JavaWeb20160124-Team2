@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>${page_name}</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="css/style_viewproducts.css"/>
+    <link rel="stylesheet" type="text/css" href="css/webstore_style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/webstore_viewproducts.css"/>
 </head>
 <body>
 <div id="main_container">
@@ -20,7 +20,7 @@
             </ul>
         </div>
     </nav>
-    <div id="sidebar" class="close">
+    <div id="sidebar" class="inTheLeftPosition">
         <div class="sidebar_logo_container"><img id="sidebar-logo" src="css/sidebar-logo.png" alt="WebStore"
                                                  title="WebStore"/></div>
         <ul>
