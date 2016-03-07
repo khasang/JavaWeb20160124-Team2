@@ -2,13 +2,10 @@ package io.khasang.web.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-
-import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
@@ -19,18 +16,19 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter{
             auth
                     .inMemoryAuthentication()
                     .withUser("user").password("user").roles("USER").and()
-                    .withUser("admin").password("admin").roles("ADMIN").and()
-                    .withUser("superadmin").password("superadmin").roles("SUPERADMIN");
+                    .withUser("admin").password("admin").roles("USER","ADMIN").and()
+                    .withUser("superadmin").password("superadmin").roles("USER","ADMIN","SUPERADMIN");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    protected void configure(HttpSecurity httpSecurity){ //simple default configuration specifies
+    protected void configure(HttpSecurity http){ //simple default configuration specifies
         try {
-            httpSecurity
-                    .authorizeRequests()
+            http.authorizeRequests()
+                    .antMatchers("/protected").access("hasRole('ADMIN')")
+                    .antMatchers("/confidential").access("hasRole('SUPERADMIN')")
                     .anyRequest().authenticated()
                     .and()
                     .formLogin().and()
