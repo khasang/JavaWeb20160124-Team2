@@ -24,7 +24,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter{
     }
 
     @Override
-    protected void configure(HttpSecurity http){ //simple default configuration specifies
+    protected void configure(HttpSecurity http){
         try {
             http.authorizeRequests()
                     .antMatchers("/protected").access("hasRole('ADMIN')")
@@ -38,21 +38,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter{
         }
     }
 /*
-    @Override
-    protected void configure(HttpSecurity http){
-        try {
-            http
-                    .authorizeRequests()
-                        .antMatchers("/protected").access("hasRole('ROLE_ADMIN')")
-                        .antMatchers(HttpMethod.POST, "/protected").access("hasRole('ROLE_ADMIN')")
-                        .anyRequest().permitAll();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    protected void configureDB(AuthenticationManagerBuilder auth){
+    protected void configureDB(AuthenticationManagerBuilder auth){ TODO JDBC AUTH
         try {
             DataSource dataSource = null;
             auth
