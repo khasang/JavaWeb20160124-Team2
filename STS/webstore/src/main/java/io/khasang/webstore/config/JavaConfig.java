@@ -41,7 +41,7 @@ public class JavaConfig {
 //        return new JdbcTemplate(dataSource);
 //    }
 
-    
+
     private static final String PROPERTY_NAME_DATABASE_DRIVER = "db.driver";
     private static final String PROPERTY_NAME_DATABASE_PASSWORD = "db.password";
     private static final String PROPERTY_NAME_DATABASE_URL = "db.url";
