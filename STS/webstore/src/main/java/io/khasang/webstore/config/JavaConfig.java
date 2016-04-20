@@ -1,15 +1,18 @@
 package io.khasang.webstore.config;
 
 
+import io.khasang.webstore.dao.ProductDAO;
 import io.khasang.webstore.model.*;
+import io.khasang.webstore.tableService.CreateDataTable;
+import io.khasang.webstore.tableService.InsertDataTable;
+import io.khasang.webstore.tableService.SelectDataFromTable;
+import io.khasang.webstore.web.DropTable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -98,23 +101,18 @@ public class JavaConfig {
         return resolver;
     } //TODO iserba 17-21.04.2016 make project using Hibernate JPA (16.04 add hibernate properties and configuration to JavaConfig
 
-
-
-
-
-
     @Bean
     public ProductDAO productDAO(DataSource dataSource) {
         return new ProductDAO(dataSource);
     }
 
     @Bean
-    public ProductDAO viewProducts(SimpleDriverDataSource dataSource) {
+    public ProductDAO viewProducts(DataSource dataSource) {
         return new ProductDAO(dataSource);
     }
 
     @Bean
-    public SelectDataFromTable selectDataFromTable(SimpleDriverDataSource dataSource) {
+    public SelectDataFromTable selectDataFromTable(DataSource dataSource) {
         return new SelectDataFromTable(dataSource);
     }
 
@@ -124,8 +122,8 @@ public class JavaConfig {
     }
 
     @Bean
-    public Productorder productorder(SimpleDriverDataSource dataSource, JdbcTemplate jdbcTemplate) {
-        return new Productorder(dataSource, jdbcTemplate);
+    public Productorder productorder(DataSource dataSource) {
+        return new Productorder(dataSource);
     }
 
     @Bean
@@ -134,22 +132,23 @@ public class JavaConfig {
     }
 
     @Bean
-    public InsertDataTable insertDataTable(JdbcTemplate jdbcTemplate, SimpleDriverDataSource dataSource) {
-        return new InsertDataTable(jdbcTemplate, dataSource);
+    public InsertDataTable insertDataTable(DataSource dataSource) {
+        return new InsertDataTable(dataSource);
     }
 
     @Bean
-    public CreateDataTable createDataTable(SimpleDriverDataSource dataSource, JdbcTemplate jdbcTemplate) {
-        return new CreateDataTable(dataSource, jdbcTemplate);
+    public CreateDataTable createDataTable(DataSource dataSource) {
+        return new CreateDataTable(dataSource);
     }
 
-    @Bean
-    public CreateCostsTable createCostsTable() {
-        return new CreateCostsTable();
-    }
-
-    @Bean
-    public MenuHelper menuHelper() {
-        return new MenuHelper();
-    }
+//    TODO if it will not use by 15.05.2016 - DELETE
+//    @Bean
+//    public CreateCostsTable createCostsTable() {
+//        return new CreateCostsTable();
+//    }
+//
+//    @Bean
+//    public MenuHelper menuHelper() {
+//        return new MenuHelper();
+//    }
 }

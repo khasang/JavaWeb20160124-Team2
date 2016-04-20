@@ -1,6 +1,11 @@
 package io.khasang.webstore.controller;
 
+import io.khasang.webstore.dao.ProductDAO;
 import io.khasang.webstore.model.*;
+import io.khasang.webstore.tableService.CreateDataTable;
+import io.khasang.webstore.tableService.InsertDataTable;
+import io.khasang.webstore.tableService.SelectDataFromTable;
+import io.khasang.webstore.tableService.TableObjectInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -41,11 +46,11 @@ public class AppController {
     @Qualifier("customerCart")
     CustomerCart customerCart;
 
-    @Autowired
-    CreateCostsTable createCostsTable;
-
-    @Autowired
-    MenuHelper menuHelper;
+//    @Autowired
+//    CreateCostsTable createCostsTable;
+//
+//    @Autowired
+//    MenuHelper menuHelper;
 
     @RequestMapping("/")
     public String welcome(Model model) {
@@ -225,22 +230,22 @@ public class AppController {
         return "tableselect";
     }
 
-    @RequestMapping("/menu")
-    public String menu(Model model) {
-        menuHelper.selectInfoFromProductsTableToViewIntoMenu();
-        String textInTopBlock = menuHelper.getAllpNameOfProducts();
-        model.addAttribute("menuHelper", menuHelper);
-        model.addAttribute("textInTopBlock", "In the WebStore your may buy: " + textInTopBlock);
-        model.addAttribute("nameOfFirstBlock", menuHelper.getpNameOfProducts(0));
-        model.addAttribute("nameOfSecondBlock", menuHelper.getpNameOfProducts(1));
-        model.addAttribute("nameOfThirdBlock", menuHelper.getpNameOfProducts(2));
-        model.addAttribute("nameOfFourthBlock", menuHelper.getpNameOfProducts(3));
-        model.addAttribute("nameOfFifthlock", menuHelper.getpNameOfProducts(4));
-        model.addAttribute("nameOfSixBlock", menuHelper.getpNameOfProducts(5));
-        model.addAttribute("nameOfSevenBlock", "Link to see your product");
-        model.addAttribute("insert", menuHelper.insertUserSelectedProductToOrderItemTable());
-        return "menu";
-    }
+//    @RequestMapping("/menu")
+//    public String menu(Model model) {
+//        menuHelper.selectInfoFromProductsTableToViewIntoMenu();
+//        String textInTopBlock = menuHelper.getAllpNameOfProducts();
+//        model.addAttribute("menuHelper", menuHelper);
+//        model.addAttribute("textInTopBlock", "In the WebStore your may buy: " + textInTopBlock);
+//        model.addAttribute("nameOfFirstBlock", menuHelper.getpNameOfProducts(0));
+//        model.addAttribute("nameOfSecondBlock", menuHelper.getpNameOfProducts(1));
+//        model.addAttribute("nameOfThirdBlock", menuHelper.getpNameOfProducts(2));
+//        model.addAttribute("nameOfFourthBlock", menuHelper.getpNameOfProducts(3));
+//        model.addAttribute("nameOfFifthlock", menuHelper.getpNameOfProducts(4));
+//        model.addAttribute("nameOfSixBlock", menuHelper.getpNameOfProducts(5));
+//        model.addAttribute("nameOfSevenBlock", "Link to see your product");
+//        model.addAttribute("insert", menuHelper.insertUserSelectedProductToOrderItemTable());
+//        return "menu";
+//    }
 
 //    @RequestMapping("/cart")
 //    public String cart(Model model) {
@@ -249,7 +254,7 @@ public class AppController {
 //    }
 
     @RequestMapping("/createtable")
-    public String crateTable(Model model) {
+    public String createTable(Model model) {
         model.addAttribute("createtable", createDataTable.sqlInsertCheck());
         return "createtable";
     }

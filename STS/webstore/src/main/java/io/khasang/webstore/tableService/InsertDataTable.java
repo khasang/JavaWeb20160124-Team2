@@ -1,9 +1,7 @@
-package io.khasang.webstore.model;
+package io.khasang.webstore.tableService;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
-
-import java.sql.SQLException;
 
 public class InsertDataTable {
     public static String sqlCheck;

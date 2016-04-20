@@ -1,14 +1,12 @@
-package io.khasang.webstore.model;
+package io.khasang.webstore.dao;
 
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
+import io.khasang.webstore.model.ProductPojo;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
+import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,7 +14,7 @@ import java.util.List;
  */
 public class ProductDAO {
     private JdbcTemplate jdbcTemplate;
-    private SimpleDriverDataSource dataSource;
+    private DataSource dataSource;
 
     public static final String TABLE_NAME = "products";
     public static final String COLUMN_NAME_ID = "ID";
@@ -27,17 +25,17 @@ public class ProductDAO {
             COLUMN_NAME_TITLE + " VARCHAR(150) NOT NULL DEFAULT ''," +
             COLUMN_NAME_DESCRIPTION + " LONGTEXT NOT NULL)";
 
-    public ProductDAO(SimpleDriverDataSource dataSource) {
+    public ProductDAO(DataSource dataSource) {
         this.dataSource = dataSource;
         this.jdbcTemplate = new JdbcTemplate(dataSource);
         init();
     }
 
-    public void setDataSource(SimpleDriverDataSource dataSource) {
+    public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
-    public SimpleDriverDataSource getDataSource() {
+    public DataSource getDataSource() {
         return dataSource;
     }
 
