@@ -1,8 +1,0 @@
-If you are using Maven, you can run the application using
-    mvn spring-boot:run.
-Or you can build the JAR file with
-    mvn clean package
-and run the JAR by typing:
-    java -jar target/page.security-1.0-SNAPSHOT.jar
-
-Once the application starts up, point your browser to http://localhost:8080
