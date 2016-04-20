@@ -5,6 +5,7 @@ import io.khasang.webstore.dao.ProductDAO;
 import io.khasang.webstore.model.*;
 import io.khasang.webstore.tableService.CreateDataTable;
 import io.khasang.webstore.tableService.InsertDataTable;
+import io.khasang.webstore.tableService.Productorder;
 import io.khasang.webstore.tableService.SelectDataFromTable;
 import io.khasang.webstore.web.DropTable;
 import org.springframework.context.annotation.Bean;
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
@@ -39,10 +41,10 @@ public class JavaConfig {
 //        return dataSource;
 //    }
 //
-//    @Bean
-//    public JdbcTemplate jdbc(SimpleDriverDataSource dataSource) {
-//        return new JdbcTemplate(dataSource);
-//    }
+    @Bean
+    public JdbcTemplate jdbc(DataSource dataSource) {
+        return new JdbcTemplate(dataSource);
+    }
 
 
     private static final String PROPERTY_NAME_DATABASE_DRIVER = "db.driver";
@@ -122,26 +124,27 @@ public class JavaConfig {
     }
 
     @Bean
-    public Productorder productorder(DataSource dataSource) {
-        return new Productorder(dataSource);
-    }
-
-    @Bean
     public CustomerCart customerCart() {
         return new CustomerCart();
     }
 
+
     @Bean
-    public InsertDataTable insertDataTable(DataSource dataSource) {
-        return new InsertDataTable(dataSource);
+    public Productorder productorder(DataSource dataSource, JdbcTemplate jdbcTemplate) {
+        return new Productorder(dataSource, jdbcTemplate);
     }
 
     @Bean
-    public CreateDataTable createDataTable(DataSource dataSource) {
-        return new CreateDataTable(dataSource);
+    public InsertDataTable insertDataTable(JdbcTemplate jdbcTemplate, DataSource dataSource) {
+        return new InsertDataTable(jdbcTemplate, dataSource);
     }
 
-//    TODO if it will not use by 15.05.2016 - DELETE
+    @Bean
+    public CreateDataTable createDataTable(DataSource dataSource, JdbcTemplate jdbcTemplate) {
+        return new CreateDataTable(dataSource, jdbcTemplate);
+    }
+
+//    TODO if it have not been used by 15.05.2016 - DELETE
 //    @Bean
 //    public CreateCostsTable createCostsTable() {
 //        return new CreateCostsTable();

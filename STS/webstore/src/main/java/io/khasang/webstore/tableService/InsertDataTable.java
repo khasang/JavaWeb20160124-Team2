@@ -3,12 +3,14 @@ package io.khasang.webstore.tableService;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
+import javax.sql.DataSource;
+
 public class InsertDataTable {
     public static String sqlCheck;
     JdbcTemplate jdbcTemplate;
-    SimpleDriverDataSource dataSource;
+    DataSource dataSource;
 
-    public InsertDataTable(JdbcTemplate jdbcTemplate, SimpleDriverDataSource dataSource) {
+    public InsertDataTable(JdbcTemplate jdbcTemplate, DataSource dataSource) {
         this.jdbcTemplate = jdbcTemplate;
         this.dataSource = dataSource;
     }

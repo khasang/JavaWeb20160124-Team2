@@ -1,9 +1,11 @@
 package io.khasang.webstore.model;
 
+import io.khasang.webstore.tableService.Productorder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
+import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +14,7 @@ import java.util.List;
  */
 public class CustomerCart {
     @Autowired
-    private SimpleDriverDataSource dataSource;
+    private DataSource dataSource;
     @Autowired
     private JdbcTemplate jdbcTemplate;
     private List<Productorder> productorderList = new ArrayList<Productorder>();

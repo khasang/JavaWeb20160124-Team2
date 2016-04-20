@@ -4,22 +4,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
+import javax.sql.DataSource;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SelectDataFromTable {
     @Autowired
-    private SimpleDriverDataSource dataSource;
+    private DataSource dataSource;
     @Autowired
     private JdbcTemplate jdbcTemplate;
     private List<TableObjectInterface> tableObjects;
 
-    public SelectDataFromTable(SimpleDriverDataSource dataSource) {
+    public SelectDataFromTable(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
-    public SimpleDriverDataSource getDataSource() {
+    public DataSource getDataSource() {
         return dataSource;
     }
 

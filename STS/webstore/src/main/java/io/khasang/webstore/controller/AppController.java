@@ -2,10 +2,7 @@ package io.khasang.webstore.controller;
 
 import io.khasang.webstore.dao.ProductDAO;
 import io.khasang.webstore.model.*;
-import io.khasang.webstore.tableService.CreateDataTable;
-import io.khasang.webstore.tableService.InsertDataTable;
-import io.khasang.webstore.tableService.SelectDataFromTable;
-import io.khasang.webstore.tableService.TableObjectInterface;
+import io.khasang.webstore.tableService.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;

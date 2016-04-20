@@ -1,16 +1,15 @@
-package io.khasang.webstore.model;
+package io.khasang.webstore.tableService;
 
-import io.khasang.webstore.tableService.TableObjectInterface;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
+import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
 public class Productorder implements TableObjectInterface {
-    private SimpleDriverDataSource dataSource;
+    private DataSource dataSource;
     private JdbcTemplate jdbcTemplate;
     private int id;
     private int orderid;
@@ -24,7 +23,7 @@ public class Productorder implements TableObjectInterface {
     public Productorder() {
     }
 
-    public Productorder(SimpleDriverDataSource dataSource, JdbcTemplate jdbcTemplate) {
+    public Productorder(DataSource dataSource, JdbcTemplate jdbcTemplate) {
         this.dataSource = dataSource;
         this.jdbcTemplate = jdbcTemplate;
     }
@@ -93,11 +92,11 @@ public class Productorder implements TableObjectInterface {
         this.userid = userid;
     }
 
-    public SimpleDriverDataSource getDataSource() {
+    public DataSource getDataSource() {
         return dataSource;
     }
 
-    public void setDataSource(SimpleDriverDataSource dataSource) {
+    public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 

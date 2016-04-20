@@ -5,12 +5,13 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
+import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
 public class Costs implements TableObjectInterface {
-        private SimpleDriverDataSource dataSource;
+        private DataSource dataSource;
         private JdbcTemplate jdbcTemplate;
         private int ID;
         private int cost;
@@ -48,11 +49,11 @@ public class Costs implements TableObjectInterface {
         this.pName = pName;
     }
 
-        public SimpleDriverDataSource getDataSource() {
+        public DataSource getDataSource() {
             return dataSource;
         }
 
-        public void setDataSource(SimpleDriverDataSource dataSource) {
+        public void setDataSource(DataSource dataSource) {
             this.dataSource = dataSource;
         }
 
