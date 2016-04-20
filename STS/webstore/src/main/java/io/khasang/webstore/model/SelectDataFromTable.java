@@ -1,26 +1,25 @@
-package io.khasang.webstore.tableService;
+package io.khasang.webstore.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
-import javax.sql.DataSource;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SelectDataFromTable {
     @Autowired
-    private DataSource dataSource;
+    private SimpleDriverDataSource dataSource;
     @Autowired
     private JdbcTemplate jdbcTemplate;
     private List<TableObjectInterface> tableObjects;
 
-    public SelectDataFromTable(DataSource dataSource) {
+    public SelectDataFromTable(SimpleDriverDataSource dataSource) {
         this.dataSource = dataSource;
     }
 
-    public DataSource getDataSource() {
+    public SimpleDriverDataSource getDataSource() {
         return dataSource;
     }
 

@@ -1,17 +1,15 @@
 package io.khasang.webstore.model;
 
-import io.khasang.webstore.tableService.TableObjectInterface;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
-import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
 public class Costs implements TableObjectInterface {
-        private DataSource dataSource;
+        private SimpleDriverDataSource dataSource;
         private JdbcTemplate jdbcTemplate;
         private int ID;
         private int cost;
@@ -49,11 +47,11 @@ public class Costs implements TableObjectInterface {
         this.pName = pName;
     }
 
-        public DataSource getDataSource() {
+        public SimpleDriverDataSource getDataSource() {
             return dataSource;
         }
 
-        public void setDataSource(DataSource dataSource) {
+        public void setDataSource(SimpleDriverDataSource dataSource) {
             this.dataSource = dataSource;
         }
 

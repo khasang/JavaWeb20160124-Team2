@@ -1,16 +1,16 @@
-package io.khasang.webstore.tableService;
+package io.khasang.webstore.model;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
-import javax.sql.DataSource;
+import java.sql.SQLException;
 
 public class InsertDataTable {
     public static String sqlCheck;
     JdbcTemplate jdbcTemplate;
-    DataSource dataSource;
+    SimpleDriverDataSource dataSource;
 
-    public InsertDataTable(JdbcTemplate jdbcTemplate, DataSource dataSource) {
+    public InsertDataTable(JdbcTemplate jdbcTemplate, SimpleDriverDataSource dataSource) {
         this.jdbcTemplate = jdbcTemplate;
         this.dataSource = dataSource;
     }
