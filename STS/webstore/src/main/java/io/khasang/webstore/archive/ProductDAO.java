@@ -55,7 +55,7 @@ public class ProductDAO {
             ProductPojo product = new ProductPojo();
             product.setID(resultSet.getInt("ID"));
             product.setPname(resultSet.getString("pname"));
-            product.setProductDescritption(resultSet.getString("productDescription"));
+            product.setProduct(resultSet.getString("productDescription"));
             return product;
         }
     }

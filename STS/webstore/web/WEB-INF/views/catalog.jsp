@@ -5,12 +5,12 @@
 <div>
     <c:choose>
         <c:when test="${productsList.size() > '0'}">
-            <c:forEach items="${productsList}" var="productDescritption">
+            <c:forEach items="${productsList}" var="product">
                 <div class="about">
-                    <a href="/productDescritption?id=${productDescritption.getID()}">
+                    <a href="/product?id=${product.getID()}">
                         <img class="img" src="images/fotonotfound.png" alt="Product not found"/>
                         <p class="text">
-                                ${productDescritption.getPname()}
+                                ${product.getPname()}
                         </p>
                         <p class="text">Цена: <span>15000</span> руб.</p>
                     </a>

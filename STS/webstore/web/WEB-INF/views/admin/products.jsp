@@ -25,7 +25,7 @@
         <td>Магнитофоны</td>
         <td>Японские магнитофоны</td>
         <td>
-            <a href="/admin/productDescritption?id=1">
+            <a href="/admin/product?id=1">
                 <button class="btn btn-login">Изменить</button>
             </a>
         </td>
@@ -36,7 +36,7 @@
         <td>Магнитофоны</td>
         <td>Японские магнитофоны</td>
         <td>
-            <a href="/admin/productDescritption?id=2">
+            <a href="/admin/product?id=2">
                 <button class="btn btn-login">Изменить</button>
             </a>
         </td>
@@ -47,7 +47,7 @@
         <td>Магнитофоны</td>
         <td>Японские магнитофоны</td>
         <td>
-            <a href="/admin/productDescritption?id=3">
+            <a href="/admin/product?id=3">
                 <button class="btn btn-login">Изменить</button>
             </a>
         </td>
@@ -58,7 +58,7 @@
         <td>Магнитофоны</td>
         <td>Японские магнитофоны</td>
         <td>
-            <a href="/admin/productDescritption?id=4">
+            <a href="/admin/product?id=4">
                 <button class="btn btn-login">Изменить</button>
             </a>
         </td>
@@ -69,7 +69,7 @@
         <td>Магнитофоны</td>
         <td>Японские магнитофоны</td>
         <td>
-            <a href="/admin/productDescritption?id=5">
+            <a href="/admin/product?id=5">
                 <button class="btn btn-login">Изменить</button>
             </a>
         </td>

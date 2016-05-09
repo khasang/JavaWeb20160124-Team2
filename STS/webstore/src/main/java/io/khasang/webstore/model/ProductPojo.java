@@ -6,17 +6,17 @@ package io.khasang.webstore.model;
 public class ProductPojo {
     private int ID;
     private String pname;
-    private String productDescritption;
+    private String product;
     private String imgSrc;
     private int cost;
 
     public ProductPojo() {
     }
 
-    public ProductPojo(int ID, String pname, String productDescritption) {
+    public ProductPojo(int ID, String pname, String product) {
         this.ID = ID;
         this.pname = pname;
-        this.productDescritption = productDescritption;
+        this.product = product;
     }
 
     public int getID() {
@@ -35,12 +35,12 @@ public class ProductPojo {
         this.pname = pname;
     }
 
-    public String getProductDescritption() {
-        return productDescritption;
+    public String getProduct() {
+        return product;
     }
 
-    public void setProductDescritption(String productDescritption) {
-        this.productDescritption = productDescritption;
+    public void setProduct(String product) {
+        this.product = product;
     }
 
     public String getImgSrc() {
