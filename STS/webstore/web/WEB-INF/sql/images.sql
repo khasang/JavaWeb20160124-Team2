@@ -7,6 +7,6 @@ CREATE TABLE `webstore`.`images`(
   `src` VARCHAR(250) NOT NULL DEFAULT "",
   `product_id` INT NOT NULL,
   PRIMARY KEY(`id`),
-  FOREIGN KEY(`product_id`) REFERENCES `products`(`id`)
+  FOREIGN KEY(`product_id`) REFERENCES products (`id`)
 );
 

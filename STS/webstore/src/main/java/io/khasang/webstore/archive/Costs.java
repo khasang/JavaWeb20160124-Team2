@@ -64,7 +64,7 @@ public class Costs implements TableObjectInterface {
         }
 
         public List selectWholeTable() throws SQLException {
-            return this.jdbcTemplate.query("select costs.ID, cost, pname  from costs, products WHERE costs.ID = products.ID", new Item());
+            return this.jdbcTemplate.query("select costs.ID, cost, pname  from costs, productssss WHERE costs.ID = productssss.ID", new Item());
         }
     }
 

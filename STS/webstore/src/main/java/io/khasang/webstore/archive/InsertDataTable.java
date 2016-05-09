@@ -14,7 +14,7 @@ public class InsertDataTable {
     }
     public void sqlInsert() {
         try {
-            jdbcTemplate.update("INSERT INTO products(prodId, catId, imageId, prodName) VALUES(1, 1, 2, 'apple')");
+            jdbcTemplate.update("INSERT INTO productssss(prodId, catId, imageId, prodName) VALUES(1, 1, 2, 'apple')");
             sqlCheck = "db updated";
         } catch (Exception e) {
             sqlCheck = "Have error: " + e;

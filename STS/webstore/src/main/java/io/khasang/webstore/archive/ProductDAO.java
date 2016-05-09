@@ -44,7 +44,7 @@ public class ProductDAO {
     }
 
     public List<ProductPojo> getAll() {
-        String sql = "SELECT * FROM products";
+        String sql = "SELECT * FROM productssss";
         List<ProductPojo> products = this.jdbcTemplate.query(sql, new ProductMapper());
         return products;
     }
@@ -55,7 +55,7 @@ public class ProductDAO {
             ProductPojo product = new ProductPojo();
             product.setID(resultSet.getInt("ID"));
             product.setPname(resultSet.getString("pname"));
-            product.setProduct(resultSet.getString("productDescription"));
+            product.setProductDescription(resultSet.getString("productDescription"));
             return product;
         }
     }
