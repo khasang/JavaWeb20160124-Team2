@@ -19,27 +19,27 @@
 </div>
 <div class="blockDown">
     <form action="menuHelper" method="POST">
-        <div class="block" title="click to add this product">
+        <div class="block" title="click to add this productDescritption">
             <h4 align="center">${nameOfFirstBlock} with cost: </h4>
             <input type="submit" class="btn" name="name" value="Get first!"/>
         </div>
-        <div class="block" title="click to add this product">
+        <div class="block" title="click to add this productDescritption">
             <h4 align="center">${nameOfSecondBlock} with cost: </h4>
             <input type="submit" class="btn" name="name" value="Get two!"/>
         </div>
-        <div class="block" title="click to add this product">
+        <div class="block" title="click to add this productDescritption">
             <h4 align="center">${nameOfThirdBlock} with cost: </h4>
             <input type="submit" class="btn" name="name" value="Get three!"/>
         </div>
-        <div class="block" title="click to add this product">
+        <div class="block" title="click to add this productDescritption">
             <h4 align="center">${nameOfFourthBlock} with cost: </h4>
             <input type="submit" class="btn" name="name" value="Get four!"/>
         </div>
-        <div class="block" title="click to add this product">
+        <div class="block" title="click to add this productDescritption">
             <h4 align="center">${nameOfFifthlock} with cost: </h4>
             <input type="submit" class="btn" name="name" value="Get five!"/>
         </div>
-        <div class="block" title="click to add this product" >
+        <div class="block" title="click to add this productDescritption" >
             <h4 align="center">${nameOfSixBlock} with cost: </h4>
             <input type="submit" class="btn" name="name" value="Get six!"/>
         </div>

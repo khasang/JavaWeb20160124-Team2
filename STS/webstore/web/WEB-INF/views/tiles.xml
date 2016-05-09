@@ -42,8 +42,8 @@
             <add-attribute value="js/login.js" />
         </put-list-attribute>
     </definition>
-    <definition name="product" extends="base">
-        <put-attribute name="body" value="/WEB-INF/views/product.jsp" />
+    <definition name="productDescritption" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/productDescritption.jsp" />
         <put-list-attribute name="stylesheets" inherit="true">
             <add-attribute value="css/webstore_product.css" />
         </put-list-attribute>
@@ -126,7 +126,7 @@
         </put-list-attribute>
     </definition>
     <definition name="admin_product" extends="admin_base">
-        <put-attribute name="body" value="/WEB-INF/views/admin/product.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/admin/productDescritption.jsp" />
         <put-list-attribute name="stylesheets" inherit="true">
             <add-attribute value="/admin/css/quillsnow.css" />
             <add-attribute value="/admin/css/advanced.css" />

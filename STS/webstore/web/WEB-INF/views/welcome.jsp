@@ -26,12 +26,12 @@
     <c:choose>
         <c:when test="${productHitsList.size() > '0'}">
             <h2>Хиты продаж</h2>
-            <c:forEach items="${productHitsList}" var="product">
+            <c:forEach items="${productHitsList}" var="productDescritption">
                 <div class="about">
-                    <a href="/product?id=${product.getID()}">
+                    <a href="/productDescritption?id=${productDescritption.getID()}">
                         <img class="img" src="images/fotonotfound.png" alt="Product not found"/>
                         <p class="text">
-                                ${product.getPname()}
+                                ${productDescritption.getPname()}
                         </p>
                         <p class="text">Цена: <span>15000</span> руб.</p>
                     </a>
@@ -44,12 +44,12 @@
     <c:choose>
         <c:when test="${productRecommendedList.size() > '0'}">
             <h2>Наши рекомендации</h2>
-            <c:forEach items="${productRecommendedList}" var="product">
+            <c:forEach items="${productRecommendedList}" var="productDescritption">
                 <div class="about">
-                    <a href="/product?id=${product.getID()}">
+                    <a href="/productDescritption?id=${productDescritption.getID()}">
                         <img class="img" src="images/fotonotfound.png" alt="Product not found"/>
                         <p class="text">
-                                ${product.getPname()}
+                                ${productDescritption.getPname()}
                         </p>
                         <p class="text">Цена: <span>15000</span> руб.</p>
                     </a>
