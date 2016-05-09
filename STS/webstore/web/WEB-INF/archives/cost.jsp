@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>cost</title>
-    <link rel="stylesheet" type="text/css" href="css/styleCost.css"/>
+    <link rel="stylesheet" type="text/css" href="../views/css/styleCost.css"/>
 </head>
 <body>
 <br/><br/>

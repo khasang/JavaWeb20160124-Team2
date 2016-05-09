@@ -1,4 +1,4 @@
-package io.khasang.webstore.model;
+package io.khasang.webstore.archive;
 
 public class Login {
     private int id;

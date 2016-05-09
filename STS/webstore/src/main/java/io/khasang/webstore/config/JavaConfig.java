@@ -2,6 +2,7 @@ package io.khasang.webstore.config;
 
 
 import io.khasang.webstore.model.*;
+import io.khasang.webstore.archive.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;

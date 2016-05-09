@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <link href="css/style_of_menu.css" rel="stylesheet">
+    <link href="../views/css/style_of_menu.css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Program's shop</title>
 </head>

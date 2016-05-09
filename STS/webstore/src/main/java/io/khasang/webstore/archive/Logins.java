@@ -1,6 +1,5 @@
-package io.khasang.webstore.model;
+package io.khasang.webstore.archive;
 
-import org.apache.commons.logging.Log;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
@@ -26,18 +25,18 @@ public class Logins {
         return dataSource;
     }
 
-    public List<Login> getAll() {
-        return this.jdbcTemplate.query("SELECT * FROM logins;",
-                new RowMapper<Login>() {
-                    public Login mapRow(ResultSet result, int i) throws SQLException {
-                        return new Login(
-                                result.getInt("id"),
-                                result.getString("login"),
-                                result.getString("password"),
-                                result.getString("security")
-                        );
-                    }
-                }
-        );
-    }
+//    public List<Login> getAll() {
+//        return this.jdbcTemplate.query("SELECT * FROM logins;",
+//                new RowMapper<Login>() {
+//                    public Login mapRow(ResultSet result, int i) throws SQLException {
+//                        return new Login(
+//                                result.getInt("id"),
+//                                result.getString("login"),
+//                                result.getString("password"),
+//                                result.getString("security")
+//                        );
+//                    }
+//                }
+//        );
+//    }
 }
