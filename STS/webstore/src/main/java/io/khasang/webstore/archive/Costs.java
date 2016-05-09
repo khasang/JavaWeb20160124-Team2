@@ -1,6 +1,5 @@
 package io.khasang.webstore.archive;
 
-import io.khasang.webstore.model.TableObjectInterface;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
