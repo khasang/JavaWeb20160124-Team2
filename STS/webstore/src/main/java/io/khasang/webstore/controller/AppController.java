@@ -3,6 +3,8 @@ package io.khasang.webstore.controller;
 import io.khasang.webstore.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,8 @@ import java.util.List;
 
 @Controller
 public class AppController {
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 //    List<Productorder> productorders; //Под вопросом
 
 //    @Autowired
@@ -60,8 +64,9 @@ public class AppController {
             productRecommendedList.add(productPojo);
         }
 
-        //BeanPropertyRowMapper<ProductPojo> ROW_MAPPER = BeanPropertyRowMapper.newInstance(ProductPojo.class);
-        //List<ProductPojo> productHitsList = jdbcTemplate.query("SELECT * FROM products", ROW_MAPPER);
+//        BeanPropertyRowMapper<ProductPojo> ROW_MAPPER = BeanPropertyRowMapper.newInstance(ProductPojo.class);
+//        List<ProductPojo> productHitsList = jdbcTemplate.query("SELECT * FROM products", ROW_MAPPER);
+//        List<ProductPojo> productRecommendedList = jdbcTemplate.query("SELECT * FROM products", ROW_MAPPER);
 
         model.addAttribute("pageName", "Название интернет магазина с намёком на сферу деятельности");
         model.addAttribute("productHitsList", productHitsList);
