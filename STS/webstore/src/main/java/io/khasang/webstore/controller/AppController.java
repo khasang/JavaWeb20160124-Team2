@@ -61,7 +61,7 @@ public class AppController {
         }
 
         //BeanPropertyRowMapper<ProductPojo> ROW_MAPPER = BeanPropertyRowMapper.newInstance(ProductPojo.class);
-        //List<ProductPojo> productHitsList = jdbcTemplate.query("SELECT * FROM products ORDER BY pname", ROW_MAPPER);
+        //List<ProductPojo> productHitsList = jdbcTemplate.query("SELECT * FROM products", ROW_MAPPER);
 
         model.addAttribute("pageName", "Название интернет магазина с намёком на сферу деятельности");
         model.addAttribute("productHitsList", productHitsList);
