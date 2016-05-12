@@ -59,6 +59,10 @@ public class AppController {
             ProductPojo productPojo = new ProductPojo(i + 1, "Название товара", "Описание");
             productRecommendedList.add(productPojo);
         }
+
+        //BeanPropertyRowMapper<ProductPojo> ROW_MAPPER = BeanPropertyRowMapper.newInstance(ProductPojo.class);
+        //List<ProductPojo> productHitsList = jdbcTemplate.query("SELECT * FROM products ORDER BY pname", ROW_MAPPER);
+
         model.addAttribute("pageName", "Название интернет магазина с намёком на сферу деятельности");
         model.addAttribute("productHitsList", productHitsList);
         model.addAttribute("productRecommendedList", productRecommendedList);
