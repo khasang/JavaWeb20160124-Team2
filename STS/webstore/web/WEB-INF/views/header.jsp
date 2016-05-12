@@ -29,7 +29,7 @@
     <div class="sidebar_logo_container"><a href="/"><img id="sidebar-logo" src="images/sidebar-logo.png" alt="WebStore"
                                                          title="WebStore"/></a></div>
     <ul>
-        <li><a href="/catalog?id=1">Магнитофоны</a></li>
+        <li><a href="/catalog?id=1">Books</a></li>
         <li><a href="/catalog?id=2">Велосипеды</a></li>
         <li><a href="/catalog?id=3">Лекарства</a></li>
         <li><a href="/catalog?id=4">Продукты</a></li>

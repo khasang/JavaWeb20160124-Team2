@@ -3,6 +3,7 @@ package io.khasang.webstore.controller;
 import io.khasang.webstore.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -17,8 +18,6 @@ import java.util.List;
 
 @Controller
 public class AppController {
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
 //    List<Productorder> productorders; //Под вопросом
 
 //    @Autowired
@@ -51,22 +50,26 @@ public class AppController {
 //    @Autowired
 //    MenuHelper menuHelper;
 
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+    private static final BeanPropertyRowMapper<ProductPojo> ROW_MAPPER = BeanPropertyRowMapper.newInstance(ProductPojo.class);
+
     @RequestMapping("/")
     public String welcome(Model model) {
-        List<ProductPojo> productHitsList = new ArrayList<ProductPojo>();
-        for (int i = 0; i < 6; i++) {
-            ProductPojo productPojo = new ProductPojo(i + 1, "Название товара", "Описание");
-            productHitsList.add(productPojo);
-        }
-        List<ProductPojo> productRecommendedList = new ArrayList<ProductPojo>();
-        for (int i = 0; i < 6; i++) {
-            ProductPojo productPojo = new ProductPojo(i + 1, "Название товара", "Описание");
-            productRecommendedList.add(productPojo);
-        }
+//        List<ProductPojo> productHitsList = new ArrayList<ProductPojo>();
+//        for (int i = 0; i < 6; i++) {
+//            ProductPojo productPojo = new ProductPojo(i + 1, "Название товара", "Описание");
+//            productHitsList.add(productPojo);
+//        }
+//        List<ProductPojo> productRecommendedList = new ArrayList<ProductPojo>();
+//        for (int i = 0; i < 6; i++) {
+//            ProductPojo productPojo = new ProductPojo(i + 1, "Название товара", "Описание");
+//            productRecommendedList.add(productPojo);
+//        }
 
-//        BeanPropertyRowMapper<ProductPojo> ROW_MAPPER = BeanPropertyRowMapper.newInstance(ProductPojo.class);
-//        List<ProductPojo> productHitsList = jdbcTemplate.query("SELECT * FROM products", ROW_MAPPER);
-//        List<ProductPojo> productRecommendedList = jdbcTemplate.query("SELECT * FROM products", ROW_MAPPER);
+
+        List<ProductPojo> productHitsList = jdbcTemplate.query("SELECT * FROM products", ROW_MAPPER);
+        List<ProductPojo> productRecommendedList = jdbcTemplate.query("SELECT * FROM products", ROW_MAPPER);
 
         model.addAttribute("pageName", "Название интернет магазина с намёком на сферу деятельности");
         model.addAttribute("productHitsList", productHitsList);
@@ -89,16 +92,21 @@ public class AppController {
     @RequestMapping(value = "/product", method = RequestMethod.GET)
     public String product(@RequestParam("id") int id, Model model) {
         model.addAttribute("pageName", "Название товара");
+
+        List<ProductPojo> products = jdbcTemplate.query("SELECT * FROM products WHERE id=?", ROW_MAPPER, id);
+        ProductPojo productPojo = DataAccessUtils.singleResult(products);
+        model.addAttribute("thisProduct", productPojo);
         return "product";
     }
 
     @RequestMapping(value = "/catalog", method = RequestMethod.GET)
     public String catalog(@RequestParam("id") int id, Model model) {
-        List<ProductPojo> productsList = new ArrayList<ProductPojo>();
-        for (int i = 0; i < 9; i++) {
-            ProductPojo productPojo = new ProductPojo(i + 1, "Название товара", "Описание");
-            productsList.add(productPojo);
-        }
+//        List<ProductPojo> productsList = new ArrayList<ProductPojo>();
+//        for (int i = 0; i < 9; i++) {
+//            ProductPojo productPojo = new ProductPojo(i + 1, "Название товара", "Описание");
+//            productsList.add(productPojo);
+//        }
+        List<ProductPojo> productsList = jdbcTemplate.query("SELECT * FROM products", ROW_MAPPER);
         model.addAttribute("pageName", "Название каталога");
         model.addAttribute("productsList", productsList);
         return "catalog";
