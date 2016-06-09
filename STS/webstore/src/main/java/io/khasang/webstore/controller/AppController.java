@@ -27,7 +27,7 @@ public class AppController {
         List<ProductPojo> productHitsList = jdbcTemplate.query("SELECT * FROM products", ROW_MAPPER);
         List<ProductPojo> productRecommendedList = jdbcTemplate.query("SELECT * FROM products", ROW_MAPPER);
 
-        model.addAttribute("pageName", "Название интернет магазина с намёком на сферу деятельности");
+        model.addAttribute("pageName", "WeBookStore - интернет-магазин книг");
         model.addAttribute("productHitsList", productHitsList);
         model.addAttribute("productRecommendedList", productRecommendedList);
         return "welcome";
