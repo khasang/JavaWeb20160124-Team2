@@ -29,11 +29,12 @@
     <div class="sidebar_logo_container"><a href="/"><img id="sidebar-logo" src="images/sidebar-logo.png" alt="WebStore"
                                                          title="WebStore"/></a></div>
     <ul>
-        <li><a href="/catalog?id=1">Books</a></li>
-        <li><a href="/catalog?id=2">Велосипеды</a></li>
-        <li><a href="/catalog?id=3">Лекарства</a></li>
-        <li><a href="/catalog?id=4">Продукты</a></li>
-        <li><a href="/catalog?id=5">Компьютеры</a></li>
+        <li><a href="/catalog?id=1">Новинки</a></li>
+        <li><a href="/catalog?id=2">Детские</a></li>
+        <li><a href="/catalog?id=3">Художественные</a></li>
+        <li><a href="/catalog?id=4">Технические</a></li>
+        <li><a href="/catalog?id=5">Кулинарные</a></li>
+        <li><a href="/catalog?id=6">Компьютерные</a></li>
     </ul>
     <div class="sidebar_content">
         <p>Телефон: 88008001234</p>
