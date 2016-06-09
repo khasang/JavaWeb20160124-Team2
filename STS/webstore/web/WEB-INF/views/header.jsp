@@ -37,8 +37,8 @@
     </ul>
     <div class="sidebar_content">
         <p>Телефон: 88008001234</p>
-        <p>Отдел продаж: sales@webstore.com</p>
-        <p>Техническая поддержка: admin@webstore.com</p>
+        <p>Отдел продаж: webstoreteam2016@gmail.com</p>
+        <p>Техническая поддержка: webstoreteam2016@gmail.com</p>
     </div>
 </div>
 <div class="menu_open_container">
