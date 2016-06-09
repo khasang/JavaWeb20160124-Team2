@@ -24,7 +24,7 @@ public class MenuHelper extends HttpServlet{
     public void selectInfoFromProductsTableToViewIntoMenu(){
         pNameOfProducts.clear();
         idFromProducts.clear();
-        String query = "SELECT ID, pName FROM productssss";//TODO iserba - when new table products created, correct this
+        String query = "SELECT ID, pName FROM productssss";
         Statement statement = null;
         ResultSet resultSet = null;
         try {
