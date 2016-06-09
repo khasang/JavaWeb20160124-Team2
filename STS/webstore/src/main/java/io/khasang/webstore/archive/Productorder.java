@@ -1,4 +1,4 @@
-package io.khasang.webstore.model;
+package io.khasang.webstore.archive;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;

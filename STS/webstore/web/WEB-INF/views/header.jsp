@@ -29,7 +29,7 @@
     <div class="sidebar_logo_container"><a href="/"><img id="sidebar-logo" src="images/sidebar-logo.png" alt="WebStore"
                                                          title="WebStore"/></a></div>
     <ul>
-        <li><a href="/catalog?id=1">Магнитофоны</a></li>
+        <li><a href="/catalog?id=1">Books</a></li>
         <li><a href="/catalog?id=2">Велосипеды</a></li>
         <li><a href="/catalog?id=3">Лекарства</a></li>
         <li><a href="/catalog?id=4">Продукты</a></li>
@@ -37,8 +37,8 @@
     </ul>
     <div class="sidebar_content">
         <p>Телефон: 88008001234</p>
-        <p>Отдел продаж: sales@webstore.com</p>
-        <p>Техническая поддержка: admin@webstore.com</p>
+        <p>Отдел продаж: webstoreteam2016@gmail.com</p>
+        <p>Техническая поддержка: webstoreteam2016@gmail.com</p>
     </div>
 </div>
 <div class="menu_open_container">

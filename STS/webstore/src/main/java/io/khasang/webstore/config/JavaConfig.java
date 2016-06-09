@@ -2,6 +2,7 @@ package io.khasang.webstore.config;
 
 
 import io.khasang.webstore.model.*;
+import io.khasang.webstore.archive.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -25,53 +26,53 @@ public class JavaConfig {
         return new JdbcTemplate(dataSource);
     }
 
-    @Bean
-    public ProductDAO productDAO(SimpleDriverDataSource dataSource) {
-        return new ProductDAO(dataSource);
-    }
-
-    @Bean
-    public ProductDAO viewProducts(SimpleDriverDataSource dataSource) {
-        return new ProductDAO(dataSource);
-    }
-
-    @Bean
-    public SelectDataFromTable selectDataFromTable(SimpleDriverDataSource dataSource) {
-        return new SelectDataFromTable(dataSource);
-    }
-
-    @Bean
-    public DropTable dropTable() {
-        return new DropTable();
-    }
-
-    @Bean
-    public Productorder productorder(SimpleDriverDataSource dataSource, JdbcTemplate jdbcTemplate) {
-        return new Productorder(dataSource, jdbcTemplate);
-    }
-
-    @Bean
-    public CustomerCart customerCart() {
-        return new CustomerCart();
-    }
-
-    @Bean
-    public InsertDataTable insertDataTable(JdbcTemplate jdbcTemplate, SimpleDriverDataSource dataSource) {
-        return new InsertDataTable(jdbcTemplate, dataSource);
-    }
-
-    @Bean
-    public CreateDataTable createDataTable(SimpleDriverDataSource dataSource, JdbcTemplate jdbcTemplate) {
-        return new CreateDataTable(dataSource, jdbcTemplate);
-    }
-
-    @Bean
-    public CreateCostsTable createCostsTable() {
-        return new CreateCostsTable();
-    }
-
-    @Bean
-    public MenuHelper menuHelper() {
-        return new MenuHelper();
-    }
+//    @Bean
+//    public ProductDAO productDAO(SimpleDriverDataSource dataSource) {
+//        return new ProductDAO(dataSource);
+//    }
+//
+//    @Bean
+//    public ProductDAO viewProducts(SimpleDriverDataSource dataSource) {
+//        return new ProductDAO(dataSource);
+//    }
+//
+//    @Bean
+//    public SelectDataFromTable selectDataFromTable(SimpleDriverDataSource dataSource) {
+//        return new SelectDataFromTable(dataSource);
+//    }
+//
+//    @Bean
+//    public DropTable dropTable() {
+//        return new DropTable();
+//    }
+//
+//    @Bean
+//    public Productorder productorder(SimpleDriverDataSource dataSource, JdbcTemplate jdbcTemplate) {
+//        return new Productorder(dataSource, jdbcTemplate);
+//    }
+//
+//    @Bean
+//    public CustomerCart customerCart() {
+//        return new CustomerCart();
+//    }
+//
+//    @Bean
+//    public InsertDataTable insertDataTable(JdbcTemplate jdbcTemplate, SimpleDriverDataSource dataSource) {
+//        return new InsertDataTable(jdbcTemplate, dataSource);
+//    }
+//
+//    @Bean
+//    public CreateDataTable createDataTable(SimpleDriverDataSource dataSource, JdbcTemplate jdbcTemplate) {
+//        return new CreateDataTable(dataSource, jdbcTemplate);
+//    }
+//
+//    @Bean
+//    public CreateCostsTable createCostsTable() {
+//        return new CreateCostsTable();
+//    }
+//
+//    @Bean
+//    public MenuHelper menuHelper() {
+//        return new MenuHelper();
+//    }
 }

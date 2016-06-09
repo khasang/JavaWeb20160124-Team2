@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" import="java.util.*"  %>
 <head>
     <title>Drop Table</title>
-    <link rel="stylesheet" href="css/drop.css">
+    <link rel="stylesheet" href="../views/css/drop.css">
 </head>
 <p><center><h1>Drop table</h1></center></p>
 <div style="float: left; margin-left: 18%"><input class="menuButton" type="button" onclick="history.back();"

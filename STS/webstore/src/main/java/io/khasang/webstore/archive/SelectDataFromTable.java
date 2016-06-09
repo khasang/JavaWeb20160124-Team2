@@ -1,4 +1,4 @@
-package io.khasang.webstore.model;
+package io.khasang.webstore.archive;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

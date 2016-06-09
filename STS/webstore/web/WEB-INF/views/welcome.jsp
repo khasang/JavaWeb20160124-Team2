@@ -33,7 +33,7 @@
                         <p class="text">
                                 ${product.getPname()}
                         </p>
-                        <p class="text">Цена: <span>15000</span> руб.</p>
+                        <p class="text">Цена: <span>${product.getCost()}</span> руб.</p>
                     </a>
                 </div>
             </c:forEach>
@@ -51,7 +51,7 @@
                         <p class="text">
                                 ${product.getPname()}
                         </p>
-                        <p class="text">Цена: <span>15000</span> руб.</p>
+                        <p class="text">Цена: <span>${product.getCost()}</span> руб.</p>
                     </a>
                 </div>
             </c:forEach>

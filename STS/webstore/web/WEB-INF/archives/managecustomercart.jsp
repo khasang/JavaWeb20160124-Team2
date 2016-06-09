@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>Customer cart</title>
-    <link rel="stylesheet" type="text/css" href="css/webstore_style.css"/>
+    <link rel="stylesheet" type="text/css" href="../views/css/webstore_style.css"/>
     <style>
         table, th, td {
             border: 1px solid black;

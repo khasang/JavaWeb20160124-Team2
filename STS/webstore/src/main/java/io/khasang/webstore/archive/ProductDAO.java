@@ -1,14 +1,12 @@
-package io.khasang.webstore.model;
+package io.khasang.webstore.archive;
 
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
+import io.khasang.webstore.model.ProductPojo;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,7 +19,7 @@ public class ProductDAO {
     public static final String TABLE_NAME = "products";
     public static final String COLUMN_NAME_ID = "ID";
     public static final String COLUMN_NAME_TITLE = "pname";
-    public static final String COLUMN_NAME_DESCRIPTION = "product";
+    public static final String COLUMN_NAME_DESCRIPTION = "productDescription";
     private static final String CREATE_SQL = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "(" +
             COLUMN_NAME_ID + " INT NOT NULL AUTO_INCREMENT PRIMARY KEY," +
             COLUMN_NAME_TITLE + " VARCHAR(150) NOT NULL DEFAULT ''," +
@@ -46,7 +44,7 @@ public class ProductDAO {
     }
 
     public List<ProductPojo> getAll() {
-        String sql = "SELECT * FROM products";
+        String sql = "SELECT * FROM productssss";
         List<ProductPojo> products = this.jdbcTemplate.query(sql, new ProductMapper());
         return products;
     }
@@ -57,7 +55,7 @@ public class ProductDAO {
             ProductPojo product = new ProductPojo();
             product.setID(resultSet.getInt("ID"));
             product.setPname(resultSet.getString("pname"));
-            product.setProduct(resultSet.getString("product"));
+            product.setProductDescription(resultSet.getString("productDescription"));
             return product;
         }
     }

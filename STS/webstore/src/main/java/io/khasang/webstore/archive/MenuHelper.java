@@ -1,4 +1,4 @@
-package io.khasang.webstore.model;
+package io.khasang.webstore.archive;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -24,7 +24,7 @@ public class MenuHelper extends HttpServlet{
     public void selectInfoFromProductsTableToViewIntoMenu(){
         pNameOfProducts.clear();
         idFromProducts.clear();
-        String query = "SELECT ID, pName FROM products";//TODO iserba - when new table products created, correct this
+        String query = "SELECT ID, pName FROM productssss";//TODO iserba - when new table products created, correct this
         Statement statement = null;
         ResultSet resultSet = null;
         try {
