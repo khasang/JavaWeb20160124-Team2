@@ -1,0 +1,59 @@
+button {
+    color: gray;
+    font-size: 14px;
+    font-family: Calibri;
+}
+
+body {
+    background-color: #F5F5F5;
+    padding: 0px;
+    margin: 0px;
+    color: #222222;
+}
+
+a {
+    color: #428bca;
+    cursor: pointer;
+}
+
+.right-float {
+    float: right;
+}
+
+.delivery_inform p {
+    margin: 0;
+}
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin: 20px 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.table-border {
+    border: 1px solid #ddd;
+}
+
+.table-border td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+}
+
+.table-border th {
+    text-align: left;
+    border: 1px solid #ddd;
+    border-bottom-width: 2px;
+    padding: 8px;
+}
+
+.table-border th a {
+    font-weight: 700;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) {
+    background-color: #f9f9f9;
+}
