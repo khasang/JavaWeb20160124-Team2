@@ -61,5 +61,5 @@
 <div id="aboutMainPage">
     <h2>Описание интернет-магазина</h2>
     <p>Интернет-магазин книг WebBookStore создан командой разрабочиков и является open source проектом
-       на платформе JavaEE. Код проекта находится в репозитории ”https://github.com/khasang/JavaWeb20160124-Team2.”</p>
+       на платформе JavaEE. Код проекта находится в репозитории <a href="https://github.com/khasang/JavaWeb20160124-Team2" target="_blank">github.com</a></p>
 </div>
