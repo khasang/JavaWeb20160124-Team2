@@ -14,11 +14,11 @@
 /idea/
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-classes
 
 /STS/webstore/.idea
 /STS/webstore/out
 /STS/webstore/target
 /STS/webstore/*.iml
+/STS/webstore/classes
 
 html*
